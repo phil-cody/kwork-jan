@@ -1,0 +1,94 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+html {
+	scroll-behavior: smooth;
+	height: 100%;
+}
+
+body {
+	font-family: 'Golos Text', sans-serif;
+	font-weight: 400;
+	font-size: $text-md-desktop;
+	line-height: 1.4;
+	color: $text-default;
+	background-color: $background;
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow-x: hidden;
+}
+
+.main {
+	flex: 1 0 auto;
+}
+
+.footer {
+	flex: 0 0 auto;
+}
+
+.container {
+	max-width: 1240px;
+	margin: 0 auto;
+	padding: 0 20px;
+	width: 100%;
+}
+
+// Typography
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	@include headline;
+	color: $text-default;
+}
+
+h1 {
+	font-size: $heading-1-desktop;
+}
+
+h2 {
+	font-size: $heading-2-desktop;
+}
+
+h3 {
+	font-size: $heading-3-desktop;
+}
+
+h4 {
+	font-size: $heading-4-desktop;
+}
+
+h5 {
+	font-size: $heading-5-desktop;
+}
+
+h6 {
+	font-size: $heading-6-desktop;
+}
+
+// Global text selection style
+::selection {
+	background: $primary;
+	color: $text-inverse;
+}
+
+// Scrollbar customization (optional, but good for premium feel)
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: $surface;
+}
+
+::-webkit-scrollbar-thumb {
+	background: $text-low;
+	border-radius: 4px;
+
+	&:hover {
+		background: $text-medium;
+	}
+}

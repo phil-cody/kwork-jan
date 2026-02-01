@@ -1,0 +1,114 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.header {
+	background-color: $primary-header;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1000;
+	transition: all 0.3s ease;
+
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: $spacing-md-desktop $spacing-xxxl-desktop;
+		transition: padding 0.3s ease;
+	}
+
+	&__item {
+		display: flex;
+		align-items: center;
+	}
+
+	&__logo {
+		display: block;
+		height: 29px;
+		transition: opacity 0.3s ease, width 0.3s ease, margin 0.3s ease;
+		opacity: 1;
+	}
+
+	&__nav-list {
+		display: flex;
+		gap: $spacing-lg-desktop;
+	}
+
+	&__nav-link {
+		@include text;
+		font-size: $text-md-desktop;
+		color: $text-inverse;
+		transition: color 0.2s ease;
+
+		&:hover {
+			color: $primary;
+		}
+	}
+
+	&__contact {
+		display: flex;
+		align-items: center;
+		gap: $spacing-sm-desktop;
+	}
+
+	&__contact-social {
+		display: block; // Ensure it wraps the image properly
+		position: relative; // Context for pseudo-element
+		z-index: 10;
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.7;
+		}
+
+		&--wa {
+			&::after {
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				width: 70%;
+				height: 70%;
+				background-color: #fff;
+				border-radius: 50%;
+				z-index: -1;
+			}
+		}
+	}
+
+	&__contact-icon {
+		width: $spacing-lg-desktop;
+		height: $spacing-lg-desktop;
+		display: block;
+	}
+
+	&__contact-phone {
+		@include headline;
+		font-size: $heading-6-desktop;
+		color: $text-inverse;
+		margin-left: $spacing-xs-desktop;
+		white-space: nowrap;
+	}
+
+	// Sticky Modifier
+	&--sticky {
+		background-color: $text-default;
+		width: calc(100% - #{$spacing-xxxl-desktop * 2});
+		margin: 0 $spacing-xxxl-desktop;
+		border-radius: 0 0 $radius-lg-desktop $radius-lg-desktop;
+
+		.header__content {
+			max-width: 1360px;
+			padding: $spacing-lg-desktop $spacing-md-desktop;
+			justify-content: space-between;
+		}
+
+		.header__item:first-child {
+			display: none;
+		}
+	}
+}

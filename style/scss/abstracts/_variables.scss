@@ -1,0 +1,109 @@
+// ===== ЦВЕТА
+$background: #fff;
+$surface: #f6f6f7;
+$surface-contrast: #ececec;
+$text-inverse: #fff;
+$borders: #d5d7da;
+$text-medium: #6f757e;
+$text-low: #9da1a8;
+$text-default: #0c1625;
+$primary: #566a84;
+$primary-header: #182230;
+$sub: #EEF0F3;
+$blue-link: #005bd1;
+$success-1: #0dc268;
+$success-2: #dbf6e8;
+$warning-1: #ff9e00;
+$warning-2: #fff5e5;
+$error-1: #ed0a34;
+$error-2: #fde6eb;
+
+// ===== СКРУГЛЕНИЯ
+
+// Десктоп
+$radius-xxs-desktop: 10px;
+$radius-xs-desktop: 12px;
+$radius-s-desktop: 16px;
+$radius-md-desktop: 20px;
+$radius-lg-desktop: 24px;
+$radius-xl-desktop: 32px;
+$radius-max-desktop: 999;
+
+// Мобильная
+$radius-xxs-mobile: 8px;
+$radius-xs-mobile: 10px;
+$radius-s-mobile: 14px;
+$radius-md-mobile: 18px;
+$radius-lg-mobile: 20px;
+$radius-xl-mobile: 28px;
+$radius-max-mobile: 999;
+
+// ===== ОТСТУПЫ
+
+// Десктоп
+$spacing-none-desktop: 0;
+$spacing-xxxxs-desktop: 2px;
+$spacing-xxxs-desktop: 4px;
+$spacing-xxs-desktop: 8px;
+$spacing-xs-desktop: 12px;
+$spacing-sm-desktop: 16px;
+$spacing-md-desktop: 20px;
+$spacing-lg-desktop: 24px;
+$spacing-xl-desktop: 28px;
+$spacing-xxl-desktop: 32px;
+$spacing-xxxl-desktop: 40px;
+
+// Мобильная
+$spacing-none-mobile: 0;
+$spacing-xxxxs-mobile: 0;
+$spacing-xxxs-mobile: 2px;
+$spacing-xxs-mobile: 4px;
+$spacing-xs-mobile: 10px;
+$spacing-sm-mobile: 14px;
+$spacing-md-mobile: 16px;
+$spacing-lg-mobile: 18px;
+$spacing-xl-mobile: 20px;
+$spacing-xxl-mobile: 24px;
+$spacing-xxxl-mobile: 28px;
+
+// ===== ЗАГОЛОВКИ
+
+// Десктоп
+$heading-1-desktop: 70px;
+$heading-2-desktop: 50px;
+$heading-3-desktop: 32px;
+$heading-4-desktop: 28px;
+$heading-5-desktop: 24px;
+$heading-6-desktop: 20px;
+$button-desktop: 16px;
+
+// Мобильная
+$heading-1-mobile: 32px;
+$heading-2-mobile: 32px;
+$heading-3-mobile: 24px;
+$heading-4-mobile: 20px;
+$heading-5-mobile: 18px;
+$heading-6-mobile: 16px;
+$button-mobile: 14px;
+
+// ===== ТЕКСТ
+
+// Десктоп
+$text-lg-desktop: 18px;
+$text-md-desktop: 16px;
+$text-sm-desktop: 14px;
+$text-xs-desktop: 12px;
+$medium-lg-desktop: 18px;
+$medium-md-desktop: 16px;
+$medium-sm-desktop: 14px;
+$medium-xs-desktop: 12px;
+
+// Мобильная
+$text-lg-mobile: 16px;
+$text-md-mobile: 14px;
+$text-sm-mobile: 12px;
+$text-xs-mobile: 10px;
+$medium-lg-mobile: 16px;
+$medium-md-mobile: 14px;
+$medium-sm-mobile: 12px;
+$medium-xs-mobile: 10px;

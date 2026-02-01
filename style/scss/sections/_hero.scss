@@ -1,0 +1,91 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.hero {
+	position: relative;
+	height: 941px;
+	background-color: $primary-header;
+	background-image: url('../../../image/hero/hero-background.webp');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: flex-start;
+	padding: 119px $spacing-xxxl-desktop $spacing-xxxl-desktop $spacing-xxxl-desktop;
+	overflow: hidden;
+
+	&__text-container {
+		max-width: 800px;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		gap: 42px;
+	}
+
+	&__text-item {
+		display: flex;
+		flex-direction: column;
+
+		&:nth-child(1) {
+			gap: $spacing-lg-desktop;
+		}
+
+		&:nth-child(2) {
+			flex-direction: row;
+			gap: $spacing-md-desktop;
+		}
+	}
+
+	&__title {
+		@include headline;
+		font-size: $heading-1-desktop;
+		color: $text-inverse;
+		line-height: 0.95;
+	}
+
+	&__subtitle {
+		font-size: $text-md-desktop;
+		color: rgba($text-inverse, 0.6);
+		line-height: auto;
+		max-width: 523px;
+	}
+
+	&__item-block {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+		width: 215.5px;
+	}
+
+	&__block-title {
+		@include headline;
+		font-size: $heading-5-desktop;
+		color: $text-inverse;
+	}
+
+	&__block-subtitle {
+		font-size: $text-md-desktop;
+		color: $text-inverse;
+	}
+
+	&__text-garant {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	&__garant-title {
+		@include headline;
+		font-size: $heading-5-desktop;
+		color: $text-inverse;
+	}
+
+	&__garant-subtitle {
+		font-size: $text-sm-desktop;
+		color: rgba($text-inverse, 0.6);
+	}
+
+	&__text-cta {
+		width: fit-content;
+	}
+}

@@ -1,0 +1,13 @@
+@mixin headline {
+	font-family: 'Golos Text', sans-serif;
+	font-weight: 500;
+	line-height: 100%;
+	letter-spacing: -0.04;
+}
+
+@mixin text {
+	font-family: 'Golos Text', sans-serif;
+	font-weight: 400;
+	line-height: 95%;
+	letter-spacing: 0;
+}

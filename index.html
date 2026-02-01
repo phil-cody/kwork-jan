@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style/css/style.css">
 	<title>Document</title>
 </head>
 
@@ -11,7 +12,7 @@
 	<header class="header">
 		<div class="header__content">
 			<div class="header__item">
-				<span class="header__logo">СЛУЖБА ПО КОНТРАКТУ</span>
+				<img src="./image/header/logo.svg" alt="logo" class="header__logo">
 			</div>
 			<div class="header__item">
 				<nav class="header__nav">
@@ -45,7 +46,7 @@
 						</a>
 					</div>
 					<div class="header__contact-item">
-						<a href="#" class="header__contact-social">
+						<a href="#" class="header__contact-social header__contact-social--wa">
 							<img src="./image/social-icons/whatsapp.svg" alt="whatsapp logo" class="header__contact-icon wa-logo">
 						</a>
 					</div>
@@ -90,11 +91,8 @@
 					</div>
 				</div>
 				<div class="hero__text-item">
-					<button class="hero__text-cta">Узнать условия для меня</button>
+					<button class="hero__text-cta btn btn--primary">Узнать условия для меня</button>
 				</div>
-			</div>
-			<div class="hero__content">
-				<img src="./image/hero/soldier.png" alt="soldier" class="hero__img">
 			</div>
 		</section>
 		<section class="stages">
@@ -171,17 +169,17 @@
 				<p class="sticker__subtitle">Вы не хотите рисковать деньгами, здоровьем и документами.<br>Мы объясняем условия
 					до подписания, консультируем и остаёмся на связи</p>
 			</div>
-			<button class="sticker__cta">Узнать условия для меня</button>
+			<button class="sticker__cta btn btn--dark">Узнать условия для меня</button>
 		</section>
 		<section class="payments">
 			<h2 class="payments__title">Выплаты и соц гарантии при заключении контракта</h2>
 			<div class="payments__content">
 				<div class="payments__content-header">
 					<div class="payments__header-category">
-						<button class="payments__category-button">Выплаты</button>
-						<button class="payments__category-button">За ранения и увечья</button>
-						<button class="payments__category-button">Семьям и родственникам</button>
-						<button class="payments__category-button">Доп. выплаты</button>
+						<button class="payments__category-button btn btn--primary">Выплаты</button>
+						<button class="payments__category-button btn btn--outlined">За ранения и увечья</button>
+						<button class="payments__category-button btn btn--outlined">Семьям и родственникам</button>
+						<button class="payments__category-button btn btn--outlined">Доп. выплаты</button>
 					</div>
 					<div class="payments__header-city">
 						<button class="payments__city-toggle">
@@ -425,7 +423,9 @@
 						<p class="training__content-subtitle">Базовая подготовка контрактников МО РФ</p>
 					</div>
 					<div class="training__content-description">
-						<p class="training__description-text">Курс включает основы тактической подготовки: оборона, наступление, действия в городской застройке и окопах. Практика проводится в условиях, приближенных к реальным, с отработкой индивидуальных и групповых навыков.</p>
+						<p class="training__description-text">Курс включает основы тактической подготовки: оборона, наступление,
+							действия в городской застройке и окопах. Практика проводится в условиях, приближенных к реальным, с
+							отработкой индивидуальных и групповых навыков.</p>
 					</div>
 				</div>
 				<div class="training__item">
@@ -434,7 +434,9 @@
 						<p class="training__content-subtitle">Ориентирование на местности</p>
 					</div>
 					<div class="training__content-description">
-						<p class="training__description-text">Обучение работе с картами, топографическими обозначениями, а также использованию электронных навигационных средств. На практике отрабатываются навыки ориентирования на местности, прокладка маршрутов и навигация в различных условиях.</p>
+						<p class="training__description-text">Обучение работе с картами, топографическими обозначениями, а также
+							использованию электронных навигационных средств. На практике отрабатываются навыки ориентирования на
+							местности, прокладка маршрутов и навигация в различных условиях.</p>
 					</div>
 				</div>
 				<div class="training__item">
@@ -443,7 +445,9 @@
 						<p class="training__content-subtitle">Огневая и стрелковая подготовка</p>
 					</div>
 					<div class="training__content-description">
-						<p class="training__description-text">Изучаются основы баллистики, технические характеристики оружия и правила приведения его к нормальному бою. Под контролем инструкторов отрабатываются навыки меткой стрельбы, правильные положения и тактические приемы обращения с оружием.</p>
+						<p class="training__description-text">Изучаются основы баллистики, технические характеристики оружия и
+							правила приведения его к нормальному бою. Под контролем инструкторов отрабатываются навыки меткой
+							стрельбы, правильные положения и тактические приемы обращения с оружием.</p>
 					</div>
 				</div>
 				<div class="training__item">
@@ -452,7 +456,9 @@
 						<p class="training__content-subtitle">Само- и взаимопомощь в боевых условиях</p>
 					</div>
 					<div class="training__content-description">
-						<p class="training__description-text">Интенсивный курс по оказанию первой помощи при боевых ранениях. Отрабатываются действия при кровотечениях, осколочных, пулевых и минно-взрывных травмах, а также навыки эвакуации раненых в полевых условиях.</p>
+						<p class="training__description-text">Интенсивный курс по оказанию первой помощи при боевых ранениях.
+							Отрабатываются действия при кровотечениях, осколочных, пулевых и минно-взрывных травмах, а также навыки
+							эвакуации раненых в полевых условиях.</p>
 					</div>
 				</div>
 				<div class="training__item">
@@ -461,36 +467,43 @@
 						<p class="training__content-subtitle">Работа и противодействие беспилотникам</p>
 					</div>
 					<div class="training__content-description">
-						<p class="training__description-text">Курс включает изучение основных типов БПЛА, принципов их применения и способов противодействия беспилотным летательным аппаратам в современных условиях.</p>
+						<p class="training__description-text">Курс включает изучение основных типов БПЛА, принципов их применения и
+							способов противодействия беспилотным летательным аппаратам в современных условиях.</p>
 					</div>
 				</div>
 				<div class="training__item">
 					<div class="training__content-heading">
-						<h4 class="training__content-title">Также по желанию военнослужащего представляется возможность обучиться на должность офицерского состава</h4>
+						<h4 class="training__content-title">Также по желанию военнослужащего представляется возможность обучиться на
+							должность офицерского состава</h4>
 					</div>
 					<div class="training__content-description">
 						<img src="./image/training/medal.svg" alt="" class="training__description-image">
-						<p class="training__description-text">У инструкторов за плечами огромный боевой опыт и с 2023 года обучают всех вновь прибывших военнослужащих контрактной службы на полигоне, лесной и сельской местности</p>
+						<p class="training__description-text">У инструкторов за плечами огромный боевой опыт и с 2023 года обучают
+							всех вновь прибывших военнослужащих контрактной службы на полигоне, лесной и сельской местности</p>
 					</div>
 				</div>
 			</div>
 		</section>
 		<section class="faq">
 			<div class="faq__title">
-					<h2 class="faq__title-text">Часто задаваемые вопросы</h2>
+				<h2 class="faq__title-text">Часто задаваемые вопросы</h2>
 			</div>
 			<div class="faq__content">
 				<ul class="faq__content-list">
 					<li class="faq__content-item">
 						<div class="faq__item-header">
-							<h4 class="faq__item-title">Я гражданин Российской Федерации, хочу поступить на военную службу по контракту. Куда обратиться?</h4>
+							<h4 class="faq__item-title">Я гражданин Российской Федерации, хочу поступить на военную службу по
+								контракту. Куда обратиться?</h4>
 							<img src="./image/payments/chevron-down.svg" alt="" class="faq__item-img">
 						</div>
-						<p class="faq__item-text">Обучение работе с картами, топографическими обозначениями, а также использованию электронных навигационных средств. На практике отрабатываются навыки ориентирования на местности, прокладка маршрутов и навигация в различных условиях.</p>
+						<p class="faq__item-text">Обучение работе с картами, топографическими обозначениями, а также использованию
+							электронных навигационных средств. На практике отрабатываются навыки ориентирования на местности,
+							прокладка маршрутов и навигация в различных условиях.</p>
 					</li>
 					<li class="faq__content-item">
 						<div class="faq__item-header">
-							<h4 class="faq__item-title">На какой срок заключается контракт с Министерством обороны Российской Федерации?</h4>
+							<h4 class="faq__item-title">На какой срок заключается контракт с Министерством обороны Российской
+								Федерации?</h4>
 							<img src="./image/payments/chevron-down.svg" alt="" class="faq__item-img">
 						</div>
 						<p class="faq__item-text"></p>
@@ -511,7 +524,8 @@
 					</li>
 					<li class="faq__content-item">
 						<div class="faq__item-header">
-							<h4 class="faq__item-title">Какие документы нужно предоставить при поступлении на службу по контракту?</h4>
+							<h4 class="faq__item-title">Какие документы нужно предоставить при поступлении на службу по контракту?
+							</h4>
 							<img src="./image/payments/chevron-down.svg" alt="" class="faq__item-img">
 						</div>
 						<p class="faq__item-text"></p>
@@ -577,9 +591,11 @@
 		</section>
 	</main>
 	<footer class="footer">
-		<p class="footer__note">Сайт носит информационно-консультационный характер и не является официальным сайтом Министерства обороны РФ или пунктом отбора на военную службу по контракту</p>
+		<p class="footer__note">Сайт носит информационно-консультационный характер и не является официальным сайтом
+			Министерства обороны РФ или пунктом отбора на военную службу по контракту</p>
 		<a href="#" class="footer__pd">Политика обработки персональных данных</a>
 	</footer>
+	<script src="./scripts/header.js" defer></script>
 </body>
 
 </html>

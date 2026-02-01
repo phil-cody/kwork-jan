@@ -1,0 +1,35 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.footer {
+	background-color: $surface;
+	padding: 0 $spacing-xxxl-desktop $spacing-xxxl-desktop;
+	margin-top: auto;
+
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	gap: $spacing-md-desktop;
+
+	&__note {
+		font-size: $text-md-desktop;
+		color: $text-medium;
+		max-width: 800px;
+		line-height: 1.5;
+		text-align: left;
+	}
+
+	&__pd {
+		font-size: $text-md-desktop;
+		color: $text-medium;
+		text-decoration: underline;
+		transition: color 0.2s ease;
+		white-space: nowrap;
+
+		&:hover {
+			color: darken($text-medium, 10%);
+			text-decoration: none;
+		}
+	}
+}

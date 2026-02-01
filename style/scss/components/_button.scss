@@ -1,0 +1,58 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: $spacing-xxs-desktop;
+	padding: $spacing-lg-desktop $spacing-lg-desktop;
+	font-size: $button-desktop;
+	font-weight: 500;
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	border: none;
+	border-radius: $radius-xs-desktop;
+	cursor: pointer;
+	transition: all 0.3s ease;
+
+	// Primary variant (default - $primary background)
+	&--primary {
+		background-color: $primary;
+		color: $text-inverse;
+
+		&:hover {
+			background-color: darken($primary, 8%);
+		}
+	}
+
+	// Dark variant ($text-default background)
+	&--dark {
+		background-color: $text-default;
+		color: $text-inverse;
+
+		&:hover {
+			background-color: lighten($text-default, 10%);
+		}
+	}
+
+	// Outlined variant (border with transparent background)
+	&--outlined {
+		background-color: $background;
+		color: $text-default;
+		border: 1px solid $borders;
+
+		&:hover {
+			border-color: $text-default;
+		}
+	}
+
+	// Disabled state
+	&:disabled,
+	&--disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+}

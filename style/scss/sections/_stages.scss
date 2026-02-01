@@ -1,0 +1,131 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.stages {
+	background-color: $background;
+	padding: 57px $spacing-xxxl-desktop 0;
+
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr auto 1fr;
+		grid-template-rows: auto auto auto;
+		gap: 67.5px;
+		position: relative;
+	}
+
+	&__container::before {
+		content: '';
+		grid-column: 2;
+		grid-row: 1 / 4;
+		width: 1px;
+		background-color: #d8d8d8;
+		justify-self: center;
+	}
+
+	&__title {
+		@include headline;
+		font-size: $heading-2-desktop;
+		color: $text-default;
+		margin-bottom: 0;
+		grid-column: 1;
+		grid-row: 1;
+	}
+
+	&__docs {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-lg-desktop;
+		grid-column: 1;
+		grid-row: 3;
+	}
+
+	&__docs-title {
+		@include headline;
+		font-size: $heading-6-desktop;
+		color: $text-default;
+	}
+
+	&__docs-list {
+		list-style-type: square;
+		padding-left: $spacing-md-desktop;
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-xs-desktop;
+	}
+
+	&__docs-item {
+		font-size: $text-md-desktop;
+		color: $text-default;
+		line-height: 1.5;
+	}
+
+	&__docs-link {
+		display: inline-flex;
+		align-items: center;
+		gap: $spacing-xxs-desktop;
+		font-size: $medium-md-desktop;
+		color: $text-medium;
+		text-decoration: none;
+		transition: color 0.2s ease;
+		margin-top: $spacing-sm-desktop;
+
+		&:hover {
+			color: darken($text-medium, 15%);
+		}
+	}
+
+	&__link-img {
+		width: 16px;
+		height: 16px;
+	}
+
+	&__steps-list {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-xxxl-desktop;
+		list-style: none;
+		grid-column: 3;
+		grid-row: 1 / 4;
+	}
+
+	&__step {
+		display: flex;
+		align-items: flex-start;
+		gap: $spacing-sm-desktop;
+	}
+
+	&__step-icon {
+		width: 69px;
+		height: 69px;
+		min-width: 69px;
+		background-color: $surface;
+		border-radius: $radius-xs-desktop;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__step-img {
+		width: 32px;
+		height: 32px;
+	}
+
+	&__step-content {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-xxs-desktop;
+		justify-content: space-between;
+	}
+
+	&__step-title {
+		font-size: $text-md-desktop;
+		color: $text-medium;
+		font-weight: 400;
+	}
+
+	&__step-text {
+		@include headline;
+		font-size: $heading-6-desktop;
+		color: $text-default;
+	}
+}

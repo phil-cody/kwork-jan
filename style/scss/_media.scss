@@ -1,0 +1,71 @@
+@use "./abstracts/variables" as *;
+
+/* ========================================= Mobile (360px) ========================================= */
+@media (max-width: 360px) {
+
+	// Base
+	body {
+		font-size: $text-md-mobile;
+	}
+
+	.container {
+		padding: 0 16px;
+	}
+
+	h1 {
+		font-size: $heading-1-mobile;
+	}
+
+	h2 {
+		font-size: $heading-2-mobile;
+	}
+
+	h3 {
+		font-size: $heading-3-mobile;
+	}
+
+	h4 {
+		font-size: $heading-4-mobile;
+	}
+
+	h5 {
+		font-size: $heading-5-mobile;
+	}
+
+	h6 {
+		font-size: $heading-6-mobile;
+	}
+
+	// Header
+	.header__content {
+		padding: $spacing-md-mobile 16px;
+		flex-direction: column;
+		gap: $spacing-sm-mobile;
+	}
+
+	.header__item {
+		width: 100%;
+		justify-content: space-between;
+	}
+
+	.header__contact-phone {
+		font-size: $text-md-mobile;
+	}
+
+	.header--sticky .header__content {
+		padding: $spacing-xs-mobile 16px;
+	}
+
+	// Footer
+	.footer {
+		padding: $spacing-lg-mobile 16px;
+	}
+
+	.footer__note {
+		font-size: $text-xs-mobile;
+	}
+
+	.footer__pd {
+		font-size: $text-xs-mobile;
+	}
+}
