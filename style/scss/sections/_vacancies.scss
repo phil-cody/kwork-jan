@@ -1,0 +1,202 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.vacancies {
+	position: relative;
+	background-image: url('../../image/vacancies/background.webp');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 40px $spacing-xxxl-desktop 306px;
+	color: $text-inverse;
+	overflow: hidden;
+
+	&__title {
+		@include headline;
+		max-width: 670px;
+		font-size: $heading-2-desktop;
+		color: $text-default;
+		margin-bottom: 537px;
+	}
+
+	&__content {
+		display: flex;
+		gap: 16px;
+		height: 553px;
+	}
+
+	&__content-item {
+		flex: 1;
+		min-width: 0;
+		height: 553px;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+
+		&:nth-child(1),
+		&:nth-child(2) {
+			.vacancies__content-title {
+				@include headline;
+				font-size: $heading-5-desktop;
+				margin-bottom: 24px;
+				color: $text-inverse;
+			}
+
+			.vacancies__list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+				overflow-y: auto;
+				scrollbar-gutter: stable;
+				padding-right: 16px;
+				position: relative;
+				mask-image: linear-gradient(to bottom,
+						transparent 0%,
+						black 10%,
+						black 90%,
+						transparent 100%);
+				-webkit-mask-image: linear-gradient(to bottom,
+						transparent 0%,
+						black 1%,
+						black 90%,
+						transparent 100%);
+			}
+
+			.vacancies__list-item {
+				font-size: $text-md-desktop;
+				padding: 16px;
+				border-bottom: 1px solid $text-medium;
+				color: $text-inverse;
+				display: flex;
+				align-items: center;
+				gap: 8px;
+
+				&:last-child {
+					border-bottom: none;
+				}
+			}
+
+			.vacancies__item-star {
+				width: 22px;
+				height: 22px;
+			}
+		}
+
+		::-webkit-scrollbar {
+			width: 3px;
+		}
+
+		::-webkit-scrollbar-track {
+			background: $text-medium;
+		}
+
+		::-webkit-scrollbar-thumb {
+			background: $background;
+			border-radius: $radius-max-desktop;
+		}
+
+		// Third column (Form)
+		&:nth-child(3) {
+			background-color: $background;
+			border-radius: 24px;
+			padding: 40px;
+			color: $text-default;
+			height: auto;
+			height: 100%;
+			overflow-y: auto;
+
+			.vacancies__content-title {
+				@include headline;
+				font-size: $heading-3-desktop;
+				margin-bottom: 12px;
+				color: $text-default;
+			}
+
+			.vacancies__content-text {
+				font-size: $text-md-desktop;
+				margin-bottom: 24px;
+				color: $text-default;
+			}
+		}
+	}
+
+	&__user-choice {
+		display: flex;
+		gap: 40px;
+		margin-bottom: 24px;
+
+		&--item {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+		}
+
+		&--title {
+			font-size: $text-md-desktop;
+			color: $text-medium;
+			font-weight: 400;
+		}
+
+		&--text {
+			font-size: $text-md-desktop;
+			color: $text-default;
+		}
+	}
+
+	&__request {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+		margin-bottom: 16px;
+
+		.request__field {
+			display: flex;
+			flex-direction: column;
+			gap: 8px;
+			background-color: $surface;
+			border-radius: $radius-xs-desktop;
+			padding: 12px 16px;
+
+			label {
+				font-size: $text-sm-desktop;
+				color: $text-medium;
+			}
+
+			.request__input {
+				border: none;
+				background: transparent;
+				font-size: $text-md-desktop;
+				color: $text-default;
+				padding: 0;
+				outline: none;
+
+				&::placeholder {
+					color: $text-default;
+				}
+			}
+		}
+
+		.request__submit {
+			width: 100%;
+		}
+	}
+
+	&__pd {
+		display: flex;
+		align-items: flex-start;
+		gap: 12px;
+
+		&-checkbox {
+			accent-color: $text-default;
+			width: 18px;
+			height: 18px;
+			margin-top: 2px;
+		}
+
+		label {
+			font-size: $text-sm-desktop;
+			color: $text-default;
+			cursor: pointer;
+		}
+	}
+}

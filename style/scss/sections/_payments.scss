@@ -1,0 +1,108 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+
+
+.payments {
+	background-color: $background;
+
+	&__container {
+	padding: 0 $spacing-xxxl-desktop;
+	}
+
+	&__title {
+		@include headline;
+		font-size: $heading-2-desktop;
+		color: $text-default;
+		margin-bottom: $spacing-xl-desktop;
+	}
+
+	&__content-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: $spacing-xxl-desktop;
+	}
+
+	&__header-category {
+		display: flex;
+		gap: 12px;
+	}
+
+	&__category-button {
+		padding: 17.5px 20px;
+	}
+
+	&__city-toggle {
+		padding: 8px 16px !important;
+		width: 292px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: $spacing-xxs-desktop;
+		text-align: left;
+		background: $background;
+
+		.payments__city-content {
+			display: flex;
+			flex-direction: column;
+			gap: 2px;
+		}
+
+		.payments__city-title {
+			font-size: $text-sm-desktop;
+			color: $text-medium;
+		}
+
+		.payments__city-text {
+			font-size: $text-md-desktop;
+			color: $text-default;
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		list-style: none;
+		margin-bottom: $spacing-xxl-desktop;
+	}
+
+	&__list-item {
+		width: 256px;
+		height: 298px;
+		background-color: $surface;
+		border-radius: $radius-lg-desktop;
+		padding: $spacing-lg-desktop;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	&__item-value {
+		@include headline;
+		font-size: $heading-5-desktop;
+		color: $text-default;
+	}
+
+	&__item-text {
+		font-size: $text-md-desktop;
+		color: $text-default;
+	}
+
+	&__note {
+		margin-top: $spacing-xxl-desktop;
+		margin-bottom: $spacing-xxxl-desktop;
+	}
+
+	&__note-text {
+		font-size: $text-md-desktop;
+		color: $text-medium;
+	}
+
+	&__substract {
+		width: 100%;
+		display: block;
+		height: auto;
+	}
+}

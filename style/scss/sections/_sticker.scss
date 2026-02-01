@@ -1,0 +1,39 @@
+@use "../abstracts/variables" as *;
+@use "../abstracts/mixins" as *;
+
+.sticker {
+	margin: 100px $spacing-xxxl-desktop;
+	padding: $spacing-xl-desktop;
+	background-color: $primary;
+	background-image: url('../../image/sticker/sticker-background.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-radius: $radius-lg-desktop;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: $spacing-xxxl-desktop;
+
+	&__text {
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-sm-desktop;
+		max-width: 700px;
+	}
+
+	&__title {
+		@include headline;
+		font-size: $heading-4-desktop;
+		color: $text-inverse;
+	}
+
+	&__subtitle {
+		font-size: $text-md-desktop;
+		color: $text-inverse;
+	}
+
+	&__cta {
+		flex-shrink: 0;
+	}
+}

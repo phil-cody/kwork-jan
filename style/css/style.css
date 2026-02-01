@@ -185,7 +185,7 @@ h6 {
 }
 
 .header {
-  background-color: #182230;
+  background-color: transparent;
   width: 100%;
   position: fixed;
   top: 0;
@@ -561,6 +561,373 @@ h6 {
   letter-spacing: -0.04;
   font-size: 20px;
   color: #0c1625;
+}
+
+.sticker {
+  margin: 100px 40px;
+  padding: 28px;
+  background-color: #566a84;
+  background-image: url("../../image/sticker/sticker-background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.sticker__text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 700px;
+}
+.sticker__title {
+  font-family: "Golos Text", sans-serif;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.04;
+  font-size: 28px;
+  color: #fff;
+}
+.sticker__subtitle {
+  font-size: 16px;
+  color: #fff;
+}
+.sticker__cta {
+  flex-shrink: 0;
+}
+
+.payments {
+  background-color: #fff;
+}
+.payments__container {
+  padding: 0 40px;
+}
+.payments__title {
+  font-family: "Golos Text", sans-serif;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.04;
+  font-size: 50px;
+  color: #0c1625;
+  margin-bottom: 28px;
+}
+.payments__content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+.payments__header-category {
+  display: flex;
+  gap: 12px;
+}
+.payments__category-button {
+  padding: 17.5px 20px;
+}
+.payments__city-toggle {
+  padding: 8px 16px !important;
+  width: 292px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  text-align: left;
+  background: #fff;
+}
+.payments__city-toggle .payments__city-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.payments__city-toggle .payments__city-title {
+  font-size: 14px;
+  color: #6f757e;
+}
+.payments__city-toggle .payments__city-text {
+  font-size: 16px;
+  color: #0c1625;
+}
+.payments__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style: none;
+  margin-bottom: 32px;
+}
+.payments__list-item {
+  width: 256px;
+  height: 298px;
+  background-color: #f6f6f7;
+  border-radius: 24px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.payments__item-value {
+  font-family: "Golos Text", sans-serif;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.04;
+  font-size: 24px;
+  color: #0c1625;
+}
+.payments__item-text {
+  font-size: 16px;
+  color: #0c1625;
+}
+.payments__note {
+  margin-top: 32px;
+  margin-bottom: 40px;
+}
+.payments__note-text {
+  font-size: 16px;
+  color: #6f757e;
+}
+.payments__substract {
+  width: 100%;
+  display: block;
+  height: auto;
+}
+
+.guarantees {
+  background: linear-gradient(#f6f6f7, #fff);
+  padding: 0 40px 85px;
+}
+.guarantees__title {
+  font-family: "Golos Text", sans-serif;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.04;
+  font-size: 50px;
+  color: #0c1625;
+  margin-bottom: 32px;
+}
+.guarantees__container {
+  display: flex;
+  gap: 20px;
+}
+.guarantees__block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.guarantees__block-img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  object-fit: cover;
+}
+.guarantees__list-title {
+  font-family: "Golos Text", sans-serif;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.04;
+  font-size: 28px;
+  color: #0c1625;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+.guarantees__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+.guarantees__list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #d5d7da;
+}
+.guarantees__list-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.guarantees__list-text {
+  font-size: 16px;
+  color: #0c1625;
+}
+.guarantees__list-note {
+  font-size: 14px;
+  color: #6f757e;
+}
+
+.vacancies {
+  position: relative;
+  background-image: url("../../image/vacancies/background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px 40px 306px;
+  color: #fff;
+  overflow: hidden;
+}
+.vacancies__title {
+  font-family: "Golos Text", sans-serif;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.04;
+  max-width: 670px;
+  font-size: 50px;
+  color: #0c1625;
+  margin-bottom: 537px;
+}
+.vacancies__content {
+  display: flex;
+  gap: 16px;
+  height: 553px;
+}
+.vacancies__content-item {
+  flex: 1;
+  min-width: 0;
+  height: 553px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.vacancies__content-item:nth-child(1) .vacancies__content-title, .vacancies__content-item:nth-child(2) .vacancies__content-title {
+  font-family: "Golos Text", sans-serif;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.04;
+  font-size: 24px;
+  margin-bottom: 24px;
+  color: #fff;
+}
+.vacancies__content-item:nth-child(1) .vacancies__list, .vacancies__content-item:nth-child(2) .vacancies__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  scrollbar-gutter: stable;
+  padding-right: 16px;
+  position: relative;
+  mask-image: linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 1%, black 90%, transparent 100%);
+}
+.vacancies__content-item:nth-child(1) .vacancies__list-item, .vacancies__content-item:nth-child(2) .vacancies__list-item {
+  font-size: 16px;
+  padding: 16px;
+  border-bottom: 1px solid #6f757e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.vacancies__content-item:nth-child(1) .vacancies__list-item:last-child, .vacancies__content-item:nth-child(2) .vacancies__list-item:last-child {
+  border-bottom: none;
+}
+.vacancies__content-item:nth-child(1) .vacancies__item-star, .vacancies__content-item:nth-child(2) .vacancies__item-star {
+  width: 22px;
+  height: 22px;
+}
+.vacancies__content-item ::-webkit-scrollbar {
+  width: 3px;
+}
+.vacancies__content-item ::-webkit-scrollbar-track {
+  background: #6f757e;
+}
+.vacancies__content-item ::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 999;
+}
+.vacancies__content-item:nth-child(3) {
+  background-color: #fff;
+  border-radius: 24px;
+  padding: 40px;
+  color: #0c1625;
+  height: auto;
+  height: 100%;
+  overflow-y: auto;
+}
+.vacancies__content-item:nth-child(3) .vacancies__content-title {
+  font-family: "Golos Text", sans-serif;
+  font-weight: 500;
+  line-height: 100%;
+  letter-spacing: -0.04;
+  font-size: 32px;
+  margin-bottom: 12px;
+  color: #0c1625;
+}
+.vacancies__content-item:nth-child(3) .vacancies__content-text {
+  font-size: 16px;
+  margin-bottom: 24px;
+  color: #0c1625;
+}
+.vacancies__user-choice {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 24px;
+}
+.vacancies__user-choice--item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.vacancies__user-choice--title {
+  font-size: 16px;
+  color: #6f757e;
+  font-weight: 400;
+}
+.vacancies__user-choice--text {
+  font-size: 16px;
+  color: #0c1625;
+}
+.vacancies__request {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.vacancies__request .request__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: #f6f6f7;
+  border-radius: 12px;
+  padding: 12px 16px;
+}
+.vacancies__request .request__field label {
+  font-size: 14px;
+  color: #6f757e;
+}
+.vacancies__request .request__field .request__input {
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #0c1625;
+  padding: 0;
+  outline: none;
+}
+.vacancies__request .request__field .request__input::placeholder {
+  color: #0c1625;
+}
+.vacancies__request .request__submit {
+  width: 100%;
+}
+.vacancies__pd {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.vacancies__pd-checkbox {
+  accent-color: #0c1625;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+}
+.vacancies__pd label {
+  font-size: 14px;
+  color: #0c1625;
+  cursor: pointer;
 }
 
 /* ========================================= Mobile (360px) ========================================= */

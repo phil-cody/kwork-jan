@@ -2,7 +2,7 @@
 @use "../abstracts/mixins" as *;
 
 .header {
-	background-color: $primary-header;
+	background-color: transparent;
 	width: 100%;
 	position: fixed;
 	top: 0;
