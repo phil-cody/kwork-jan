@@ -1,0 +1,105 @@
+@use "../abstracts/variables" as *;
+
+.requirements {
+	padding: 100px 40px;
+	background-color: $background;
+
+	&__title {
+		color: $text-default;
+		font-size: $heading-2-desktop;
+		margin-bottom: 40px;
+	}
+
+	&__content {
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: repeat(2, auto);
+		gap: 24px;
+	}
+
+	&__block {
+		position: relative;
+		background-color: $surface;
+		border-radius: $radius-lg-desktop;
+		min-height: 298px;
+		padding: 24px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+
+		&-title {
+			color: $text-default;
+			font-size: $heading-6-desktop;
+		}
+
+		&:nth-child(-n + 3) {
+			.requirements__block-img-container {
+				width: 56px;
+				height: 56px;
+				background-color: $background;
+				border-radius: $radius-xs-desktop; // 12px
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				margin-top: auto;
+			}
+
+			.requirements__block-img {
+				width: 24px; // Standard icon size
+				height: 24px;
+			}
+		}
+
+		&:nth-child(4) {
+			grid-column: 4 / 6;
+
+
+			.requirements__block-text {
+				color: $text-medium;
+				font-size: $text-md-desktop;
+				max-width: 377px;
+			}
+		}
+
+		&:nth-child(5) {
+			grid-column: 1 / 6;
+			grid-row: 2;
+			flex-direction: row;
+			justify-content: space-between;
+
+			.requirements__conditions {
+				max-width: 60%;
+				display: flex;
+				flex-direction: column;
+				gap: 24px;
+			}
+
+			.requirements__block-text {
+				color: $text-default;
+				font-size: $text-md-desktop;
+			}
+
+			.requirements__conditions-list {
+				list-style-type: square;
+				margin-left: $spacing-sm-desktop;
+
+				li::marker {
+					color: $primary;
+				}
+			}
+
+			.requirements__conditions-item {
+				color: $text-default;
+				font-size: $text-md-desktop;
+				margin-bottom: 6px;
+			}
+
+			.requirements__conditions-img {
+				position: absolute;
+				top: 24px;
+				right: 61px;
+				pointer-events: none;
+			}
+		}
+	}
+}

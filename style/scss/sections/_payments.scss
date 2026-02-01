@@ -63,14 +63,14 @@
 	&__list {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 20px;
+		gap: $spacing-md-desktop;
 		list-style: none;
 		margin-bottom: $spacing-xxl-desktop;
 	}
 
 	&__list-item {
-		width: 256px;
-		height: 298px;
+		width: calc((100% - ($spacing-md-desktop * 4)) / 5);
+		min-height: 298px;
 		background-color: $surface;
 		border-radius: $radius-lg-desktop;
 		padding: $spacing-lg-desktop;
