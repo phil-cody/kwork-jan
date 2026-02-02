@@ -1,0 +1,140 @@
+@use '../abstracts/variables' as *;
+
+.faq {
+	padding: 100px $spacing-xxxl-desktop 60px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto 1fr auto;
+	gap: $spacing-lg-desktop;
+	color: $text-default;
+
+	&__title {
+		grid-column: 1 / 2;
+		grid-row: 1 / 2;
+		max-width: 74%;
+	}
+
+	&__content {
+		grid-column: 2 / 4;
+		grid-row: 1 / 4;
+
+		& ul {
+			display: flex;
+			flex-direction: column;
+			gap: $spacing-xs-desktop;
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+
+		& li {
+			background-color: $surface;
+			border-radius: $radius-md-desktop;
+			padding: $spacing-lg-desktop;
+			cursor: pointer;
+			transition: background-color 0.2s;
+
+			& p {
+				display: none;
+				font-size: $text-md-desktop;
+				margin: 0;
+			}
+
+			&.is-open {
+				p {
+					display: block;
+				}
+			}
+
+		}
+	}
+
+	&__item {
+		&-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: $spacing-xs-desktop;
+			gap: $spacing-xs-desktop;
+
+			& h6 {
+				font-size: $heading-6-desktop;
+				margin: 0;
+				max-width: 89%;
+			}
+		}
+
+	}
+
+	&__help {
+		grid-column: 1 / 2;
+		grid-row: 3 / 4;
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-md-desktop;
+
+		&-title {
+			font-size: $heading-6-desktop;
+			margin: 0;
+		}
+
+		&-text {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&-line-1 {
+			font-size: $text-md-desktop;
+		}
+
+		&-line-2 {
+			font-size: $text-sm-desktop;
+			color: $text-low;
+		}
+	}
+
+	&__contact {
+		display: flex;
+		gap: $spacing-xxl-desktop;
+
+		&-icons {
+			display: flex;
+			gap: 10px;
+			align-items: center;
+		}
+
+		&-item {
+			display: flex;
+			flex-direction: column;
+			gap: 6px;
+		}
+
+		&-social {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			width: 54px;
+			height: 54px;
+			background-color: $surface;
+			border-radius: $radius-md-desktop;
+			transition: opacity 0.2s;
+
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+
+		&-phone {
+			font-size: $heading-6-desktop;
+			color: $text-default;
+			text-decoration: none;
+		}
+
+		&-hours {
+			font-size: $text-md-desktop;
+			color: $text-medium;
+			margin: 0;
+		}
+	}
+}

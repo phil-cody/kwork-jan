@@ -26,23 +26,21 @@
 	}
 
 	&__content-item {
-		flex: 1;
 		min-width: 0;
-		height: 553px;
+		width: calc((100% - $spacing-xxl-desktop) / 3);
+		height: 100%;
 		display: flex;
 		flex-direction: column;
-		height: 100%;
 
-		&:nth-child(1),
-		&:nth-child(2) {
-			.vacancies__content-title {
+		&--list {
+			h5 {
 				@include headline;
 				font-size: $heading-5-desktop;
 				margin-bottom: 24px;
 				color: $text-inverse;
 			}
 
-			.vacancies__list {
+			ul {
 				list-style: none;
 				padding: 0;
 				margin: 0;
@@ -60,9 +58,22 @@
 						black 1%,
 						black 90%,
 						transparent 100%);
+
+				&::-webkit-scrollbar {
+					width: 3px;
+				}
+
+				&::-webkit-scrollbar-track {
+					background: $text-medium;
+				}
+
+				&::-webkit-scrollbar-thumb {
+					background: $background;
+					border-radius: $radius-max-desktop;
+				}
 			}
 
-			.vacancies__list-item {
+			li {
 				font-size: $text-md-desktop;
 				padding: 16px;
 				border-bottom: 1px solid $text-medium;
@@ -76,43 +87,27 @@
 				}
 			}
 
-			.vacancies__item-star {
+			li img {
 				width: 22px;
 				height: 22px;
 			}
 		}
 
-		::-webkit-scrollbar {
-			width: 3px;
-		}
-
-		::-webkit-scrollbar-track {
-			background: $text-medium;
-		}
-
-		::-webkit-scrollbar-thumb {
-			background: $background;
-			border-radius: $radius-max-desktop;
-		}
-
-		// Third column (Form)
-		&:nth-child(3) {
+		&--form {
 			background-color: $background;
 			border-radius: 24px;
 			padding: 40px;
 			color: $text-default;
-			height: auto;
-			height: 100%;
 			overflow-y: auto;
 
-			.vacancies__content-title {
+			.vacancies__content-title--form {
 				@include headline;
 				font-size: $heading-3-desktop;
 				margin-bottom: 12px;
 				color: $text-default;
 			}
 
-			.vacancies__content-text {
+			.vacancies__content-text--form {
 				font-size: $text-md-desktop;
 				margin-bottom: 24px;
 				color: $text-default;
@@ -125,19 +120,19 @@
 		gap: 40px;
 		margin-bottom: 24px;
 
-		&--item {
+		&-item {
 			display: flex;
 			flex-direction: column;
 			gap: 4px;
 		}
 
-		&--title {
+		&-title {
 			font-size: $text-md-desktop;
 			color: $text-medium;
 			font-weight: 400;
 		}
 
-		&--text {
+		&-text {
 			font-size: $text-md-desktop;
 			color: $text-default;
 		}

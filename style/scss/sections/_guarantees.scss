@@ -23,14 +23,14 @@
 		flex-direction: column;
 	}
 
-	&__block-img {
+	&__block img {
 		width: 100%;
 		height: auto;
 		border-radius: $radius-md-desktop;
 		object-fit: cover;
 	}
 
-	&__list-title {
+	& h4 {
 		@include headline;
 		font-size: $heading-4-desktop;
 		color: $text-default;
@@ -38,7 +38,7 @@
 		margin-bottom: 24px;
 	}
 
-	&__list {
+	& ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
@@ -46,7 +46,7 @@
 		flex-direction: column;
 	}
 
-	&__list-item {
+	& li {
 		display: flex;
 		flex-direction: column;
 		gap: 6px;
@@ -61,12 +61,12 @@
 		}
 	}
 
-	&__list-text {
+	& li p {
 		font-size: $text-md-desktop;
 		color: $text-default;
 	}
 
-	&__list-note {
+	& li span {
 		font-size: $text-sm-desktop;
 		color: $text-medium;
 	}

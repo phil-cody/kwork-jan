@@ -39,13 +39,13 @@
 		grid-row: 3;
 	}
 
-	&__docs-title {
+	&__docs h4 {
 		@include headline;
 		font-size: $heading-6-desktop;
 		color: $text-default;
 	}
 
-	&__docs-list {
+	&__docs ul {
 		list-style-type: square;
 		padding-left: $spacing-md-desktop;
 		display: flex;
@@ -53,13 +53,13 @@
 		gap: $spacing-xs-desktop;
 	}
 
-	&__docs-item {
+	&__docs li {
 		font-size: $text-md-desktop;
 		color: $text-default;
 		line-height: 1.5;
 	}
 
-	&__docs-link {
+	&__docs a {
 		display: inline-flex;
 		align-items: center;
 		gap: $spacing-xxs-desktop;
@@ -74,7 +74,7 @@
 		}
 	}
 
-	&__link-img {
+	&__docs a img {
 		width: 16px;
 		height: 16px;
 	}

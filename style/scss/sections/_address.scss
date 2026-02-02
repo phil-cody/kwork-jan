@@ -1,0 +1,124 @@
+@use '../abstracts/variables' as *;
+
+.address {
+
+	&__content {
+		padding: 0 $spacing-xxxl-desktop;
+		background-color: $surface;
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-xxl-desktop;
+	}
+
+	&__title {
+		color: $text-default;
+		font-size: $heading-2-desktop;
+		margin: 0;
+	}
+
+	&__choose-region {
+		display: flex;
+		gap: $spacing-xs-desktop;
+		flex-wrap: wrap;
+	}
+
+	&__region {
+		height: 54px;
+	}
+
+	&__map {
+		display: flex;
+		height: 588px;
+		border-radius: $radius-lg-desktop;
+		overflow: hidden;
+		background-color: $sub;
+	}
+
+	&__points {
+		width: 27%;
+		background-color: $text-default;
+		height: 100%;
+		overflow-y: auto;
+
+		&::-webkit-scrollbar {
+			width: 4px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: rgba($text-inverse, 0.1);
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: rgba($text-inverse, 0.3);
+			border-radius: 4px;
+		}
+
+		&-list {
+			list-style: none;
+			padding: 0;
+			margin: 0;
+		}
+	}
+
+	&__point {
+		padding: 24px;
+		border-top: 1px solid rgba($background, 0.2);
+		border-bottom: 1px solid rgba($background, 0.2);
+		cursor: pointer;
+		transition: background-color 0.2s;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+
+		&+& {
+			border-top: none;
+		}
+
+		&:hover,
+		&--active {
+			background-color: rgba($background, 0.2);
+		}
+
+		.point {
+			&__title {
+				color: $text-inverse;
+				font-size: $heading-6-desktop;
+				margin: 0;
+				font-weight: 600;
+			}
+
+			&__description {
+				color: rgba($text-inverse, 0.6);
+				font-size: $text-md-desktop;
+				margin: 0;
+			}
+
+			&__phone {
+				color: $text-inverse;
+				font-size: $button-desktop;
+				text-decoration: none;
+				font-weight: 600;
+				display: block;
+				margin-top: 8px;
+			}
+
+			&__opening-hours {
+				color: $text-inverse;
+				font-size: $text-md-desktop;
+				margin: 0;
+			}
+
+			&__hours {
+				color: $text-inverse;
+			}
+		}
+	}
+
+	&__map-display {
+		flex-grow: 1;
+		background-color: #ddd;
+		background-image: url('../../image/map-placeholder.png');
+		background-size: cover;
+		background-position: center;
+	}
+}

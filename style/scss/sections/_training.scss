@@ -1,0 +1,124 @@
+@use "../abstracts/variables" as *;
+
+.training {
+	background-color: $text-default;
+	color: $text-inverse;
+	position: relative;
+	overflow: hidden;
+
+	&__header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: $spacing-lg-desktop;
+		padding: $spacing-none-desktop $spacing-xxxl-desktop;
+	}
+
+	&__title {
+		font-size: $heading-2-desktop;
+		max-width: 600px;
+		color: $text-inverse;
+	}
+
+	&__sticker {
+		background-color: rgba($text-inverse, 0.05);
+		border-radius: $radius-lg-desktop;
+		border: 1px solid rgba($text-inverse, 0.24);
+		padding: $spacing-lg-desktop;
+		max-height: 120px;
+		max-width: 400px;
+
+		& h6 {
+			font-size: $heading-6-desktop;
+			margin-bottom: $spacing-xxs-desktop;
+			color: $text-inverse;
+		}
+
+		& p {
+			font-size: $text-md-desktop;
+			color: rgba($text-inverse, 0.6);
+		}
+	}
+
+	&__table {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: $spacing-xxxl-desktop;
+	}
+
+	&__item {
+		display: flex;
+		padding: $spacing-lg-desktop 0;
+		border-bottom: 1px solid rgba($text-inverse, 0.2);
+
+		.training__content-heading,
+		.training__content-description {
+			flex: 0 0 50%;
+		}
+	}
+
+	&__content {
+		padding: 0 $spacing-xxxl-desktop;
+	}
+
+	&__content-heading h6 {
+		font-size: $heading-5-desktop;
+		margin-bottom: $spacing-xxs-desktop;
+		color: $text-inverse;
+	}
+
+	&__content-heading p {
+		font-size: $text-md-desktop;
+		color: $text-inverse;
+	}
+
+	&__content-description p {
+		font-size: $text-md-desktop;
+	}
+
+	&__footer {
+		display: flex;
+		align-items: center;
+		padding-top: 0;
+		padding-bottom: $spacing-none-desktop;
+		border-bottom: none;
+
+		.training__content-heading {
+			flex: 0 0 50%;
+		}
+
+		.training__content-heading h6 {
+			font-size: $heading-6-desktop;
+			max-width: 600px;
+			margin: 0;
+		}
+
+		.training__content-description {
+			background-color: $primary;
+			border-radius: $radius-lg-desktop;
+			padding: $spacing-md-desktop;
+			display: flex;
+			gap: $spacing-sm-desktop; // 15px -> 16px closest
+			align-items: flex-start;
+			flex: 0 0 50%;
+		}
+
+		.training__content-description img {
+			width: $spacing-xxl-desktop;
+			height: $spacing-xxl-desktop;
+			flex-shrink: 0;
+			margin: auto 0;
+		}
+
+		.training__content-description p {
+			font-size: $text-md-desktop;
+			max-width: 586px;
+		}
+	}
+
+	&__bottom-substract {
+		display: block;
+		width: 100%;
+		margin-top: 70px;
+	}
+}

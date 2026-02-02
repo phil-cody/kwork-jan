@@ -57,13 +57,13 @@
 		width: 215.5px;
 	}
 
-	&__block-title {
+	&__item-block h3 {
 		@include headline;
 		font-size: $heading-5-desktop;
 		color: $text-inverse;
 	}
 
-	&__block-subtitle {
+	&__item-block p {
 		font-size: $text-md-desktop;
 		color: $text-inverse;
 	}
@@ -74,13 +74,13 @@
 		gap: 10px;
 	}
 
-	&__garant-title {
+	&__text-garant h3 {
 		@include headline;
 		font-size: $heading-5-desktop;
 		color: $text-inverse;
 	}
 
-	&__garant-subtitle {
+	&__text-garant p {
 		font-size: $text-sm-desktop;
 		color: rgba($text-inverse, 0.6);
 	}

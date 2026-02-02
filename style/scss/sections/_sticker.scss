@@ -22,13 +22,13 @@
 		max-width: 700px;
 	}
 
-	&__title {
+	&__text h3 {
 		@include headline;
 		font-size: $heading-4-desktop;
 		color: $text-inverse;
 	}
 
-	&__subtitle {
+	&__text p {
 		font-size: $text-md-desktop;
 		color: $text-inverse;
 	}
