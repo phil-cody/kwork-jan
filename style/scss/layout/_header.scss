@@ -94,6 +94,15 @@
 		white-space: nowrap;
 	}
 
+	// Correctly scope burger button outside of contact-social
+	&__burger-button {
+		display: none;
+	}
+
+	&__mobile-menu {
+		display: none;
+	}
+
 	// Sticky Modifier
 	&--sticky {
 		background-color: $text-default;

@@ -1,21 +1,20 @@
 @use "../abstracts/variables" as *;
 
 .requirements {
-
 	background-color: $background;
 
 	&__title {
 		color: $text-default;
 		font-size: $heading-2-desktop;
-		margin: 100px 40px 40px;
+		margin: 100px $spacing-xxxl-desktop $spacing-xxxl-desktop;
 	}
 
 	&__content {
-		padding: 0 40px 100px;
+		padding: $spacing-none-desktop $spacing-xxxl-desktop 100px;
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		grid-template-rows: repeat(2, auto);
-		gap: 24px;
+		gap: $spacing-lg-desktop;
 	}
 
 	&__block {
@@ -23,7 +22,7 @@
 		background-color: $surface;
 		border-radius: $radius-lg-desktop;
 		min-height: 298px;
-		padding: 24px;
+		padding: $spacing-lg-desktop;
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
@@ -38,7 +37,7 @@
 				width: 56px;
 				height: 56px;
 				background-color: $background;
-				border-radius: $radius-xs-desktop; // 12px
+				border-radius: $radius-xs-desktop;
 				display: flex;
 				align-items: center;
 				justify-content: center;
@@ -46,8 +45,8 @@
 			}
 
 			.requirements__block-img {
-				width: 24px; // Standard icon size
-				height: 24px;
+				width: $spacing-lg-desktop;
+				height: $spacing-lg-desktop;
 			}
 		}
 
@@ -65,14 +64,12 @@
 		&:nth-child(5) {
 			grid-column: 1 / 6;
 			grid-row: 2;
-			flex-direction: row;
-			justify-content: space-between;
 
 			.requirements__conditions {
 				max-width: 60%;
 				display: flex;
 				flex-direction: column;
-				gap: 24px;
+				gap: $spacing-lg-desktop;
 			}
 
 			.requirements__block p {
@@ -83,21 +80,18 @@
 			.requirements__conditions ul {
 				list-style-type: square;
 				margin-left: $spacing-sm-desktop;
+				color: $text-default;
+				font-size: $text-md-desktop;
+				margin-bottom: 6px;
 
 				li::marker {
 					color: $primary;
 				}
 			}
 
-			.requirements__conditions li {
-				color: $text-default;
-				font-size: $text-md-desktop;
-				margin-bottom: 6px;
-			}
-
 			.requirements__conditions-img {
 				position: absolute;
-				top: 24px;
+				top: $spacing-lg-desktop;
 				right: 61px;
 				pointer-events: none;
 			}

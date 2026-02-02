@@ -5,7 +5,7 @@
 	position: relative;
 	height: 941px;
 	background-color: $primary-header;
-	background-image: url('../../image/hero/hero-background.webp');
+	background-image: url('../../image/hero/hero-background.png');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -47,7 +47,6 @@
 		font-size: $text-md-desktop;
 		color: rgba($text-inverse, 0.6);
 		line-height: auto;
-		max-width: 523px;
 	}
 
 	&__item-block {

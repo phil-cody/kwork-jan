@@ -60,6 +60,56 @@
 					</div>
 				</div>
 			</div>
+			<button class="header__burger-button" id="burgerButton">
+				<img src="./image/header/menu-burger.svg" alt="menu burger" class="header__burger-icon">
+			</button>
+		</div>
+		<div class="header__mobile-menu" id="mobileMenu">
+			<div class="header__mobile-header">
+				<img src="./image/header/black-logo.svg" alt="logo" class="header__mobile-logo">
+				<button class="header__mobile-close" id="closeMenuButton">
+					<img src="./image/header/menu-burger-close.svg" alt="menu close" class="header__mobile-close-icon">
+				</button>
+			</div>
+			<nav class="header__mobile-nav">
+				<ul class="header__mobile-nav-list">
+					<li class="header__mobile-nav-item">
+						<a href="#" class="header__mobile-nav-link">Этапы заключения контракта</a>
+					</li>
+					<li class="header__mobile-nav-item">
+						<a href="#" class="header__mobile-nav-link">Выплаты и льготы</a>
+					</li>
+					<li class="header__mobile-nav-item">
+						<a href="#" class="header__mobile-nav-link">Вакансии</a>
+					</li>
+					<li class="header__mobile-nav-item">
+						<a href="#" class="header__mobile-nav-link">Обучение</a>
+					</li>
+					<li class="header__mobile-nav-item">
+						<a href="#" class="header__mobile-nav-link">Условия</a>
+					</li>
+					<li class="header__mobile-nav-item">
+						<a href="#" class="header__mobile-nav-link">FAQ</a>
+					</li>
+				</ul>
+			</nav>
+			<div class="header__mobile-contact">
+				<div class="header__mobile-info">
+					<a href="tel:+78005553535" class="header__mobile-phone">+7 800 555-35-35</a>
+					<p class="header__mobile-hours">пн-пт 08:00 - 19:00</p>
+				</div>
+				<div class="header__mobile-socials">
+					<a href="#" class="header__mobile-social">
+						<img src="./image/social-icons/telegram.svg" alt="telegram">
+					</a>
+					<a href="#" class="header__mobile-social">
+						<img src="./image/social-icons/whatsapp.svg" alt="whatsapp">
+					</a>
+					<a href="#" class="header__mobile-social">
+						<img src="./image/social-icons/max.svg" alt="max">
+					</a>
+				</div>
+			</div>
 		</div>
 	</header>
 	<main class="main">
@@ -224,8 +274,13 @@
 		</section>
 		<section class="guarantees">
 			<h2 class="guarantees__title">СОЦ гарантии</h2>
+			<!-- Mobile Tabs -->
+			<div class="guarantees__tabs">
+				<button class="guarantees__tab active" data-tab="soldier">Военнослужащему</button>
+				<button class="guarantees__tab" data-tab="family">Семье военнослужащего</button>
+			</div>
 			<div class="guarantees__container">
-				<div class="guarantees__block">
+				<div class="guarantees__block active" id="soldier-block">
 					<img src="./image/guarantees/soldier.webp" alt="военнослужащий">
 					<h4>Военнослужащему</h4>
 					<ul>
@@ -268,7 +323,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="guarantees__block">
+				<div class="guarantees__block" id="family-block">
 					<img src="./image/guarantees/family.webp" alt="семья военнослужащего">
 					<h4>Семье военнослужащего</h4>
 					<ul>
@@ -340,7 +395,8 @@
 				</div>
 				<div class="vacancies__content-item vacancies__content-item--form">
 					<h3 class="vacancies__content-title--form">Оставить заявку</h3>
-					<p class="vacancies__content-text--form">Мы объясняем условия до подписания, консультируем и остаёмся на связи</p>
+					<p class="vacancies__content-text--form">Мы объясняем условия до подписания, консультируем и остаёмся на связи
+					</p>
 					<div class="vacancies__user-choice">
 						<div class="vacancies__user-choice-item">
 							<h6 class="vacancies__user-choice-title">Подразделение</h6>
@@ -627,6 +683,8 @@
 		<a href="#" class="footer__pd">Политика обработки персональных данных</a>
 	</footer>
 	<script src="./scripts/header.js" defer></script>
+	<script src="./scripts/burger-menu.js" defer></script>
+	<script src="./scripts/main.js" defer></script>
 </body>
 
 </html>

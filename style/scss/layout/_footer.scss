@@ -4,8 +4,6 @@
 .footer {
 	background-color: $surface;
 	padding: $spacing-xxl-desktop $spacing-xxxl-desktop $spacing-xxxl-desktop;
-	margin-top: auto;
-
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -16,14 +14,12 @@
 		font-size: $text-md-desktop;
 		color: $text-medium;
 		max-width: 800px;
-		line-height: 1.5;
 		text-align: left;
 	}
 
 	&__pd {
 		font-size: $text-md-desktop;
 		color: $text-medium;
-		text-decoration: underline;
 		transition: color 0.2s ease;
 		white-space: nowrap;
 

@@ -56,7 +56,6 @@
 	&__docs li {
 		font-size: $text-md-desktop;
 		color: $text-default;
-		line-height: 1.5;
 	}
 
 	&__docs a {
@@ -106,8 +105,8 @@
 	}
 
 	&__step-img {
-		width: 32px;
-		height: 32px;
+		width: $spacing-xxl-desktop;
+		height: $spacing-xxl-desktop;
 	}
 
 	&__step-content {

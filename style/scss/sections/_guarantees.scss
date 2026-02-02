@@ -12,6 +12,10 @@
 		margin-bottom: $spacing-xxl-desktop;
 	}
 
+	&__tabs {
+		display: none;
+	}
+
 	&__container {
 		display: flex;
 		gap: 20px;
