@@ -7,14 +7,16 @@
 	background-color: $background;
 
 	&__container {
-	padding: 0 $spacing-xxxl-desktop;
+		padding: $spacing-none-desktop $spacing-xxxl-desktop;
+		display: flex;
+		flex-direction: column;
+		gap: $spacing-xl-desktop;
 	}
 
 	&__title {
 		@include headline;
 		font-size: $heading-2-desktop;
 		color: $text-default;
-		margin-bottom: $spacing-xl-desktop;
 	}
 
 	&__content-header {
@@ -26,27 +28,31 @@
 
 	&__header-category {
 		display: flex;
-		gap: 12px;
+		gap: $spacing-xs-desktop;
 	}
 
 	&__category-button {
-		padding: 17.5px 20px;
+		padding: $spacing-sm-desktop $spacing-md-desktop;
+		transition: all 0.3s ease;
+	}
+
+	&__header-city {
+		position: relative;
 	}
 
 	&__city-toggle {
-		padding: 8px 16px !important;
+		padding: $spacing-xxs-desktop $spacing-sm-desktop;
 		width: 292px;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: $spacing-xxs-desktop;
 		text-align: left;
 		background: $background;
 
 		.payments__city-content {
 			display: flex;
 			flex-direction: column;
-			gap: 2px;
+			gap: $spacing-xxxxs-desktop;
 		}
 
 		.payments__city-content h6 {
@@ -58,17 +64,120 @@
 			font-size: $text-md-desktop;
 			color: $text-default;
 		}
+
+		.payments__city-arrow {
+			transition: transform 0.3s ease;
+		}
+
+		&.active .payments__city-arrow {
+			transform: rotate(180deg);
+		}
 	}
 
-	&__content ul {
+	&__city-dropdown {
+		position: absolute;
+		top: calc(100% + $spacing-xxs-desktop);
+		right: 0;
+		width: 100%;
+		max-height: 400px;
+		overflow-y: auto;
+		background: $background;
+		border-radius: $radius-xs-desktop;
+		box-shadow: $spacing-none-desktop $spacing-xxs-desktop $spacing-lg-desktop rgba(0, 0, 0, 0.12);
+		list-style: none;
+		padding: $spacing-none-desktop;
+		margin: $spacing-none-desktop;
+		display: none !important;
+		z-index: 100;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+
+		&.active {
+			display: block !important;
+		}
+
+		&::-webkit-scrollbar {
+			width: $spacing-xxxs-desktop;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: $text-medium;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: $background;
+			border-radius: $radius-max-desktop;
+		}
+	}
+
+	&__city-option {
+		padding: $spacing-xs-desktop $spacing-md-desktop;
+		font-size: $spacing-sm-desktop;
+		color: $text-medium;
+		cursor: pointer;
+		transition: all 0.2s ease;
+		border-bottom: 1px solid $borders;
 		display: flex;
+		align-items: center;
+
+		&:last-child {
+			border-bottom: none;
+		}
+
+		&:hover {
+			background-color: $surface-contrast;
+		}
+
+		&.active {
+			background-color: $surface;
+			font-weight: 500;
+			color: $text-default;
+		}
+	}
+
+	&__category-section {
+
+		&:not([data-category="payments"]) {
+			.payments__category-content {
+				display: none;
+			}
+		}
+
+		&[data-category="payments"] {
+			.payments__category-content {
+				display: flex;
+			}
+		}
+
+		&.active {
+			.payments__category-content {
+				display: flex;
+			}
+		}
+
+		&:not(.active) {
+			.payments__category-content {
+				display: none;
+			}
+		}
+	}
+
+	&__category-header {
+		display: none;
+	}
+
+	&__category-arrow {
+		display: none;
+	}
+
+	&__category-content {
 		flex-wrap: wrap;
 		gap: $spacing-md-desktop;
 		list-style: none;
 		margin-bottom: $spacing-xxl-desktop;
+		padding: $spacing-none-desktop;
 	}
 
-	&__content li {
+	&__category-content li {
 		width: calc((100% - ($spacing-md-desktop * 4)) / 5);
 		min-height: 298px;
 		background-color: $surface;
@@ -79,13 +188,14 @@
 		justify-content: space-between;
 	}
 
-	&__content li h5 {
+	&__category-content li h5 {
 		@include headline;
 		font-size: $heading-5-desktop;
 		color: $text-default;
 	}
 
-	&__content li p {
+	&__content li p,
+	&__category-content li p {
 		font-size: $text-md-desktop;
 		color: $text-default;
 	}

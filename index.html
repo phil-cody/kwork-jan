@@ -227,43 +227,100 @@
 				<div class="payments__content">
 					<div class="payments__content-header">
 						<div class="payments__header-category">
-							<button class="payments__category-button btn btn--primary">Выплаты</button>
-							<button class="payments__category-button btn btn--outlined">За ранения и увечья</button>
-							<button class="payments__category-button btn btn--outlined">Семьям и родственникам</button>
-							<button class="payments__category-button btn btn--outlined">Доп. выплаты</button>
+							<button class="payments__category-button btn btn--primary" data-category="payments">Выплаты</button>
+							<button class="payments__category-button btn btn--outlined" data-category="injuries">За ранения и
+								увечья</button>
+							<button class="payments__category-button btn btn--outlined" data-category="family">Семьям и
+								родственникам</button>
+							<button class="payments__category-button btn btn--outlined" data-category="additional">Доп.
+								выплаты</button>
 						</div>
 						<div class="payments__header-city">
-							<button class="payments__city-toggle btn btn--outlined">
+							<button class="payments__city-toggle btn btn--outlined" data-city="moscow">
 								<div class="payments__city-content">
 									<h6>Ваш регион</h6>
 									<span>Москва</span>
 								</div>
 								<img src="./image/payments/chevron-down.svg" alt="Ваш регион" class="payments__city-arrow">
 							</button>
+							<ul class="payments__city-dropdown">
+								<!-- Динамическое заполнение из JavaScript -->
+							</ul>
 						</div>
 					</div>
-					<ul>
-						<li>
-							<h5>до 4 200 000 ₽</h5>
-							<p>Региональные</p>
-						</li>
-						<li>
-							<h5>400 000 ₽</h5>
-							<p>Единовременная выплата от МО РФ независимо от региона</p>
-						</li>
-						<li>
-							<h5>до 10 000 000 ₽</h5>
-							<p>Списание долгов</p>
-						</li>
-						<li>
-							<h5>от 210 000 ₽</h5>
-							<p>Ежемесячное денежное довольствие</p>
-						</li>
-						<li>
-							<h5>4 582 ₽</h5>
-							<p>Ежемесячная выплата ветеранам боевых действий</p>
-						</li>
-					</ul>
+
+					<!-- Category: Выплаты -->
+					<div class="payments__category-section" data-category="payments" data-city="moscow">
+						<div class="payments__category-header">
+							<h5>Выплаты</h5>
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+						</div>
+						<ul class="payments__category-content active">
+							<li>
+								<h5>до 4 200 000 ₽</h5>
+								<p>Региональные</p>
+							</li>
+							<li>
+								<h5>400 000 ₽</h5>
+								<p>Единовременная выплата от МО РФ независимо от региона</p>
+							</li>
+							<li>
+								<h5>до 10 000 000 ₽</h5>
+								<p>Списание долгов</p>
+							</li>
+							<li>
+								<h5>от 210 000 ₽</h5>
+								<p>Ежемесячное денежное довольствие</p>
+							</li>
+							<li>
+								<h5>4 582 ₽</h5>
+								<p>Ежемесячная выплата ветеранам боевых действий</p>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Category: За ранения и увечья -->
+					<div class="payments__category-section" data-category="injuries" data-city="moscow">
+						<div class="payments__category-header">
+							<h5>За ранения и увечья</h5>
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+						</div>
+						<ul class="payments__category-content">
+							<li>
+								<h5></h5>
+								<p></p>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Category: Семьям и родственникам -->
+					<div class="payments__category-section" data-category="family" data-city="moscow">
+						<div class="payments__category-header">
+							<h5>Семьям и родственникам</h5>
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+						</div>
+						<ul class="payments__category-content">
+							<li>
+								<h5></h5>
+								<p></p>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Category: Доп. выплаты -->
+					<div class="payments__category-section" data-category="additional" data-city="moscow">
+						<div class="payments__category-header">
+							<h5>Доп. выплаты</h5>
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+						</div>
+						<ul class="payments__category-content">
+							<li>
+								<h5></h5>
+								<p></p>
+							</li>
+						</ul>
+					</div>
+
 					<div class="payments__note">
 						<span>Приведено в соответствии с действующими нормативными актами. Условия и
 							размеры выплат могут изменяться</span>
@@ -485,9 +542,12 @@
 			<div class="training__content">
 				<div class="training__table">
 					<div class="training__item">
-						<div class="training__content-heading">
-							<h5>Первоначальная подготовка</h5>
-							<p>Базовая подготовка контрактников МО РФ</p>
+						<div class="training__content-heading training__accordion-header">
+							<div class="training__content-heading-text">
+								<h5>Первоначальная подготовка</h5>
+								<p>Базовая подготовка контрактников МО РФ</p>
+							</div>
+							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow">
 						</div>
 						<div class="training__content-description">
 							<p>Курс включает основы тактической подготовки: оборона, наступление,
@@ -496,9 +556,12 @@
 						</div>
 					</div>
 					<div class="training__item">
-						<div class="training__content-heading">
-							<h5>Топография и ориентирование</h5>
-							<p>Ориентирование на местности</p>
+						<div class="training__content-heading training__accordion-header">
+							<div class="training__content-heading-text">
+								<h5>Топография и ориентирование</h5>
+								<p>Ориентирование на местности</p>
+							</div>
+							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow">
 						</div>
 						<div class="training__content-description">
 							<p>Обучение работе с картами, топографическими обозначениями, а также
@@ -507,9 +570,12 @@
 						</div>
 					</div>
 					<div class="training__item">
-						<div class="training__content-heading">
-							<h5>Тактическая подготовка</h5>
-							<p>Огневая и стрелковая подготовка</p>
+						<div class="training__content-heading training__accordion-header">
+							<div class="training__content-heading-text">
+								<h5>Тактическая подготовка</h5>
+								<p>Огневая и стрелковая подготовка</p>
+							</div>
+							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow">
 						</div>
 						<div class="training__content-description">
 							<p>Изучаются основы баллистики, технические характеристики оружия и
@@ -518,9 +584,12 @@
 						</div>
 					</div>
 					<div class="training__item">
-						<div class="training__content-heading">
-							<h5>Тактическая медицина</h5>
-							<p>Само- и взаимопомощь в боевых условиях</p>
+						<div class="training__content-heading training__accordion-header">
+							<div class="training__content-heading-text">
+								<h5>Тактическая медицина</h5>
+								<p>Само- и взаимопомощь в боевых условиях</p>
+							</div>
+							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow">
 						</div>
 						<div class="training__content-description">
 							<p>Интенсивный курс по оказанию первой помощи при боевых ранениях.
@@ -529,9 +598,12 @@
 						</div>
 					</div>
 					<div class="training__item">
-						<div class="training__content-heading">
-							<h5>Основы БПЛА</h5>
-							<p>Работа и противодействие беспилотникам</p>
+						<div class="training__content-heading training__accordion-header">
+							<div class="training__content-heading-text">
+								<h5>Основы БПЛА</h5>
+								<p>Работа и противодействие беспилотникам</p>
+							</div>
+							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow">
 						</div>
 						<div class="training__content-description">
 							<p>Курс включает изучение основных типов БПЛА, принципов их применения
@@ -564,7 +636,7 @@
 						<div class="faq__item-header">
 							<h6>Я гражданин Российской Федерации, хочу поступить на военную службу по
 								контракту. Куда обратиться?</h6>
-							<img src="./image/payments/chevron-down.svg" alt="">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
 						</div>
 						<p>Обучение работе с картами, топографическими обозначениями, а также использованию
 							электронных навигационных средств. На практике отрабатываются навыки ориентирования на местности,
@@ -574,35 +646,35 @@
 						<div class="faq__item-header">
 							<h6>На какой срок заключается контракт с Министерством обороны Российской
 								Федерации?</h6>
-							<img src="./image/payments/chevron-down.svg" alt="">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
 						</div>
 						<p></p>
 					</li>
 					<li>
 						<div class="faq__item-header">
 							<h6>Кто может стать контрактником?</h6>
-							<img src="./image/payments/chevron-down.svg" alt="">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
 						</div>
 						<p></p>
 					</li>
 					<li>
 						<div class="faq__item-header">
 							<h6>Каким должен быть уровень физической подготовки контрактника?</h6>
-							<img src="./image/payments/chevron-down.svg" alt="">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
 						</div>
 						<p></p>
 					</li>
 					<li>
 						<div class="faq__item-header">
 							<h6>Какие документы нужно предоставить при поступлении на службу по контракту?</h6>
-							<img src="./image/payments/chevron-down.svg" alt="">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
 						</div>
 						<p></p>
 					</li>
 					<li>
 						<div class="faq__item-header">
 							<h6>В каком соотношении служба по контракту учитывается в страховом стаже?</h6>
-							<img src="./image/payments/chevron-down.svg" alt="">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
 						</div>
 						<p></p>
 					</li>
@@ -638,38 +710,15 @@
 			<div class="address__content">
 				<h2 class="address__title">Где можно заключить контракт с МО РФ</h2>
 				<div class="address__choose-region">
-					<button class="address__region btn btn--primary">Алтайский край</button>
-					<button class="address__region btn btn--outlined">Алтайский край</button>
-					<button class="address__region btn btn--outlined">Алтайский край</button>
-					<button class="address__region btn btn--outlined">Алтайский край</button>
+					<button class="address__region btn btn--primary" data-region="altai">Алтайский край</button>
+					<button class="address__region btn btn--outlined" data-region="altai">Алтайский край</button>
+					<button class="address__region btn btn--outlined" data-region="altai">Алтайский край</button>
+					<button class="address__region btn btn--outlined" data-region="altai">Алтайский край</button>
 				</div>
 				<div class="address__map">
 					<div class="address__points">
 						<ul class="address__points-list">
-							<li class="address__point">
-								<h4 class="point__title">Барнаул, Юрина 289</h4>
-								<p class="point__description">Пункт отбора военнослужащих на контракт</p>
-								<a href="tel:+78005553535" class="point__phone">+7 800 555-35-35</a>
-								<p class="point__opening-hours">пн-пт <span class="point__hours">08:00 - 19:00</span></p>
-							</li>
-							<li class="address__point">
-								<h4 class="point__title">Барнаул, Юрина 289</h4>
-								<p class="point__description">Пункт отбора военнослужащих на контракт</p>
-								<a href="tel:+78005553535" class="point__phone">+7 800 555-35-35</a>
-								<p class="point__opening-hours">пн-пт <span class="point__hours">08:00 - 19:00</span></p>
-							</li>
-							<li class="address__point">
-								<h4 class="point__title">Барнаул, Юрина 289</h4>
-								<p class="point__description">Пункт отбора военнослужащих на контракт</p>
-								<a href="tel:+78005553535" class="point__phone">+7 800 555-35-35</a>
-								<p class="point__opening-hours">пн-пт <span class="point__hours">08:00 - 19:00</span></p>
-							</li>
-							<li class="address__point">
-								<h4 class="point__title">Барнаул, Юрина 289</h4>
-								<p class="point__description">Пункт отбора военнослужащих на контракт</p>
-								<a href="tel:+78005553535" class="point__phone">+7 800 555-35-35</a>
-								<p class="point__opening-hours">пн-пт <span class="point__hours">08:00 - 19:00</span></p>
-							</li>
+							<!-- Адресные точки будут загружены динамически через JavaScript -->
 						</ul>
 					</div>
 					<div class="address__map-display"></div>
@@ -682,9 +731,28 @@
 			Министерства обороны РФ или пунктом отбора на военную службу по контракту</p>
 		<a href="#" class="footer__pd">Политика обработки персональных данных</a>
 	</footer>
+	
+	<!-- Cookie Banner -->
+	<div class="cookie-banner">
+		<div class="cookie-banner__wrapper">
+			<div class="cookie-banner__content">
+				<div class="cookie-banner__text">
+					<h3>Используем куки для улучшения работы сайта</h3>
+					<p>Оставаясь с нами, вы соглашаетесь на использование файлов куки</p>
+				</div>
+				<button class="cookie-banner__button btn btn--outlined">Понятно</button>
+			</div>
+		</div>
+	</div>
+	
 	<script src="./scripts/header.js" defer></script>
 	<script src="./scripts/burger-menu.js" defer></script>
-	<script src="./scripts/main.js" defer></script>
+	<script src="./scripts/training.js" defer></script>
+	<script src="./scripts/faq.js" defer></script>
+	<script src="./scripts/guarantees_tabs.js" defer></script>
+	<script src="./scripts/payments.js" defer></script>
+	<script src="./scripts/address.js" defer></script>
+	<script src="./scripts/cookie-banner.js" defer></script>
 </body>
 
 </html>

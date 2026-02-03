@@ -1,0 +1,78 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/mixins' as *;
+
+.cookie-banner {
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	right: 0;
+	transform: translateX(-50%);
+	padding: $spacing-none-desktop;
+	z-index: 1000;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	max-width: 815px;
+	
+	&--visible {
+		opacity: 1;
+		visibility: visible;
+	}
+	
+	&__wrapper {
+		margin: 0 auto;
+		background-color: rgba(0, 0, 0, 0.85);
+		border-radius: $radius-lg-desktop;
+		padding: $spacing-lg-desktop;
+		position: relative;
+		transform: translateY(100%);
+		transition: transform 0.3s ease;
+		
+		.cookie-banner--visible & {
+			transform: translateY(0);
+		}
+	}
+	
+	&__content {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: $spacing-lg-desktop;
+	}
+	
+	&__text {
+		flex: 1;
+		
+		h3 {
+			margin: 0 0 $spacing-xxs-desktop 0;
+			font-size: $heading-6-desktop;
+			@include headline;
+			color: $text-inverse;
+		}
+		
+		p {
+			margin: 0;
+			font-size: $text-sm-desktop;
+			opacity: 0.9;
+			color: $text-inverse;
+		}
+	}
+	
+	&__button {
+		background-color: $text-inverse;
+		color: $text-default;
+		border: none;
+		padding: $spacing-sm-desktop $spacing-lg-desktop;
+		border-radius: $radius-xs-desktop;
+		font-size: $button-desktop;
+		font-weight: 500;
+		cursor: pointer;
+		transition: all 0.3s ease;
+		white-space: nowrap;
+		flex-shrink: 0;
+		
+		&:hover {
+			background-color: darken($text-inverse, 10%);
+		}
+	}
+}

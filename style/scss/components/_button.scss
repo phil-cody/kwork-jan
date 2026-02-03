@@ -17,7 +17,7 @@
 	cursor: pointer;
 	transition: all 0.3s ease;
 
-	// Primary variant (default - $primary background)
+	// Основной вариант (по умолчанию - фон $primary)
 	&--primary {
 		background-color: $primary;
 		color: $text-inverse;
@@ -27,7 +27,7 @@
 		}
 	}
 
-	// Dark variant ($text-default background)
+	// Темный вариант (фон $text-default)
 	&--dark {
 		background-color: $text-default;
 		color: $text-inverse;
@@ -37,7 +37,7 @@
 		}
 	}
 
-	// Outlined variant (border with transparent background)
+	// Контурный вариант (граница с прозрачным фоном)
 	&--outlined {
 		background-color: $background;
 		color: $text-default;
@@ -48,7 +48,7 @@
 		}
 	}
 
-	// Disabled state
+	// Состояние отключения
 	&:disabled,
 	&--disabled {
 		opacity: 0.5;

@@ -60,7 +60,7 @@
 						transparent 100%);
 
 				&::-webkit-scrollbar {
-					width: 3px;
+					width: $spacing-xxxs-desktop;
 				}
 
 				&::-webkit-scrollbar-track {

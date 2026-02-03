@@ -72,6 +72,10 @@
 		color: $text-inverse;
 	}
 
+	&__arrow {
+		display: none;
+	}
+
 	&__content-description p {
 		font-size: $text-md-desktop;
 	}
@@ -98,7 +102,7 @@
 			border-radius: $radius-lg-desktop;
 			padding: $spacing-md-desktop;
 			display: flex;
-			gap: $spacing-sm-desktop; // 15px -> 16px closest
+			gap: $spacing-sm-desktop;
 			align-items: flex-start;
 			flex: 0 0 50%;
 		}

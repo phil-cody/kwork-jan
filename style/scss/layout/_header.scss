@@ -55,8 +55,8 @@
 	}
 
 	&__contact-social {
-		display: block; // Ensure it wraps the image properly
-		position: relative; // Context for pseudo-element
+		display: block;
+		position: relative;
 		z-index: 10;
 		transition: opacity 0.2s ease;
 
@@ -94,7 +94,6 @@
 		white-space: nowrap;
 	}
 
-	// Correctly scope burger button outside of contact-social
 	&__burger-button {
 		display: none;
 	}
@@ -103,7 +102,6 @@
 		display: none;
 	}
 
-	// Sticky Modifier
 	&--sticky {
 		background-color: $text-default;
 		width: calc(100% - #{$spacing-xxxl-desktop * 2});

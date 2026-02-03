@@ -34,7 +34,7 @@ body {
 	width: 100%;
 }
 
-// Typography
+// Типографика
 h1,
 h2,
 h3,
@@ -69,26 +69,8 @@ h6 {
 	font-size: $heading-6-desktop;
 }
 
-// Global text selection style
+// Глобальный стиль выделения текста
 ::selection {
 	background: $primary;
 	color: $text-inverse;
-}
-
-// Scrollbar customization (optional, but good for premium feel)
-::-webkit-scrollbar {
-	width: 8px;
-}
-
-::-webkit-scrollbar-track {
-	background: $surface;
-}
-
-::-webkit-scrollbar-thumb {
-	background: $text-low;
-	border-radius: 4px;
-
-	&:hover {
-		background: $text-medium;
-	}
 }
