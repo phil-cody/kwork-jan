@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Добавление обработчика клика для отображения на карте
             li.addEventListener('click', () => {
                 // Выделение выбранной точки
-                document.querySelectorAll('.address__point').forEach(p => p.classList.remove('active'));
-                li.classList.add('active');
+                document.querySelectorAll('.address__point').forEach(p => p.classList.remove('address__point--active'));
+                li.classList.add('address__point--active');
                 
                 // Отображение на карте
                 updateMap(point.coordinates);

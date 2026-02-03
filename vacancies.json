@@ -1,0 +1,125 @@
+{
+  "divisions": [
+    {
+      "id": "motorized",
+      "name": "Мотострелковый батальон",
+      "positions": [
+        { "id": "motorized_1", "name": "Командир орудия", "count": 5 },
+        { "id": "motorized_2", "name": "Командир отделения", "count": 5 },
+        { "id": "motorized_3", "name": "Командир орудия", "count": 5 },
+        { "id": "motorized_4", "name": "Командир орудия", "count": 5 },
+        { "id": "motorized_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "motorized_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+    {
+      "id": "tank",
+      "name": "Танковый батальон",
+      "positions": [
+        { "id": "tank_1", "name": "Командир орудия", "count": 5 },
+        { "id": "tank_2", "name": "Командир отделения", "count": 5 },
+        { "id": "tank_3", "name": "Командир орудия", "count": 5 },
+        { "id": "tank_4", "name": "Командир орудия", "count": 5 },
+        { "id": "tank_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "tank_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+    {
+      "id": "howitzer",
+      "name": "Гаубично артиллерийский батальон",
+      "positions": [
+        { "id": "howitzer_1", "name": "Командир орудия", "count": 5 },
+        { "id": "howitzer_2", "name": "Командир отделения", "count": 5 },
+        { "id": "howitzer_3", "name": "Командир орудия", "count": 5 },
+        { "id": "howitzer_4", "name": "Командир орудия", "count": 5 },
+        { "id": "howitzer_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "howitzer_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+    {
+      "id": "atgm",
+      "name": "Батарея птур",
+      "positions": [
+        { "id": "atgm_1", "name": "Командир орудия", "count": 5 },
+        { "id": "atgm_2", "name": "Командир отделения", "count": 5 },
+        { "id": "atgm_3", "name": "Командир орудия", "count": 5 },
+        { "id": "atgm_4", "name": "Командир орудия", "count": 5 },
+        { "id": "atgm_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "atgm_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+    {
+      "id": "mlrs",
+      "name": "Реактивная артиллерийская батарея (грады)",
+      "positions": [
+        { "id": "mlrs_1", "name": "Командир орудия", "count": 5 },
+        { "id": "mlrs_2", "name": "Командир отделения", "count": 5 },
+        { "id": "mlrs_3", "name": "Командир орудия", "count": 5 },
+        { "id": "mlrs_4", "name": "Командир орудия", "count": 5 },
+        { "id": "mlrs_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "mlrs_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+    {
+      "id": "antiair",
+      "name": "Зенитная артиллерийская батарея",
+      "positions": [
+        { "id": "antiair_1", "name": "Командир орудия", "count": 5 },
+        { "id": "antiair_2", "name": "Командир отделения", "count": 5 },
+        { "id": "antiair_3", "name": "Командир орудия", "count": 5 },
+        { "id": "antiair_4", "name": "Командир орудия", "count": 5 },
+        { "id": "antiair_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "antiair_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+    {
+      "id": "recon",
+      "name": "Разведывательная рота",
+      "featured": true,
+      "positions": [
+        { "id": "recon_1", "name": "Командир орудия", "count": 5 },
+        { "id": "recon_2", "name": "Командир отделения", "count": 5 },
+        { "id": "recon_3", "name": "Командир орудия", "count": 5 },
+        { "id": "recon_4", "name": "Командир орудия", "count": 5 },
+        { "id": "recon_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "recon_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+    {
+      "id": "repair",
+      "name": "Ремонтная рота",
+      "positions": [
+        { "id": "repair_1", "name": "Командир орудия", "count": 5 },
+        { "id": "repair_2", "name": "Командир отделения", "count": 5 },
+        { "id": "repair_3", "name": "Командир орудия", "count": 5 },
+        { "id": "repair_4", "name": "Командир орудия", "count": 5 },
+        { "id": "repair_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "repair_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+    {
+      "id": "engineer",
+      "name": "Инженерная сапёрная рота",
+      "positions": [
+        { "id": "engineer_1", "name": "Командир орудия", "count": 5 },
+        { "id": "engineer_2", "name": "Командир отделения", "count": 5 },
+        { "id": "engineer_3", "name": "Командир орудия", "count": 5 },
+        { "id": "engineer_4", "name": "Командир орудия", "count": 5 },
+        { "id": "engineer_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "engineer_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+    {
+      "id": "command",
+      "name": "Рота управления",
+      "positions": [
+        { "id": "command_1", "name": "Командир орудия", "count": 5 },
+        { "id": "command_2", "name": "Командир отделения", "count": 5 },
+        { "id": "command_3", "name": "Командир орудия", "count": 5 },
+        { "id": "command_4", "name": "Командир орудия", "count": 5 },
+        { "id": "command_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "command_6", "name": "Командир орудия", "count": 5 }
+      ]
+    }
+  ]
+}

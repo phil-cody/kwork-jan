@@ -6,6 +6,8 @@
 @use "./layout/header";
 @use "./layout/footer";
 @use "./components/button";
+@use "./components/success";
+@use "./components/feedback-modal";
 @use "./sections/hero";
 @use "./sections/stages";
 @use "./sections/sticker";

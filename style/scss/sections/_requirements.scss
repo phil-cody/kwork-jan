@@ -83,6 +83,9 @@
 				color: $text-default;
 				font-size: $text-md-desktop;
 				margin-bottom: 6px;
+				display: flex;
+				flex-direction: column;
+				gap: 6px;
 
 				li::marker {
 					color: $primary;

@@ -23,6 +23,19 @@ body {
 	flex: 1 0 auto;
 }
 
+#stages,
+#payments,
+#vacancies,
+#requirements,
+#training,
+#faq {
+	scroll-margin-top: 72px;
+}
+
+#address {
+	scroll-margin-top: -174px;
+}
+
 .footer {
 	flex: 0 0 auto;
 }

@@ -4,6 +4,19 @@
 /* ========================================= Mobile (360px) ========================================= */
 @media (max-width: 360px) {
 
+	#stages,
+	#payments,
+	#vacancies,
+	#requirements,
+	#training,
+	#faq {
+		scroll-margin-top: 62px;
+	}
+
+	#address {
+	scroll-margin-top: 1px;
+}
+
 	// ===== HEADER & BURGER MENU =====
 	.header {
 		border-bottom: 1px solid rgba($background, 0.1);
@@ -553,19 +566,111 @@
 		}
 	}
 
-	// ===== VACANCIES SECTION (Mobile Flow) =====
+	// ===== VACANCIES SECTION =====
 	.vacancies {
-		&__title {}
+		background-image: url('../../image/vacancies/background-mobile.webp');
+		padding: $spacing-lg-mobile $spacing-md-mobile;
+		min-height: 1081px;
 
-		&__content {}
+		&__title {
+			font-size: $heading-2-mobile;
+			margin-bottom: 278px;
+			max-width: 78%;
+		}
 
-		&__content-item {}
+		&__content {
+			gap: $spacing-sm-mobile;
+		}
 
-		&__user-choice {}
+		&__content-item {
+			width: 100%;
+			display: none;
 
-		&__request {}
+			&--active {
+				display: flex;
+			}
 
-		&__pd {}
+			&--list {
+				margin-top: $spacing-sm-mobile;
+
+				h5 {
+					font-size: $heading-5-mobile;
+
+				}
+
+				ul {
+					padding-right: 0;
+					margin-top: $spacing-lg-mobile;
+				}
+
+				li {
+					font-size: $text-md-mobile;
+				}
+			}
+
+			&--form {
+				padding: $spacing-lg-mobile;
+
+				.vacancies__content-title--form {
+					font-size: $heading-3-mobile;
+					margin-bottom: calc($spacing-xxs-mobile + $spacing-xxxs-mobile);
+				}
+
+				.vacancies__content-text--form {
+					font-size: $text-md-mobile;
+					margin-bottom: $spacing-xl-mobile;
+				}
+			}
+		}
+
+		&__user-choice {
+			gap: $spacing-lg-mobile;
+			margin-bottom: $spacing-xl-mobile;
+
+			&-title {
+				font-size: $text-md-mobile;
+			}
+
+			&-text {
+				font-size: $text-md-mobile;
+			}
+		}
+
+		&__request {
+			gap: calc($spacing-xxs-mobile + $spacing-xxxs-mobile);
+			margin-bottom: $spacing-xl-mobile;
+
+			.request__field {
+				gap: $spacing-xxs-mobile;
+				border-radius: $radius-xs-mobile;
+				padding: $spacing-xs-mobile $spacing-sm-mobile;
+
+				label {
+					font-size: $text-sm-mobile;
+				}
+
+				.request__input {
+					font-size: $text-md-mobile;
+				}
+			}
+		}
+
+		&__pd {
+			gap: calc($spacing-xxs-mobile + $spacing-xxxs-mobile);
+
+			label {
+				font-size: $text-sm-mobile;
+			}
+		}
+
+		&__back-button {
+			display: flex;
+			align-items: center;
+			background: transparent;
+			border: none;
+			padding: 0;
+			cursor: pointer;
+		}
 	}
 
 	// ===== REQUIREMENTS SECTION =====
@@ -1003,4 +1108,81 @@
 			}
 		}
 	}
+
+	// ===== SUCCESS =====
+	.success {
+		&__content {
+			border-radius: $radius-lg-mobile;
+			padding: $spacing-lg-mobile;
+		}
+
+		&__icon {
+			margin-bottom: $spacing-lg-mobile;
+		}
+
+		&__title {
+			font-size: $heading-3-mobile;
+			margin-bottom: $spacing-xs-mobile;
+		}
+
+		&__text {
+			font-size: $text-md-mobile;
+			margin-bottom: $spacing-xxl-mobile;
+		}
+	}
+
+	// ===== FEEDBACK MODAL =====
+	.feedback-modal {
+		&__content {
+			margin: 0 $spacing-md-mobile;
+			padding: $spacing-lg-mobile;
+			max-width: none;
+		}
+
+		&__close {
+			top: $spacing-md-mobile;
+			right: $spacing-md-mobile;
+		}
+
+		&__title {
+			font-size: $heading-4-mobile;
+			margin-bottom: $spacing-xxs-mobile;
+		}
+
+		&__description {
+			font-size: $text-sm-mobile;
+			margin-bottom: $spacing-lg-mobile;
+		}
+
+		&__form {
+			gap: $spacing-xs-mobile;
+		}
+
+		&__field {
+			gap: $spacing-xxxs-mobile;
+			padding: $spacing-xxs-mobile $spacing-xs-mobile;
+
+			label {
+				font-size: $text-xs-mobile;
+			}
+
+			input {
+				font-size: $text-sm-mobile;
+			}
+		}
+
+		&__submit {
+			margin-top: $spacing-xs-mobile;
+		}
+
+		&__checkbox {
+			gap: $spacing-xxs-mobile;
+			margin-top: $spacing-xs-mobile;
+
+			label {
+				font-size: $text-xs-mobile;
+			}
+		}
+	}
+
 }

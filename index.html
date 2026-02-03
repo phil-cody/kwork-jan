@@ -18,22 +18,25 @@
 				<nav class="header__nav">
 					<ul class="header__nav-list">
 						<li class="header__nav-item">
-							<a href="#" class="header__nav-link">Этапы заключения контракта</a>
+							<a href="#stages" class="header__nav-link">Этапы заключения контракта</a>
 						</li>
 						<li class="header__nav-item">
-							<a href="#" class="header__nav-link">Выплаты и льготы</a>
+							<a href="#payments" class="header__nav-link">Выплаты и льготы</a>
 						</li>
 						<li class="header__nav-item">
-							<a href="#" class="header__nav-link">Вакансии</a>
+							<a href="#vacancies" class="header__nav-link">Вакансии</a>
 						</li>
 						<li class="header__nav-item">
-							<a href="#" class="header__nav-link">Обучение</a>
+							<a href="#training" class="header__nav-link">Обучение</a>
 						</li>
 						<li class="header__nav-item">
-							<a href="#" class="header__nav-link">Условия</a>
+							<a href="#requirements" class="header__nav-link">Условия</a>
 						</li>
 						<li class="header__nav-item">
-							<a href="#" class="header__nav-link">FAQ</a>
+							<a href="#faq" class="header__nav-link">FAQ</a>
+						</li>
+						<li class="header__nav-item">
+							<a href="#address" class="header__nav-link">Контакты</a>
 						</li>
 					</ul>
 				</nav>
@@ -74,22 +77,25 @@
 			<nav class="header__mobile-nav">
 				<ul class="header__mobile-nav-list">
 					<li class="header__mobile-nav-item">
-						<a href="#" class="header__mobile-nav-link">Этапы заключения контракта</a>
+						<a href="#stages" class="header__mobile-nav-link">Этапы заключения контракта</a>
 					</li>
 					<li class="header__mobile-nav-item">
-						<a href="#" class="header__mobile-nav-link">Выплаты и льготы</a>
+						<a href="#payments" class="header__mobile-nav-link">Выплаты и льготы</a>
 					</li>
 					<li class="header__mobile-nav-item">
-						<a href="#" class="header__mobile-nav-link">Вакансии</a>
+						<a href="#vacancies" class="header__mobile-nav-link">Вакансии</a>
 					</li>
 					<li class="header__mobile-nav-item">
-						<a href="#" class="header__mobile-nav-link">Обучение</a>
+						<a href="#training" class="header__mobile-nav-link">Обучение</a>
 					</li>
 					<li class="header__mobile-nav-item">
-						<a href="#" class="header__mobile-nav-link">Условия</a>
+						<a href="#requirements" class="header__mobile-nav-link">Условия</a>
 					</li>
 					<li class="header__mobile-nav-item">
-						<a href="#" class="header__mobile-nav-link">FAQ</a>
+						<a href="#faq" class="header__mobile-nav-link">FAQ</a>
+					</li>
+					<li class="header__mobile-nav-item">
+						<a href="#address" class="header__mobile-nav-link">Контакты</a>
 					</li>
 				</ul>
 			</nav>
@@ -145,7 +151,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="stages">
+		<section class="stages" id="stages">
 			<div class="stages__container">
 				<h2 class="stages__title">Этапы заключения контракта</h2>
 				<div class="stages__docs">
@@ -221,7 +227,7 @@
 			</div>
 			<button class="sticker__cta btn btn--dark">Узнать условия для меня</button>
 		</section>
-		<section class="payments">
+		<section class="payments" id="payments">
 			<div class="payments__container">
 				<h2 class="payments__title">Выплаты и соц гарантии при заключении контракта</h2>
 				<div class="payments__content">
@@ -419,61 +425,56 @@
 				</div>
 			</div>
 		</section>
-		<section class="vacancies">
+		<section class="vacancies" id="vacancies">
 			<h2 class="vacancies__title">На какую вакансию хотели бы пойти?</h2>
 			<div class="vacancies__content">
 				<div class="vacancies__content-item vacancies__content-item--list">
 					<h5>Подразделение</h5>
-					<ul>
-						<li>Мотострелковый батальон</li>
-						<li>Танковый батальон</li>
-						<li>Гаубично артиллерийский батальон</li>
-						<li>Батарея птур</li>
-						<li>Реактивная артиллерийская батарея (грады)</li>
-						<li>Зенитная артиллерийская батарея</li>
-						<li>Разведывательная рота
-							<img src="./image/vacancies/Star.svg" alt="">
-						</li>
-						<li>Ремонтная рота</li>
-						<li>Инженерная сапёрная рота</li>
-						<li>Рота управления</li>
+					<ul id="divisions-list">
+						<!-- Динамическое заполнение из JavaScript -->
 					</ul>
 				</div>
 				<div class="vacancies__content-item vacancies__content-item--list">
-					<h5>Должность</h5>
-					<ul>
-						<li>Командир орудия – 5 шт</li>
-						<li>Командир отделения – 5 шт</li>
-						<li>Командир орудия – 5 шт</li>
-						<li>Командир орудия – 5 шт</li>
-						<li>Командир орудия – 5 шт</li>
-						<li>Командир орудия – 5 шт</li>
+					<div class="vacancies__content-header--form">
+						<button class="vacancies__back-button">
+							<img src="./image/vacancies/arrow-back.svg" alt="back button" class="vacancies__back-button--icon">
+						</button>
+						<h5>Должность</h5>
+					</div>
+					<ul id="positions-list">
+						<!-- Динамическое заполнение из JavaScript -->
 					</ul>
 				</div>
 				<div class="vacancies__content-item vacancies__content-item--form">
-					<h3 class="vacancies__content-title--form">Оставить заявку</h3>
+					<div class="vacancies__content-header--form">
+						<button class="vacancies__back-button">
+							<img src="./image/vacancies/arrow-back-dark.svg" alt="back button" class="vacancies__back-button--icon">
+						</button>
+						<h3 class="vacancies__content-title--form">Оставить заявку</h3>
+					</div>
 					<p class="vacancies__content-text--form">Мы объясняем условия до подписания, консультируем и остаёмся на связи
 					</p>
 					<div class="vacancies__user-choice">
 						<div class="vacancies__user-choice-item">
 							<h6 class="vacancies__user-choice-title">Подразделение</h6>
-							<p class="vacancies__user-choice-text">Батарея птур</p>
+							<p class="vacancies__user-choice-text" id="choice-division">—</p>
 						</div>
 						<div class="vacancies__user-choice-item">
 							<h6 class="vacancies__user-choice-title">Должность</h6>
-							<p class="vacancies__user-choice-text">Командир отделения</p>
+							<p class="vacancies__user-choice-text" id="choice-position">—</p>
 						</div>
 					</div>
 					<form action="" class="vacancies__request">
 						<div class="request__field">
 							<label for="phone">Номер телефона</label>
-							<input type="tel" name="phone" id="phone" placeholder="+7 911 123-44-67" class="request__input">
+							<input type="tel" name="phone" id="phone" placeholder="+7 911 123-44-67" class="request__input" required>
 						</div>
 						<div class="request__field">
 							<label for="name">ФИО</label>
-							<input type="text" name="name" id="name" placeholder="Иванов Иван Иванович" class="request__input">
+							<input type="text" name="name" id="name" placeholder="Иванов Иван Иванович" class="request__input"
+								required>
 						</div>
-						<button class="request__submit btn btn--dark" type="submit">Хочу служить</button>
+						<button class="request__submit btn btn--dark btn--disabled" type="submit" disabled>Хочу служить</button>
 					</form>
 					<div class="vacancies__pd">
 						<input class="vacancies__pd-checkbox" name="pd-checkbox" id="pd-checkbox" type="checkbox">
@@ -482,7 +483,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="requirements">
+		<section class="requirements" id="requirements">
 			<h2 class="requirements__title">Требования к кандидатам и условия прохождения службы</h2>
 			<div class="requirements__content">
 				<div class="requirements__block">
@@ -530,7 +531,7 @@
 			</div>
 			<img src="./image/requirements/Subtract.png" alt="" class="requirements__substract">
 		</section>
-		<section class="training">
+		<section class="training" id="training">
 			<div class="training__header">
 				<h2 class="training__title">Как проходит обучение после прибытия в часть</h2>
 				<div class="training__sticker">
@@ -626,7 +627,7 @@
 			</div>
 			<img src="./image/training/bottom.webp" alt="" class="training__bottom-substract">
 		</section>
-		<section class="faq">
+		<section class="faq" id="faq">
 			<div class="faq__title">
 				<h2 class="faq__title-text">Часто задаваемые вопросы</h2>
 			</div>
@@ -705,7 +706,7 @@
 				</div>
 			</div>
 		</section>
-		<section class="address">
+		<section class="address" id="address">
 			<img src="./image/payments/Subtract.png" alt="" class="address__substract">
 			<div class="address__content">
 				<h2 class="address__title">Где можно заключить контракт с МО РФ</h2>
@@ -731,8 +732,6 @@
 			Министерства обороны РФ или пунктом отбора на военную службу по контракту</p>
 		<a href="#" class="footer__pd">Политика обработки персональных данных</a>
 	</footer>
-	
-	<!-- Cookie Banner -->
 	<div class="cookie-banner">
 		<div class="cookie-banner__wrapper">
 			<div class="cookie-banner__content">
@@ -744,7 +743,48 @@
 			</div>
 		</div>
 	</div>
-	
+	<div class="success" id="success-modal">
+		<div class="success__content">
+			<div class="success__icon">
+				<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+						stroke-linejoin="round" />
+				</svg>
+			</div>
+			<h2 class="success__title">Заявка отправлена</h2>
+			<p class="success__text">Спасибо, мы свяжемся с вами в течение рабочего дня</p>
+			<button class="success__button btn btn--dark" id="close-success-modal">Понятно</button>
+		</div>
+	</div>
+
+	<!-- Feedback Modal -->
+	<div class="feedback-modal" id="feedback-modal">
+		<div class="feedback-modal__content">
+			<button class="feedback-modal__close" id="close-feedback-modal" aria-label="Закрыть">
+				<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</button>
+			<h2 class="feedback-modal__title">Узнать условия</h2>
+			<p class="feedback-modal__description">Мы объясняем условия до подписания, консультируем и остаёмся на связи</p>
+			<form class="feedback-modal__form" id="feedback-form">
+				<div class="feedback-modal__field">
+					<label for="feedback-phone">Номер телефона</label>
+					<input type="tel" name="phone" id="feedback-phone" placeholder="+7 911 123-44-67" required>
+				</div>
+				<div class="feedback-modal__field">
+					<label for="feedback-name">ФИО</label>
+					<input type="text" name="name" id="feedback-name" placeholder="Иванов Иван Иванович" required>
+				</div>
+				<button class="feedback-modal__submit btn btn--dark btn--disabled" type="submit" disabled>Отправить заявку</button>
+				<div class="feedback-modal__checkbox">
+					<input type="checkbox" name="consent" id="feedback-consent" required>
+					<label for="feedback-consent">Я даю согласие на обработку персональных данных</label>
+				</div>
+			</form>
+		</div>
+	</div>
+
 	<script src="./scripts/header.js" defer></script>
 	<script src="./scripts/burger-menu.js" defer></script>
 	<script src="./scripts/training.js" defer></script>
@@ -752,6 +792,8 @@
 	<script src="./scripts/guarantees_tabs.js" defer></script>
 	<script src="./scripts/payments.js" defer></script>
 	<script src="./scripts/address.js" defer></script>
+	<script src="./scripts/vacancies.js" defer></script>
+	<script src="./scripts/feedback-modal.js" defer></script>
 	<script src="./scripts/cookie-banner.js" defer></script>
 </body>
 
