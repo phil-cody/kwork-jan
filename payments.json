@@ -25,20 +25,63 @@
     ],
     "injuries": [
       {
-        "amount": "",
-        "description": ""
+        "amount": "тест",
+        "description": "тест"
       }
     ],
     "family": [
       {
-        "amount": "",
-        "description": ""
+        "amount": "тест",
+        "description": "тест"
       }
     ],
     "additional": [
       {
-        "amount": "",
-        "description": ""
+        "amount": "тест",
+        "description": "тест"
+      }
+    ]
+  },
+  "other": {
+    "name": "Другой город",
+    "payments": [
+      {
+        "amount": "до 3 200 000 ₽",
+        "description": "Региональные"
+      },
+      {
+        "amount": "500 000 ₽",
+        "description": "Единовременная выплата от МО РФ независимо от региона"
+      },
+      {
+        "amount": "до 15 000 000 ₽",
+        "description": "Списание долгов"
+      },
+      {
+        "amount": "от 310 000 ₽",
+        "description": "Ежемесячное денежное довольствие"
+      },
+      {
+        "amount": "4 582 000 ₽",
+        "description": "Ежемесячная выплата ветеранам боевых действий"
+      }
+    ],
+    "injuries": [
+      {
+        "amount": "тест",
+        "description": "тест"
+      }
+    ],
+    "family": [
+      {
+        "amount": "тест",
+        "description": "тест"
+      }
+    ],
+    "additional": [
+      {
+        "amount": "тест",
+        "description": "тест"
       }
     ]
   }
