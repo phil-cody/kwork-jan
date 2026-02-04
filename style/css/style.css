@@ -1301,7 +1301,7 @@ h6 {
 }
 .requirements__block:nth-child(5) .requirements__conditions-img {
   position: absolute;
-  top: 24px;
+  bottom: 0;
   right: 61px;
   pointer-events: none;
 }

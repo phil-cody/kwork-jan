@@ -109,7 +109,7 @@
 				{ "id": "engineer_6", "name": "Командир орудия", "count": 5 }
       ]
     },
-    {
+		{
       "id": "command",
       "name": "Рота управления",
       "positions": [
@@ -119,6 +119,54 @@
         { "id": "command_4", "name": "Командир орудия", "count": 5 },
         { "id": "command_5", "name": "Командир орудия", "count": 5 },
 				{ "id": "command_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+    {
+      "id": "material",
+      "name": "Рота материального обеспечения",
+      "positions": [
+        { "id": "material_1", "name": "Командир орудия", "count": 5 },
+        { "id": "material_2", "name": "Командир отделения", "count": 5 },
+        { "id": "material_3", "name": "Командир орудия", "count": 5 },
+        { "id": "material_4", "name": "Командир орудия", "count": 5 },
+        { "id": "material_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "material_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+		{
+      "id": "radio",
+      "name": "Рота радиоэлектронной борьбы",
+      "positions": [
+        { "id": "radio_1", "name": "Командир орудия", "count": 5 },
+        { "id": "radio_2", "name": "Командир отделения", "count": 5 },
+        { "id": "radio_3", "name": "Командир орудия", "count": 5 },
+        { "id": "radio_4", "name": "Командир орудия", "count": 5 },
+        { "id": "radio_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "radio_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+		{
+      "id": "fpv",
+      "name": "Взвод беспилотных систем (БПЛА, FPV)",
+      "positions": [
+        { "id": "fpv_1", "name": "Командир орудия", "count": 5 },
+        { "id": "fpv_2", "name": "Командир отделения", "count": 5 },
+        { "id": "fpv_3", "name": "Командир орудия", "count": 5 },
+        { "id": "fpv_4", "name": "Командир орудия", "count": 5 },
+        { "id": "fpv_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "fpv_6", "name": "Командир орудия", "count": 5 }
+      ]
+    },
+		{
+      "id": "minomet",
+      "name": "Миномётная батарея",
+      "positions": [
+        { "id": "minomet_1", "name": "Командир орудия", "count": 5 },
+        { "id": "minomet_2", "name": "Командир отделения", "count": 5 },
+        { "id": "minomet_3", "name": "Командир орудия", "count": 5 },
+        { "id": "minomet_4", "name": "Командир орудия", "count": 5 },
+        { "id": "minomet_5", "name": "Командир орудия", "count": 5 },
+				{ "id": "minomet_6", "name": "Командир орудия", "count": 5 }
       ]
     }
   ]
