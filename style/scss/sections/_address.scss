@@ -76,7 +76,7 @@
 		}
 
 		&:hover,
-		&--active {
+		&.active {
 			background-color: rgba($background, 0.2);
 		}
 
@@ -117,6 +117,8 @@
 	&__map-display {
 		flex-grow: 1;
 		background-color: #ddd;
-		filter: grayscale(100%) brightness(105%) contrast(90%); 
+		filter: grayscale(100%) brightness(105%) contrast(90%);
+
+		font-family: inherit;
 	}
 }

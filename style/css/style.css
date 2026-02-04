@@ -1597,7 +1597,7 @@ h6 {
 .address__point + .address__point {
   border-top: none;
 }
-.address__point:hover, .address__point--active {
+.address__point:hover, .address__point.active {
   background-color: rgba(255, 255, 255, 0.2);
 }
 .address__point .point__title {
@@ -1636,6 +1636,7 @@ h6 {
   flex-grow: 1;
   background-color: #ddd;
   filter: grayscale(100%) brightness(105%) contrast(90%);
+  font-family: inherit;
 }
 
 .cookie-banner {

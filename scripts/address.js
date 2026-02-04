@@ -16,14 +16,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 	let currentRegion = 'altai';
 	let mapInstance = null;
-	let placemark = null;
 
-	// Функция для обновления карты и маркера
-	function updateMap(coordinates) {
+	// Функция для обновления карты и маркеров
+	function updateMap(points) {
 		if (typeof ymaps === 'undefined' || !ymaps.Map) {
 			console.warn('API Яндекс.Карт не готово');
 			return;
 		}
+
+		// Если точек нет, ничего не делаем
+		if (!points || points.length === 0) return;
+
+		// Центральная точка для начальной инициализации (берем первую)
+		const centerPoint = points[0].coordinates;
 
 		if (!mapInstance) {
 			// Очистка контейнера перед инициализацией
@@ -31,39 +36,45 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 			// Создание новой карты при первой инициализации
 			mapInstance = new ymaps.Map(mapDisplay, {
-				center: coordinates,
-				zoom: 15,
+				center: centerPoint,
+				zoom: 12,
 				controls: ['zoomControl']
 			});
 			mapInstance.behaviors.disable('scrollZoom');
-
-			// Добавление обработчика клика на саму карту
-			mapInstance.events.add('click', (e) => {
-				const clickCoords = e.get('coords');
-				updateMap(clickCoords);
-			});
-		} else {
-			// Плавное перемещение центра карты
-			mapInstance.setCenter(coordinates, 15, {
-				checkZoomRange: true,
-				duration: 500
-			});
 		}
 
-		// Удаление предыдущего маркера
-		if (placemark) {
-			mapInstance.geoObjects.remove(placemark);
-		}
+		// Удаляем все старые маркеры
+		mapInstance.geoObjects.removeAll();
 
-		// Добавление нового маркера
-		placemark = new ymaps.Placemark(coordinates, {
-			balloonContent: `<strong>Пункт отбора</strong>`
-		}, {
-			preset: 'islands#icon',
-			iconColor: '#566A84'
+		// Добавляем новые маркеры для всех точек
+		points.forEach(point => {
+			const placemark = new ymaps.Placemark(point.coordinates, {}, {
+				// Настройки кастомной иконки
+				iconLayout: 'default#image',
+				iconImageHref: './image/address/baloon.svg',
+				iconImageSize: [29, 35],
+				iconImageOffset: [-14.5, -35],
+				hasBalloon: false,
+				cursor: 'pointer'
+			});
+
+			// При клике на маркер центрируем карту и выделяем пункт в списке
+			placemark.events.add('click', () => {
+				mapInstance.setCenter(point.coordinates, 15, { duration: 500 });
+
+				// Выделяем соответствующий пункт в списке
+				document.querySelectorAll('.address__point').forEach(p => {
+					if (p.dataset.pointId == point.id) {
+						p.classList.add('active');
+						p.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+					} else {
+						p.classList.remove('active');
+					}
+				});
+			});
+
+			mapInstance.geoObjects.add(placemark);
 		});
-
-		mapInstance.geoObjects.add(placemark);
 	}
 
 	// Рендер точек адресов
@@ -72,6 +83,11 @@ document.addEventListener('DOMContentLoaded', async () => {
 		if (!region || !pointsList) return;
 
 		pointsList.innerHTML = '';
+
+		// Обновляем карту со всеми точками региона
+		if (region.points.length > 0) {
+			updateMap(region.points);
+		}
 
 		region.points.forEach(point => {
 			const li = document.createElement('li');
@@ -91,8 +107,10 @@ document.addEventListener('DOMContentLoaded', async () => {
 				document.querySelectorAll('.address__point').forEach(p => p.classList.remove('active'));
 				li.classList.add('active');
 
-				// Отображение на карте
-				updateMap(point.coordinates);
+				// Центрирование карты на выбранной точке
+				if (mapInstance) {
+					mapInstance.setCenter(point.coordinates, 15, { duration: 500 });
+				}
 			});
 
 			pointsList.appendChild(li);
@@ -129,7 +147,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 			// Инициализация карты с первой точкой если доступна
 			const firstRegion = addressData.regions.find(r => r.id === currentRegion);
 			if (firstRegion && firstRegion.points.length > 0) {
-				updateMap(firstRegion.points[0].coordinates);
+				updateMap(firstRegion.points);
 			}
 		});
 	};
