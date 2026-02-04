@@ -1714,6 +1714,17 @@ h6 {
 
 /* ========================================= Tablet (1024px) ========================================= */
 @media (max-width: 1024px) {
+  #stages,
+  #payments,
+  #vacancies,
+  #requirements,
+  #training,
+  #faq {
+    scroll-margin-top: 77px;
+  }
+  #address {
+    scroll-margin-top: 0;
+  }
   .header__content {
     padding: 16px;
   }
@@ -1884,6 +1895,26 @@ h6 {
   }
   .requirements__content {
     padding: 0 40px 40px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+  }
+  .requirements__block:nth-child(-n+3) {
+    min-height: 200px;
+  }
+  .requirements__block:nth-child(4) {
+    grid-column: 1/4;
+    grid-row: 2;
+    min-height: 150px;
+  }
+  .requirements__block:nth-child(5) {
+    grid-column: 1/4;
+    grid-row: 3;
+  }
+  .requirements__block:nth-child(5) .requirements__conditions ul {
+    max-width: 80%;
+  }
+  .requirements__block:nth-child(5) .requirements__conditions-img {
+    right: 0;
   }
   .faq {
     padding: 40px 40px 20px;
@@ -1892,111 +1923,145 @@ h6 {
     flex-direction: column-reverse;
   }
 }
-/* ========================================= Mobile (430px) ========================================= */
-@media (max-width: 430px) {
-  #stages,
-  #payments,
-  #vacancies,
-  #requirements,
-  #training,
-  #faq {
-    scroll-margin-top: 62px;
-  }
-  #address {
-    scroll-margin-top: 1px;
-  }
-  .header {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-  .header--sticky {
-    width: 100%;
-    margin: 0;
-    border-radius: 0;
-    background-color: #0c1625;
-  }
-  .header--sticky .header__content {
-    padding: 16px;
-  }
+/* ========================================= Tablet (887px) ========================================= */
+@media (max-width: 887px) {
   .hero {
-    background-image: url("../../image/hero/hero-background-mobile.png");
-    height: 959px;
-    padding: 54px 16px 0;
-  }
-  .hero__text-container {
-    max-width: 100%;
-    margin-top: 290px;
+    padding: 100px 40px 40px 40px;
   }
   .hero__title {
-    font-size: 32px;
-  }
-  .hero__subtitle {
-    font-size: 14px;
-  }
-  .hero__item-block h3 {
-    font-size: 16px;
-  }
-  .hero__item-block p {
-    font-size: 12px;
-  }
-  .hero__text-cta {
-    width: 100%;
-  }
-  .stages {
-    padding: 40px 16px 0;
-  }
-  .stages__container {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, auto);
-    gap: 24px;
-  }
-  .stages__container::before {
-    grid-column: 1;
-    grid-row: 3;
-    width: 100%;
-    height: 1px;
+    font-size: 50px;
   }
   .stages__title {
     font-size: 32px;
   }
-  .stages__docs {
-    gap: 16px;
-    grid-row: 4;
+  .payments__title {
+    font-size: 32px;
   }
-  .stages__docs h4 {
+  .payments__category-content li {
+    min-width: 200px;
+    min-height: 200px;
+  }
+  .payments__category-content li h5 {
+    font-size: 18px;
+  }
+  .payments__content li p, .payments__category-content li p {
+    font-size: 14px;
+  }
+  .guarantees__title {
+    font-size: 32px;
+  }
+  .vacancies__title {
+    font-size: 32px;
+  }
+  .vacancies__content-item {
+    width: calc((100% - 32px) / 2);
+    display: none;
+  }
+  .vacancies__content-item--active {
+    display: flex;
+  }
+  .vacancies__content-item--list .vacancies__content-item--active {
+    display: flex;
+  }
+  .vacancies__content-item--list {
+    margin-top: 14px;
+  }
+  .vacancies__content-item--list h5 {
+    font-size: 18px;
+  }
+  .vacancies__content-item--list ul {
+    padding-right: 0;
+    margin-top: 18px;
+  }
+  .vacancies__content-item--list li {
+    font-size: 14px;
+  }
+  .vacancies__content-item--form {
+    display: flex;
+    padding: 18px;
+  }
+  .vacancies__content-item--form .vacancies__back-button {
+    display: none;
+  }
+  .vacancies__content-item--form .vacancies__content-title--form {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .vacancies__content-item--form .vacancies__content-text--form {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .vacancies__back-button {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+  .requirements__title {
+    font-size: 32px;
+  }
+  .training__title {
+    font-size: 32px;
+  }
+  .training__footer .training__content-heading h6 {
+    max-width: 400px;
+  }
+  .faq__title-text {
+    font-size: 32px;
+  }
+  .address__title {
+    font-size: 32px;
+  }
+  .address__points {
+    width: 35%;
+  }
+  .address__point .point__title {
     font-size: 16px;
   }
-  .stages__docs ul {
-    padding-left: 16px;
-    gap: 6px;
-  }
-  .stages__docs li {
+  .address__point .point__description {
     font-size: 14px;
   }
-  .stages__docs a {
-    gap: 6px;
+  .address__point .point__phone {
     font-size: 14px;
-    margin-top: 0;
+    margin-top: 10px;
   }
-  .stages__steps-list {
-    grid-column: 1;
-    grid-row: 2;
-    gap: 20px;
+  .address__point .point__opening-hours {
+    font-size: 14px;
   }
-  .stages__step {
-    gap: 14px;
-  }
-  .stages__step-icon {
-    width: 54px;
-    height: 54px;
-    border-radius: 16px;
-  }
-  .stages__step-img {
-    width: 32px;
-    height: 32px;
-  }
-  .stages__step-content {
+  .footer {
+    flex-direction: column;
+    justify-content: flex-start;
     gap: 6px;
+    align-items: flex-start;
   }
+  .footer__note {
+    font-size: 14px;
+  }
+  .footer__pd {
+    font-size: 14px;
+  }
+  .cookie-banner {
+    width: 100%;
+  }
+  .cookie-banner__wrapper {
+    border-radius: 20px;
+    padding: 18px;
+  }
+  .cookie-banner__content {
+    gap: 18px;
+  }
+  .cookie-banner__text h3 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+  }
+  .cookie-banner__text p {
+    font-size: 12px;
+  }
+}
+/* ========================================= Tablet (719px) ========================================= */
+@media (max-width: 719px) {
   .stages__step-title {
     font-size: 14px;
   }
@@ -2024,29 +2089,8 @@ h6 {
   .sticker__cta {
     width: 100%;
   }
-  .payments {
-    background-color: #fff;
-  }
-  .payments__container {
-    padding: 0 16px;
-    gap: 20px;
-  }
-  .payments__title {
-    font-size: 32px;
-  }
-  .payments__content-header {
-    margin-bottom: 20px;
-    flex-direction: column;
-    gap: 16px;
-  }
-  .payments__header-category {
-    display: none !important;
-  }
-  .payments__header-city {
-    width: 100%;
-  }
   .payments__city-toggle {
-    width: 100%;
+    width: 150px;
     padding: 10px 14px;
     justify-content: space-between;
   }
@@ -2060,54 +2104,9 @@ h6 {
     width: 20px;
     height: 20px;
   }
-  .payments__city-dropdown {
-    width: 100%;
-  }
-  .payments__category-section {
-    display: block;
-    padding: 20px 0;
-    border-bottom: 1px solid #d5d7da;
-    overflow: hidden;
-  }
-  .payments__category-header {
-    display: flex !important;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-  }
-  .payments__category-header h5 {
-    font-family: "Golos Text", sans-serif;
-    font-weight: 500;
-    line-height: 100%;
-    letter-spacing: -0.04em;
-    font-size: 20px;
-    margin: 0;
-    color: #0c1625;
-  }
-  .payments__category-arrow {
-    display: block;
-    width: 20px;
-    height: 20px;
-    transition: transform 0.3s ease;
-    flex-shrink: 0;
-  }
-  .payments__category-content {
-    display: none;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 16px;
-    margin-bottom: 0;
-  }
-  .payments__category-content.active {
-    display: flex !important;
-    animation: fadeIn 0.3s ease;
-  }
-  .payments__category-section.active .payments__category-arrow {
-    transform: rotate(180deg);
-  }
   .payments__category-content li {
-    width: 100%;
-    min-height: auto;
+    min-height: 150px;
+    min-width: 150px;
     padding: 18px;
     border-radius: 18px;
     gap: 10px;
@@ -2117,16 +2116,6 @@ h6 {
   }
   .payments__category-content li p {
     font-size: 14px;
-  }
-  .payments__note {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-  .payments__note span {
-    font-size: 14px;
-  }
-  .guarantees {
-    padding: 24px 16px;
   }
   .guarantees__title {
     font-size: 32px;
@@ -2212,145 +2201,8 @@ h6 {
       transform: translateY(0);
     }
   }
-  .vacancies {
-    background-image: url("../../image/vacancies/background-mobile.webp");
-    padding: 18px 16px;
-    min-height: 1081px;
-  }
   .vacancies__title {
-    font-size: 32px;
-    margin-bottom: 278px;
-    max-width: 78%;
-  }
-  .vacancies__content {
-    gap: 14px;
-  }
-  .vacancies__content-item {
-    width: 100%;
-    display: none;
-  }
-  .vacancies__content-item--active {
-    display: flex;
-  }
-  .vacancies__content-item--list {
-    margin-top: 14px;
-  }
-  .vacancies__content-item--list h5 {
-    font-size: 18px;
-  }
-  .vacancies__content-item--list ul {
-    padding-right: 0;
-    margin-top: 18px;
-  }
-  .vacancies__content-item--list li {
-    font-size: 14px;
-  }
-  .vacancies__content-item--form {
-    padding: 18px;
-  }
-  .vacancies__content-item--form .vacancies__content-title--form {
-    font-size: 24px;
-    margin-bottom: 6px;
-  }
-  .vacancies__content-item--form .vacancies__content-text--form {
-    font-size: 14px;
-    margin-bottom: 20px;
-  }
-  .vacancies__user-choice {
-    gap: 18px;
-    margin-bottom: 20px;
-  }
-  .vacancies__user-choice-title {
-    font-size: 14px;
-  }
-  .vacancies__user-choice-text {
-    font-size: 14px;
-  }
-  .vacancies__request {
-    gap: 6px;
-    margin-bottom: 20px;
-  }
-  .vacancies__request .request__field {
-    gap: 4px;
-    border-radius: 10px;
-    padding: 10px 14px;
-  }
-  .vacancies__request .request__field label {
-    font-size: 12px;
-  }
-  .vacancies__request .request__field .request__input {
-    font-size: 14px;
-  }
-  .vacancies__pd {
-    gap: 6px;
-  }
-  .vacancies__pd label {
-    font-size: 12px;
-  }
-  .vacancies__back-button {
-    display: flex;
-    align-items: center;
-    background: transparent;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-  }
-  .requirements__title {
-    font-size: 32px;
-    margin: 40px 16px 28px;
-  }
-  .requirements__content {
-    padding: 0 16px 54px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-  .requirements__block {
-    width: 100%;
-    min-height: 0;
-    border-radius: 28px;
-    padding: 16px;
-    flex-direction: row-reverse;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
-  }
-  .requirements__block h4 {
-    font-size: 16px;
-  }
-  .requirements__block:nth-child(-n+3) .requirements__block-img-container {
-    width: 54px;
-    height: 54px;
-    border-radius: 10px;
-  }
-  .requirements__block:nth-child(4) {
-    flex-direction: column;
-    padding: 18px;
-  }
-  .requirements__block:nth-child(4) p {
-    font-size: 14px;
-    max-width: 100%;
-  }
-  .requirements__block:nth-child(5) {
-    padding: 18px;
-  }
-  .requirements__block:nth-child(5) .requirements__conditions {
-    max-width: 100%;
-    gap: 6px;
-  }
-  .requirements__block:nth-child(5) .requirements__block p {
-    font-size: 14px;
-    max-width: 100%;
-  }
-  .requirements__block:nth-child(5) .requirements__conditions ul {
-    font-size: 14px;
-    margin-bottom: 161px;
-  }
-  .requirements__block:nth-child(5) .requirements__conditions-img {
-    width: 188px;
-    right: 0;
-    bottom: 0;
-    top: auto;
+    margin-bottom: 600px;
   }
   .training {
     background-color: #0c1625;
@@ -2359,8 +2211,6 @@ h6 {
     flex-direction: column;
     align-items: flex-start;
     gap: 28px;
-    padding: 0 16px;
-    margin-bottom: 0;
   }
   .training__title {
     font-size: 32px;
@@ -2377,9 +2227,6 @@ h6 {
   }
   .training__sticker p {
     font-size: 14px;
-  }
-  .training__content {
-    padding: 0 16px;
   }
   .training__table {
     display: flex;
@@ -2549,6 +2396,341 @@ h6 {
   .faq__contact-hours {
     font-size: 14px;
   }
+}
+/* ========================================= Mobile (540px) ========================================= */
+@media (max-width: 540px) {
+  #stages,
+  #payments,
+  #vacancies,
+  #requirements,
+  #training,
+  #faq {
+    scroll-margin-top: 61px;
+  }
+  #address {
+    scroll-margin-top: -30px;
+  }
+  .header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .header--sticky {
+    width: 100%;
+    margin: 0;
+    border-radius: 0;
+    background-color: #0c1625;
+  }
+  .header--sticky .header__content {
+    padding: 16px;
+  }
+  .hero {
+    background-image: url("../../image/hero/hero-background-large-mobile.png");
+    height: 1140px;
+    padding: 54px 16px 0;
+  }
+  .hero__text-container {
+    max-width: 100%;
+    margin-top: 470px;
+  }
+  .hero__title {
+    font-size: 32px;
+  }
+  .hero__subtitle {
+    font-size: 14px;
+  }
+  .hero__item-block h3 {
+    font-size: 16px;
+  }
+  .hero__item-block p {
+    font-size: 12px;
+  }
+  .hero__text-cta {
+    width: 100%;
+  }
+  .stages {
+    padding: 40px 16px 0;
+  }
+  .stages__container {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+    gap: 24px;
+  }
+  .stages__container::before {
+    grid-column: 1;
+    grid-row: 3;
+    width: 100%;
+    height: 1px;
+  }
+  .stages__title {
+    font-size: 32px;
+  }
+  .stages__docs {
+    gap: 16px;
+    grid-row: 4;
+  }
+  .stages__docs h4 {
+    font-size: 16px;
+  }
+  .stages__docs ul {
+    padding-left: 16px;
+    gap: 6px;
+  }
+  .stages__docs li {
+    font-size: 14px;
+  }
+  .stages__docs a {
+    gap: 6px;
+    font-size: 14px;
+    margin-top: 0;
+  }
+  .stages__steps-list {
+    grid-column: 1;
+    grid-row: 2;
+    gap: 20px;
+  }
+  .stages__step {
+    gap: 14px;
+  }
+  .stages__step-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+  }
+  .stages__step-img {
+    width: 32px;
+    height: 32px;
+  }
+  .stages__step-content {
+    gap: 6px;
+  }
+  .payments {
+    background-color: #fff;
+  }
+  .payments__container {
+    padding: 0 16px;
+    gap: 20px;
+  }
+  .payments__content-header {
+    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .payments__header-category {
+    display: none !important;
+  }
+  .payments__header-city {
+    width: 100%;
+  }
+  .payments__city-toggle {
+    width: 100%;
+  }
+  .payments__city-dropdown {
+    width: 100%;
+  }
+  .payments__category-section {
+    display: block;
+    padding: 20px 0;
+    border-bottom: 1px solid #d5d7da;
+    overflow: hidden;
+  }
+  .payments__category-header {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+  }
+  .payments__category-header h5 {
+    font-family: "Golos Text", sans-serif;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: -0.04em;
+    font-size: 20px;
+    margin: 0;
+    color: #0c1625;
+  }
+  .payments__category-arrow {
+    display: block;
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+    flex-shrink: 0;
+  }
+  .payments__category-content {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+  .payments__category-content.active {
+    display: flex !important;
+    animation: fadeIn 0.3s ease;
+  }
+  .payments__category-section.active .payments__category-arrow {
+    transform: rotate(180deg);
+  }
+  .payments__category-content li {
+    width: 100%;
+    min-height: auto;
+  }
+  .payments__note {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  .payments__note span {
+    font-size: 14px;
+  }
+  .guarantees {
+    padding: 24px 16px;
+  }
+  .vacancies {
+    background-image: url("../../image/vacancies/background-large-mobile.png");
+    padding: 18px 16px;
+    min-height: 1322px;
+  }
+  .vacancies__title {
+    margin-bottom: 477px;
+    max-width: 78%;
+  }
+  .vacancies__content {
+    gap: 14px;
+  }
+  .vacancies__content-item {
+    width: 100%;
+    display: none;
+  }
+  .vacancies__content-item--active {
+    display: flex;
+  }
+  .vacancies__content-item--list {
+    margin-top: 14px;
+  }
+  .vacancies__content-item--list h5 {
+    font-size: 18px;
+  }
+  .vacancies__content-item--list ul {
+    padding-right: 0;
+    margin-top: 18px;
+  }
+  .vacancies__content-item--list li {
+    font-size: 14px;
+  }
+  .vacancies__content-item--form {
+    padding: 18px;
+  }
+  .vacancies__content-item--form .vacancies__back-button {
+    display: block;
+  }
+  .vacancies__content-item--form .vacancies__content-title--form {
+    font-size: 24px;
+    margin-bottom: 6px;
+  }
+  .vacancies__content-item--form .vacancies__content-text--form {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .vacancies__user-choice {
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+  .vacancies__user-choice-title {
+    font-size: 14px;
+  }
+  .vacancies__user-choice-text {
+    font-size: 14px;
+  }
+  .vacancies__request {
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+  .vacancies__request .request__field {
+    gap: 4px;
+    border-radius: 10px;
+    padding: 10px 14px;
+  }
+  .vacancies__request .request__field label {
+    font-size: 12px;
+  }
+  .vacancies__request .request__field .request__input {
+    font-size: 14px;
+  }
+  .vacancies__pd {
+    gap: 6px;
+  }
+  .vacancies__pd label {
+    font-size: 12px;
+  }
+  .requirements__title {
+    font-size: 32px;
+    margin: 40px 16px 28px;
+  }
+  .requirements__content {
+    padding: 0 16px 54px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .requirements__block {
+    width: 100%;
+    min-height: 0;
+    border-radius: 28px;
+    padding: 16px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+  }
+  .requirements__block h4 {
+    font-size: 16px;
+  }
+  .requirements__block:nth-child(-n+3) {
+    min-height: 0;
+  }
+  .requirements__block:nth-child(-n+3) .requirements__block-img-container {
+    width: 54px;
+    height: 54px;
+    border-radius: 10px;
+  }
+  .requirements__block:nth-child(4) {
+    min-height: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 18px;
+  }
+  .requirements__block:nth-child(4) p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .requirements__block:nth-child(5) {
+    padding: 18px;
+  }
+  .requirements__block:nth-child(5) .requirements__conditions {
+    max-width: 100%;
+    gap: 6px;
+  }
+  .requirements__block:nth-child(5) .requirements__block p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .requirements__block:nth-child(5) .requirements__conditions ul {
+    font-size: 14px;
+    margin-bottom: 161px;
+    max-width: 100%;
+  }
+  .requirements__block:nth-child(5) .requirements__conditions-img {
+    width: 188px;
+    right: 0;
+    bottom: 0;
+    top: auto;
+  }
+  .training__header {
+    padding: 0 16px;
+  }
+  .training__content {
+    padding: 0 16px;
+  }
+  .faq {
+    padding: 40px 16px 20px;
+  }
   .address__content {
     padding: 0 0;
     gap: 20px;
@@ -2582,48 +2764,8 @@ h6 {
     height: 577px;
     border-radius: 20px;
   }
-  .address__point .point__title {
-    font-size: 16px;
-  }
-  .address__point .point__description {
-    font-size: 14px;
-  }
-  .address__point .point__phone {
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  .address__point .point__opening-hours {
-    font-size: 14px;
-  }
   .footer {
     padding: 20px 20px 32px;
-    flex-direction: column;
-    justify-content: flex-start;
-    gap: 6px;
-    align-items: flex-start;
-  }
-  .footer__note {
-    font-size: 14px;
-  }
-  .footer__pd {
-    font-size: 14px;
-  }
-  .cookie-banner {
-    width: 100%;
-  }
-  .cookie-banner__wrapper {
-    border-radius: 20px;
-    padding: 18px;
-  }
-  .cookie-banner__content {
-    gap: 18px;
-  }
-  .cookie-banner__text h3 {
-    margin: 0 0 4px 0;
-    font-size: 16px;
-  }
-  .cookie-banner__text p {
-    font-size: 12px;
   }
   .success__content {
     border-radius: 20px;
@@ -2679,6 +2821,113 @@ h6 {
   }
   .feedback-modal__checkbox label {
     font-size: 10px;
+  }
+}
+/* ========================================= Mobile (430px) ========================================= */
+@media (max-width: 430px) {
+  #address {
+    scroll-margin-top: -10px;
+  }
+  .hero {
+    background-image: url("../../image/hero/hero-background-mobile.png");
+    height: 1145px;
+  }
+  .vacancies {
+    background-image: url("../../image/vacancies/background-mobile.webp");
+    min-height: 1291px;
+  }
+  .vacancies__title {
+    margin-bottom: 422px;
+  }
+  .requirements__title {
+    font-size: 32px;
+    margin: 40px 16px 28px;
+  }
+  .requirements__content {
+    padding: 0 16px 54px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .requirements__block {
+    width: 100%;
+    min-height: 0;
+    border-radius: 28px;
+    padding: 16px;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+  }
+  .requirements__block h4 {
+    font-size: 16px;
+  }
+  .requirements__block:nth-child(-n+3) .requirements__block-img-container {
+    width: 54px;
+    height: 54px;
+    border-radius: 10px;
+  }
+  .requirements__block:nth-child(4) {
+    flex-direction: column;
+    padding: 18px;
+  }
+  .requirements__block:nth-child(4) p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .requirements__block:nth-child(5) {
+    padding: 18px;
+  }
+  .requirements__block:nth-child(5) .requirements__conditions {
+    max-width: 100%;
+    gap: 6px;
+  }
+  .requirements__block:nth-child(5) .requirements__block p {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .requirements__block:nth-child(5) .requirements__conditions ul {
+    font-size: 14px;
+    margin-bottom: 161px;
+  }
+  .requirements__block:nth-child(5) .requirements__conditions-img {
+    width: 188px;
+    right: 0;
+    bottom: 0;
+    top: auto;
+  }
+  .address__content {
+    padding: 0 0;
+    gap: 20px;
+  }
+  .address__title {
+    font-size: 32px;
+    padding: 0 16px;
+  }
+  .address__choose-region {
+    padding: 0 16px;
+    flex-direction: row;
+    gap: 10px;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+  }
+  .address__choose-region::-webkit-scrollbar {
+    display: none;
+  }
+  .address__region {
+    padding: 10px 16px;
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .address__map {
+    flex-direction: column-reverse;
+    height: 978px;
+    border-radius: 28px;
+  }
+  .address__points {
+    width: 100%;
+    height: 577px;
+    border-radius: 20px;
   }
 }
 
