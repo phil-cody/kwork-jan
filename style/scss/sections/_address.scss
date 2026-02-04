@@ -2,6 +2,11 @@
 @use '../abstracts/mixins' as *;
 
 .address {
+	background-image: url('../../../image/payments/Subtract.png');
+	background-size: 100% auto;
+	background-position: top;
+	background-repeat: no-repeat;
+	padding-top: 246px;
 
 	&__content {
 		padding: $spacing-none-desktop $spacing-xxxl-desktop;

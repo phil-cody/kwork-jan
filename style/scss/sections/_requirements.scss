@@ -2,6 +2,10 @@
 
 .requirements {
 	background-color: $background;
+	background-image: url('../../../image/requirements/Subtract.png');
+	background-size: 100% auto;
+	background-position: bottom;
+	background-repeat: no-repeat;
 
 	&__title {
 		color: $text-default;
@@ -10,7 +14,7 @@
 	}
 
 	&__content {
-		padding: $spacing-none-desktop $spacing-xxxl-desktop 100px;
+		padding: $spacing-none-desktop $spacing-xxxl-desktop 346px;
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		grid-template-rows: repeat(2, auto);

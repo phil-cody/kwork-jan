@@ -783,9 +783,13 @@ h6 {
 
 .payments {
   background-color: #fff;
+  background-image: url("../../../image/payments/Subtract.png");
+  background-size: 100% auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 .payments__container {
-  padding: 0 40px;
+  padding: 0 40px 246px;
   display: flex;
   flex-direction: column;
   gap: 28px;
@@ -1226,6 +1230,10 @@ h6 {
 
 .requirements {
   background-color: #fff;
+  background-image: url("../../../image/requirements/Subtract.png");
+  background-size: 100% auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 .requirements__title {
   color: #0c1625;
@@ -1233,7 +1241,7 @@ h6 {
   margin: 100px 40px 40px;
 }
 .requirements__content {
-  padding: 0 40px 100px;
+  padding: 0 40px 346px;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(2, auto);
@@ -1311,6 +1319,10 @@ h6 {
 
 .training {
   background-color: #0c1625;
+  background-image: url("../../../image/training/bottom.webp");
+  background-size: 100% auto;
+  background-position: bottom;
+  background-repeat: no-repeat;
   color: #fff;
   position: relative;
   overflow: hidden;
@@ -1359,7 +1371,7 @@ h6 {
   flex: 0 0 50%;
 }
 .training__content {
-  padding: 0 40px;
+  padding: 0 40px 950px;
 }
 .training__content-heading h6 {
   font-size: 24px;
@@ -1539,6 +1551,13 @@ h6 {
   margin: 0;
 }
 
+.address {
+  background-image: url("../../../image/payments/Subtract.png");
+  background-size: 100% auto;
+  background-position: top;
+  background-repeat: no-repeat;
+  padding-top: 246px;
+}
 .address__content {
   padding: 0 40px;
   background-color: #f6f6f7;
@@ -1881,6 +1900,9 @@ h6 {
   .sticker {
     margin: 60px 40px;
   }
+  .payments__container {
+    padding: 0 40px 175px;
+  }
   .payments__content-header {
     align-items: flex-start;
   }
@@ -1894,7 +1916,7 @@ h6 {
     margin: 40px;
   }
   .requirements__content {
-    padding: 0 40px 40px;
+    padding: 0 40px 215px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
   }
@@ -1916,11 +1938,17 @@ h6 {
   .requirements__block:nth-child(5) .requirements__conditions-img {
     right: 0;
   }
+  .training__content {
+    padding-bottom: 675px;
+  }
   .faq {
     padding: 40px 40px 20px;
   }
   .faq__contact {
     flex-direction: column-reverse;
+  }
+  .address {
+    padding-top: 174px;
   }
 }
 /* ========================================= Tablet (887px) ========================================= */
@@ -1933,6 +1961,9 @@ h6 {
   }
   .stages__title {
     font-size: 32px;
+  }
+  .payments__container {
+    padding-bottom: 151px;
   }
   .payments__title {
     font-size: 32px;
@@ -2002,14 +2033,23 @@ h6 {
   .requirements__title {
     font-size: 32px;
   }
+  .requirements__content {
+    padding-bottom: 216px;
+  }
   .training__title {
     font-size: 32px;
+  }
+  .training__content {
+    padding-bottom: 585px;
   }
   .training__footer .training__content-heading h6 {
     max-width: 400px;
   }
   .faq__title-text {
     font-size: 32px;
+  }
+  .address {
+    padding-top: 151px;
   }
   .address__title {
     font-size: 32px;
@@ -2088,6 +2128,9 @@ h6 {
   }
   .sticker__cta {
     width: 100%;
+  }
+  .payments__container {
+    padding-bottom: 123px;
   }
   .payments__city-toggle {
     width: 150px;
@@ -2204,6 +2247,9 @@ h6 {
   .vacancies__title {
     margin-bottom: 600px;
   }
+  .requirements__content {
+    padding-bottom: 173px;
+  }
   .training {
     background-color: #0c1625;
   }
@@ -2242,6 +2288,9 @@ h6 {
   .training__item .training__content-heading,
   .training__item .training__content-description {
     flex: auto;
+  }
+  .training__content {
+    padding-bottom: 500px;
   }
   .training__content-heading {
     display: flex;
@@ -2396,6 +2445,9 @@ h6 {
   .faq__contact-hours {
     font-size: 14px;
   }
+  .address {
+    padding-top: 123px;
+  }
 }
 /* ========================================= Mobile (540px) ========================================= */
 @media (max-width: 540px) {
@@ -2506,7 +2558,7 @@ h6 {
     background-color: #fff;
   }
   .payments__container {
-    padding: 0 16px;
+    padding: 0 16px 92px;
     gap: 20px;
   }
   .payments__content-header {
@@ -2664,7 +2716,7 @@ h6 {
     margin: 40px 16px 28px;
   }
   .requirements__content {
-    padding: 0 16px 54px;
+    padding: 0 16px 146px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -2726,10 +2778,13 @@ h6 {
     padding: 0 16px;
   }
   .training__content {
-    padding: 0 16px;
+    padding: 0 16px 350px;
   }
   .faq {
     padding: 40px 16px 20px;
+  }
+  .address {
+    padding-top: 92px;
   }
   .address__content {
     padding: 0 0;
@@ -2832,6 +2887,9 @@ h6 {
     background-image: url("../../image/hero/hero-background-mobile.png");
     height: 1145px;
   }
+  .payments__container {
+    padding-bottom: 73px;
+  }
   .vacancies {
     background-image: url("../../image/vacancies/background-mobile.webp");
     min-height: 1291px;
@@ -2844,7 +2902,7 @@ h6 {
     margin: 40px 16px 28px;
   }
   .requirements__content {
-    padding: 0 16px 54px;
+    padding: 0 16px 127px;
     display: flex;
     flex-direction: column;
     gap: 8px;
@@ -2895,6 +2953,12 @@ h6 {
     right: 0;
     bottom: 0;
     top: auto;
+  }
+  .training__content {
+    padding-bottom: 280px;
+  }
+  .address {
+    padding-top: 73px;
   }
   .address__content {
     padding: 0 0;
