@@ -1,25 +1,12 @@
 @use "./abstracts/variables" as *;
 @use "./abstracts/mixins" as *;
 
-/* ========================================= Mobile (360px) ========================================= */
-@media (max-width: 360px) {
+/* ========================================= Tablet (1024px) ========================================= */
 
-	#stages,
-	#payments,
-	#vacancies,
-	#requirements,
-	#training,
-	#faq {
-		scroll-margin-top: 62px;
-	}
+@media (max-width: 1024px) {
 
-	#address {
-		scroll-margin-top: 1px;
-	}
-
-	// ===== HEADER & BURGER MENU =====
+	// ===== HEADER & BURGER MENU=====
 	.header {
-		border-bottom: 1px solid rgba($background, 0.1);
 
 		&__content {
 			padding: $spacing-md-mobile;
@@ -27,6 +14,13 @@
 
 		&__nav {
 			display: none;
+		}
+
+		&--sticky {
+
+			.header__item:first-child {
+				display: flex;
+			}
 		}
 
 		&__contact {
@@ -41,21 +35,6 @@
 			border: none;
 			cursor: pointer;
 			padding: 0;
-		}
-
-		&--sticky {
-			width: 100%;
-			margin: 0;
-			border-radius: 0;
-			background-color: $text-default;
-
-			.header__content {
-				padding: 16px;
-			}
-
-			.header__item:first-child {
-				display: flex;
-			}
 		}
 
 		&__mobile-menu {
@@ -172,14 +151,11 @@
 
 	// ===== HERO SECTION =====
 	.hero {
-		background-image: url('../../image/hero/hero-background-mobile.png');
-		height: 959px;
-		padding: 54px $spacing-md-mobile $spacing-none-mobile;
+		padding: 80px $spacing-xxxl-desktop $spacing-xxxl-desktop $spacing-xxxl-desktop;
 
 		&__text-container {
-			max-width: 100%;
+			max-width: 75%;
 			gap: $spacing-xxl-mobile;
-			margin-top: 290px;
 		}
 
 		&__text-item {
@@ -194,17 +170,16 @@
 			}
 		}
 
-		&__title {
-			font-size: $heading-1-mobile;
-		}
-
 		&__subtitle {
-			font-size: $text-md-mobile;
+			max-width: 60%;
 		}
 
 		&__item-block {
 			gap: calc($spacing-xxs-mobile + $spacing-xxxs-mobile);
 			width: 100%;
+		}
+
+		&__text-garant {
 
 			& h3 {
 				font-size: $heading-6-mobile;
@@ -215,7 +190,107 @@
 			}
 		}
 
-		&__text-garant {
+		&__text-cta {
+			width: 60%;
+		}
+	}
+
+	// ===== STICKER SECTION =====
+	.sticker {
+		margin: 60px 40px;
+	}
+
+	// ===== PAYMENTS SECTION =====
+	.payments {
+
+		&__content-header {
+			align-items: flex-start;
+		}
+
+		&__category-content li {
+			width: calc((100% - ($spacing-md-desktop * 2)) / 3);
+		}
+	}
+
+	// ===== GUARANTEES SECTION =====
+	.guarantees {
+		padding: 0 $spacing-xxxl-desktop $spacing-xxxl-desktop;
+	}
+
+	// ===== REQUIREMENTS SECTION =====
+	.requirements {
+		&__title {
+			margin: $spacing-xxxl-desktop;
+		}
+
+		&__content {
+			padding: 0 $spacing-xxxl-desktop $spacing-xxxl-desktop;
+		}
+	}
+
+	// ===== FAQ SECTION =====
+	.faq {
+		padding: $spacing-xxxl-desktop $spacing-xxxl-desktop $spacing-xl-mobile;
+
+		&__contact {
+			flex-direction: column-reverse;
+		}
+	}
+}
+
+/* ========================================= Mobile (430px) ========================================= */
+@media (max-width: 430px) {
+
+	#stages,
+	#payments,
+	#vacancies,
+	#requirements,
+	#training,
+	#faq {
+		scroll-margin-top: 62px;
+	}
+
+	#address {
+		scroll-margin-top: 1px;
+	}
+
+	// ===== HEADER & BURGER MENU =====
+	.header {
+		border-bottom: 1px solid rgba($background, 0.1);
+
+		&--sticky {
+			width: 100%;
+			margin: 0;
+			border-radius: 0;
+			background-color: $text-default;
+
+			.header__content {
+				padding: 16px;
+			}
+		}
+	}
+
+	// ===== HERO SECTION =====
+	.hero {
+		background-image: url('../../image/hero/hero-background-mobile.png');
+		height: 959px;
+		padding: 54px $spacing-md-mobile $spacing-none-mobile;
+
+		&__text-container {
+			max-width: 100%;
+			margin-top: 290px;
+		}
+
+		&__title {
+			font-size: $heading-1-mobile;
+		}
+
+		&__subtitle {
+			font-size: $text-md-mobile;
+		}
+
+		&__item-block {
+			
 
 			& h3 {
 				font-size: $heading-6-mobile;
@@ -896,7 +971,6 @@
 
 	// ===== FAQ SECTION =====
 	.faq {
-		padding: $spacing-xxxl-desktop $spacing-md-mobile $spacing-xl-mobile;
 		display: flex;
 		flex-direction: column;
 		gap: $spacing-xl-mobile;
@@ -965,6 +1039,7 @@
 
 		&__contact {
 			gap: $spacing-xxl-desktop;
+			flex-direction: row;
 			align-items: flex-start;
 
 			&-icons {

@@ -28,6 +28,7 @@
 
 	&__header-category {
 		display: flex;
+		flex-wrap: wrap;
 		gap: $spacing-xs-desktop;
 	}
 
@@ -151,6 +152,7 @@
 		&.active {
 			.payments__category-content {
 				display: flex;
+				flex-wrap: wrap;
 			}
 		}
 
@@ -178,6 +180,7 @@
 	}
 
 	&__category-content li {
+		min-width: 256px;
 		width: calc((100% - ($spacing-md-desktop * 4)) / 5);
 		min-height: 298px;
 		background-color: $surface;
