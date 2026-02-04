@@ -92,11 +92,17 @@
 				&:hover {
 					background-color: $primary;
 					border-radius: $radius-xs-desktop;
+					font-weight: 400;
+					letter-spacing: 0;
+					line-height: 100%;
 				}
 
 				&.active {
 					background-color: $primary;
 					border-radius: $radius-xs-desktop;
+					font-weight: 400;
+					letter-spacing: 0;
+					line-height: 100%;
 				}
 
 				&.empty {
