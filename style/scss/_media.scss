@@ -14,8 +14,8 @@
 	}
 
 	#address {
-	scroll-margin-top: 1px;
-}
+		scroll-margin-top: 1px;
+	}
 
 	// ===== HEADER & BURGER MENU =====
 	.header {
@@ -838,13 +838,13 @@
 		&__content-description {
 			display: none;
 
-			&.active {
+			&.is-open {
 				display: block;
 				animation: fadeIn 0.3s ease;
 			}
 		}
 
-		&__item.active {
+		&__item.is-open {
 			.training__arrow {
 				transform: rotate(180deg);
 			}

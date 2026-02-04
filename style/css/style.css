@@ -2385,17 +2385,17 @@ h6 {
   .training__content-description {
     display: none;
   }
-  .training__content-description.active {
+  .training__content-description.is-open {
     display: block;
     animation: fadeIn 0.3s ease;
   }
-  .training__item.active .training__arrow {
+  .training__item.is-open .training__arrow {
     transform: rotate(180deg);
   }
-  .training__item.active .training__content-description {
+  .training__item.is-open .training__content-description {
     display: block;
   }
-  .training__item.active .training__content-description p {
+  .training__item.is-open .training__content-description p {
     font-size: 14px;
     color: #6f757e;
   }
