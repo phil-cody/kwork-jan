@@ -11,6 +11,82 @@
 	color: $text-inverse;
 	overflow: hidden;
 
+	#positions-list li {
+		display: none;
+	}
+
+	#positions-list li.empty {
+		display: flex;
+	}
+
+	&[data-division] {
+		#positions-list li.empty {
+			display: none;
+		}
+	}
+
+	&[data-division="motorized"] #positions-list li[data-division-id="motorized"] {
+		display: flex;
+	}
+
+	&[data-division="tank"] #positions-list li[data-division-id="tank"] {
+		display: flex;
+	}
+
+	&[data-division="howitzer"] #positions-list li[data-division-id="howitzer"] {
+		display: flex;
+	}
+
+	&[data-division="atgm"] #positions-list li[data-division-id="atgm"] {
+		display: flex;
+	}
+
+	&[data-division="mlrs"] #positions-list li[data-division-id="mlrs"] {
+		display: flex;
+	}
+
+	&[data-division="antiair"] #positions-list li[data-division-id="antiair"] {
+		display: flex;
+	}
+
+	&[data-division="recon"] #positions-list li[data-division-id="recon"] {
+		display: flex;
+	}
+
+	&[data-division="repair"] #positions-list li[data-division-id="repair"] {
+		display: flex;
+	}
+
+	&[data-division="engineer"] #positions-list li[data-division-id="engineer"] {
+		display: flex;
+	}
+
+	&[data-division="command"] #positions-list li[data-division-id="command"] {
+		display: flex;
+	}
+
+	&[data-division="material"] #positions-list li[data-division-id="material"] {
+		display: flex;
+	}
+
+	&[data-division="radio"] #positions-list li[data-division-id="radio"] {
+		display: flex;
+	}
+
+	&[data-division="fpv"] #positions-list li[data-division-id="fpv"] {
+		display: flex;
+	}
+
+	&[data-division="minomet"] #positions-list li[data-division-id="minomet"] {
+		display: flex;
+	}
+
+	&[data-mode="desktop"] {
+		.vacancies__content-item {
+			display: flex;
+		}
+	}
+
 	&__title {
 		@include headline;
 		max-width: 670px;

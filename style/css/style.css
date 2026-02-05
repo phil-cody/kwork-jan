@@ -899,19 +899,6 @@ h6 {
   font-weight: 500;
   color: #0c1625;
 }
-.payments__category-section:not([data-category=payments]) .payments__category-content {
-  display: none;
-}
-.payments__category-section[data-category=payments] .payments__category-content {
-  display: flex;
-}
-.payments__category-section.active .payments__category-content {
-  display: flex;
-  flex-wrap: wrap;
-}
-.payments__category-section:not(.active) .payments__category-content {
-  display: none;
-}
 .payments__category-header {
   display: none;
 }
@@ -956,10 +943,37 @@ h6 {
   font-size: 16px;
   color: #6f757e;
 }
-.payments__substract {
-  width: 100%;
+.payments {
+  /* ===== КНОПКИ КАТЕГОРИЙ ===== */
+}
+.payments__header-category {
+  display: none;
+}
+.payments.city-moscow .payments__header-category[data-city=moscow], .payments.city-other .payments__header-category[data-city=other] {
+  display: flex;
+}
+.payments {
+  /* ===== СЕКЦИИ ===== */
+}
+.payments__category-section {
+  display: none;
+}
+.payments.city-moscow.category-payments .payments__category-section[data-city=moscow][data-category=payments], .payments.city-moscow.category-injuries .payments__category-section[data-city=moscow][data-category=injuries], .payments.city-moscow.category-family .payments__category-section[data-city=moscow][data-category=family], .payments.city-moscow.category-additional .payments__category-section[data-city=moscow][data-category=additional], .payments.city-other.category-payments .payments__category-section[data-city=other][data-category=payments], .payments.city-other.category-injuries .payments__category-section[data-city=other][data-category=injuries], .payments.city-other.category-family .payments__category-section[data-city=other][data-category=family] {
   display: block;
-  height: auto;
+}
+.payments {
+  /* ===== КОНТЕНТ ===== */
+}
+.payments__category-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.payments {
+  /* ===== ACCORDION-ЭЛЕМЕНТЫ НЕ НУЖНЫ ===== */
+}
+.payments__category-header, .payments__category-arrow {
+  display: none;
 }
 
 .guarantees {
@@ -1041,6 +1055,60 @@ h6 {
   padding: 40px 40px 306px;
   color: #fff;
   overflow: hidden;
+}
+.vacancies #positions-list li {
+  display: none;
+}
+.vacancies #positions-list li.empty {
+  display: flex;
+}
+.vacancies[data-division] #positions-list li.empty {
+  display: none;
+}
+.vacancies[data-division=motorized] #positions-list li[data-division-id=motorized] {
+  display: flex;
+}
+.vacancies[data-division=tank] #positions-list li[data-division-id=tank] {
+  display: flex;
+}
+.vacancies[data-division=howitzer] #positions-list li[data-division-id=howitzer] {
+  display: flex;
+}
+.vacancies[data-division=atgm] #positions-list li[data-division-id=atgm] {
+  display: flex;
+}
+.vacancies[data-division=mlrs] #positions-list li[data-division-id=mlrs] {
+  display: flex;
+}
+.vacancies[data-division=antiair] #positions-list li[data-division-id=antiair] {
+  display: flex;
+}
+.vacancies[data-division=recon] #positions-list li[data-division-id=recon] {
+  display: flex;
+}
+.vacancies[data-division=repair] #positions-list li[data-division-id=repair] {
+  display: flex;
+}
+.vacancies[data-division=engineer] #positions-list li[data-division-id=engineer] {
+  display: flex;
+}
+.vacancies[data-division=command] #positions-list li[data-division-id=command] {
+  display: flex;
+}
+.vacancies[data-division=material] #positions-list li[data-division-id=material] {
+  display: flex;
+}
+.vacancies[data-division=radio] #positions-list li[data-division-id=radio] {
+  display: flex;
+}
+.vacancies[data-division=fpv] #positions-list li[data-division-id=fpv] {
+  display: flex;
+}
+.vacancies[data-division=minomet] #positions-list li[data-division-id=minomet] {
+  display: flex;
+}
+.vacancies[data-mode=desktop] .vacancies__content-item {
+  display: flex;
 }
 .vacancies__title {
   font-family: "Golos Text", sans-serif;
@@ -1986,10 +2054,6 @@ h6 {
   }
   .vacancies__content-item {
     width: calc((100% - 32px) / 2);
-    display: none;
-  }
-  .vacancies__content-item--active {
-    display: flex;
   }
   .vacancies__content-item--list .vacancies__content-item--active {
     display: flex;
@@ -2029,6 +2093,18 @@ h6 {
     border: none;
     padding: 0;
     cursor: pointer;
+  }
+  .vacancies[data-mode=tablet] .vacancies__content-item {
+    display: none;
+  }
+  .vacancies[data-mode=tablet] .vacancies__content-item--form {
+    display: flex;
+  }
+  .vacancies[data-mode=tablet][data-step=division] .vacancies__content-item--list:first-of-type {
+    display: flex;
+  }
+  .vacancies[data-mode=tablet][data-step=position] .vacancies__content-item--list:nth-of-type(2) {
+    display: flex;
   }
   .requirements__title {
     font-size: 32px;
@@ -2556,6 +2632,7 @@ h6 {
   }
   .payments {
     background-color: #fff;
+    /* ===== Layout ===== */
   }
   .payments__container {
     padding: 0 16px 92px;
@@ -2566,26 +2643,32 @@ h6 {
     flex-direction: column;
     gap: 16px;
   }
-  .payments__header-category {
-    display: none !important;
-  }
-  .payments__header-city {
+  .payments__header-city, .payments__city-toggle, .payments__city-dropdown {
     width: 100%;
   }
-  .payments__city-toggle {
-    width: 100%;
+  .payments {
+    /* ===== Desktop-only elements ===== */
   }
-  .payments__city-dropdown {
-    width: 100%;
+  .payments__header-category, .payments__category-button {
+    display: none;
+  }
+  .payments {
+    /* ===== Sections by city ===== */
   }
   .payments__category-section {
-    display: block;
+    display: none;
     padding: 20px 0;
     border-bottom: 1px solid #d5d7da;
     overflow: hidden;
   }
+  .payments.city-moscow .payments__category-section[data-city=moscow], .payments.city-other .payments__category-section[data-city=other] {
+    display: block;
+  }
+  .payments {
+    /* ===== Accordion ===== */
+  }
   .payments__category-header {
-    display: flex !important;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
@@ -2613,16 +2696,22 @@ h6 {
     margin-top: 16px;
     margin-bottom: 0;
   }
-  .payments__category-content.active {
-    display: flex !important;
+  .payments__category-section.active .payments__category-content {
+    display: flex;
     animation: fadeIn 0.3s ease;
   }
   .payments__category-section.active .payments__category-arrow {
     transform: rotate(180deg);
   }
+  .payments {
+    /* ===== Cards ===== */
+  }
   .payments__category-content li {
     width: 100%;
     min-height: auto;
+  }
+  .payments {
+    /* ===== Note ===== */
   }
   .payments__note {
     margin-top: 20px;
@@ -2648,10 +2737,6 @@ h6 {
   }
   .vacancies__content-item {
     width: 100%;
-    display: none;
-  }
-  .vacancies__content-item--active {
-    display: flex;
   }
   .vacancies__content-item--list {
     margin-top: 14px;
@@ -2710,6 +2795,18 @@ h6 {
   }
   .vacancies__pd label {
     font-size: 12px;
+  }
+  .vacancies[data-mode=mobile] .vacancies__content-item {
+    display: none;
+  }
+  .vacancies[data-mode=mobile][data-step=division] .vacancies__content-item--list:first-of-type {
+    display: flex;
+  }
+  .vacancies[data-mode=mobile][data-step=position] .vacancies__content-item--list:nth-of-type(2) {
+    display: flex;
+  }
+  .vacancies[data-mode=mobile][data-step=form] .vacancies__content-item--form {
+    display: flex;
   }
   .requirements__title {
     font-size: 32px;

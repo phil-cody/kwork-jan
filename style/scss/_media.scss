@@ -356,11 +356,6 @@
 
 		&__content-item {
 			width: calc((100% - $spacing-xxl-desktop) / 2);
-			display: none;
-
-			&--active {
-				display: flex;
-			}
 
 			&--list {
 				.vacancies__content-item--active {
@@ -411,6 +406,28 @@
 			border: none;
 			padding: 0;
 			cursor: pointer;
+		}
+
+		&[data-mode="tablet"] {
+			.vacancies__content-item {
+				display: none;
+			}
+
+			.vacancies__content-item--form {
+				display: flex;
+			}
+
+			&[data-step="division"] {
+				.vacancies__content-item--list:first-of-type {
+					display: flex;
+				}
+			}
+
+			&[data-step="position"] {
+				.vacancies__content-item--list:nth-of-type(2) {
+					display: flex;
+				}
+			}
 		}
 	}
 
@@ -1122,8 +1139,11 @@
 	}
 
 	// ===== PAYMENTS SECTION =====
+
 	.payments {
 		background-color: $background;
+
+		/* ===== Layout ===== */
 
 		&__container {
 			padding: $spacing-none-mobile $spacing-md-mobile 92px;
@@ -1136,36 +1156,42 @@
 			gap: $spacing-md-mobile;
 		}
 
-		&__header-category {
-			display: none !important;
-		}
-
-		&__header-city {
-			width: 100%;
-		}
-
-		&__city-toggle {
-			width: 100%;
-		}
-
+		&__header-city,
+		&__city-toggle,
 		&__city-dropdown {
 			width: 100%;
 		}
 
+		/* ===== Desktop-only elements ===== */
+
+		&__header-category,
+		&__category-button {
+			display: none;
+		}
+
+		/* ===== Sections by city ===== */
+
 		&__category-section {
-			display: block;
-			padding: $spacing-xl-mobile $spacing-none-mobile;
+			display: none;
+			padding: $spacing-xl-mobile 0;
 			border-bottom: 1px solid $borders;
 			overflow: hidden;
 		}
 
+		&.city-moscow .payments__category-section[data-city="moscow"],
+		&.city-other .payments__category-section[data-city="other"] {
+			display: block;
+		}
+
+		/* ===== Accordion ===== */
+
 		&__category-header {
-			display: flex !important;
+			display: flex;
 			justify-content: space-between;
 			align-items: center;
 			cursor: pointer;
 
-			& h5 {
+			h5 {
 				@include headline;
 				font-size: $heading-4-mobile;
 				margin: 0;
@@ -1186,30 +1212,34 @@
 			flex-direction: column;
 			gap: calc($spacing-xxs-mobile * 2);
 			margin-top: $spacing-md-mobile;
-			margin-bottom: $spacing-none-mobile;
-
-			&.active {
-				display: flex !important;
-				animation: fadeIn 0.3s ease;
-			}
+			margin-bottom: 0;
 		}
 
 		&__category-section.active {
+			.payments__category-content {
+				display: flex;
+				animation: fadeIn 0.3s ease;
+			}
+
 			.payments__category-arrow {
 				transform: rotate(180deg);
 			}
 		}
+
+		/* ===== Cards ===== */
 
 		&__category-content li {
 			width: 100%;
 			min-height: auto;
 		}
 
+		/* ===== Note ===== */
+
 		&__note {
 			margin-top: $spacing-xl-mobile;
 			margin-bottom: $spacing-xl-mobile;
 
-			& span {
+			span {
 				font-size: $text-md-mobile;
 			}
 		}
@@ -1237,11 +1267,6 @@
 
 		&__content-item {
 			width: 100%;
-			display: none;
-
-			&--active {
-				display: flex;
-			}
 
 			&--list {
 				margin-top: $spacing-sm-mobile;
@@ -1320,7 +1345,29 @@
 			}
 		}
 
+		&[data-mode="mobile"] {
+			.vacancies__content-item {
+				display: none;
+			}
 
+			&[data-step="division"] {
+				.vacancies__content-item--list:first-of-type {
+					display: flex;
+				}
+			}
+
+			&[data-step="position"] {
+				.vacancies__content-item--list:nth-of-type(2) {
+					display: flex;
+				}
+			}
+
+			&[data-step="form"] {
+				.vacancies__content-item--form {
+					display: flex;
+				}
+			}
+		}
 	}
 
 	// ===== REQUIREMENTS SECTION =====

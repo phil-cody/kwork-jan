@@ -232,7 +232,8 @@
 				<h2 class="payments__title">Выплаты и соц гарантии при заключении контракта</h2>
 				<div class="payments__content">
 					<div class="payments__content-header">
-						<div class="payments__header-category">
+						<!-- Category buttons for Moscow -->
+						<div class="payments__header-category" data-city="moscow">
 							<button class="payments__category-button btn btn--primary" data-category="payments">Выплаты</button>
 							<button class="payments__category-button btn btn--outlined" data-category="injuries">За ранения и
 								увечья</button>
@@ -240,6 +241,15 @@
 								родственникам</button>
 							<button class="payments__category-button btn btn--outlined" data-category="additional">Доп.
 								выплаты</button>
+						</div>
+						
+						<!-- Category buttons for Other City -->
+						<div class="payments__header-category" data-city="other"">
+							<button class="payments__category-button btn btn--primary" data-category="payments">Выплаты</button>
+							<button class="payments__category-button btn btn--outlined" data-category="injuries">За ранения и
+								увечья</button>
+							<button class="payments__category-button btn btn--outlined" data-category="family">Семьям и
+								родственникам</button>
 						</div>
 						<div class="payments__header-city">
 							<button class="payments__city-toggle btn btn--outlined" data-city="moscow">
@@ -250,18 +260,19 @@
 								<img src="./image/payments/chevron-down.svg" alt="Ваш регион" class="payments__city-arrow">
 							</button>
 							<ul class="payments__city-dropdown">
-								<!-- Динамическое заполнение из JavaScript -->
+								<li class="payments__city-option" data-city="moscow">Москва</li>
+								<li class="payments__city-option" data-city="other">Другой город</li>
 							</ul>
 						</div>
 					</div>
 
-					<!-- Category: Выплаты -->
+					<!-- Category: Выплаты - Москва -->
 					<div class="payments__category-section" data-category="payments" data-city="moscow">
 						<div class="payments__category-header">
 							<h5>Выплаты</h5>
 							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
 						</div>
-						<ul class="payments__category-content active">
+						<ul class="payments__category-content">
 							<li>
 								<h5>до 4 200 000 ₽</h5>
 								<p>Региональные</p>
@@ -285,7 +296,37 @@
 						</ul>
 					</div>
 
-					<!-- Category: За ранения и увечья -->
+					<!-- Category: Выплаты - Другой город -->
+					<div class="payments__category-section" data-category="payments" data-city="other">
+						<div class="payments__category-header">
+							<h5>Выплаты</h5>
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+						</div>
+						<ul class="payments__category-content">
+							<li>
+								<h5>до 3 200 000 ₽</h5>
+								<p>Региональные</p>
+							</li>
+							<li>
+								<h5>500 000 ₽</h5>
+								<p>Единовременная выплата от МО РФ независимо от региона</p>
+							</li>
+							<li>
+								<h5>до 15 000 000 ₽</h5>
+								<p>Списание долгов</p>
+							</li>
+							<li>
+								<h5>от 310 000 ₽</h5>
+								<p>Ежемесячное денежное довольствие</p>
+							</li>
+							<li>
+								<h5>4 582 000 ₽</h5>
+								<p>Ежемесячная выплата ветеранам боевых действий</p>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Category: За ранения и увечья - Москва -->
 					<div class="payments__category-section" data-category="injuries" data-city="moscow">
 						<div class="payments__category-header">
 							<h5>За ранения и увечья</h5>
@@ -293,13 +334,27 @@
 						</div>
 						<ul class="payments__category-content">
 							<li>
-								<h5></h5>
-								<p></p>
+								<h5>тест 1</h5>
+								<p>тест 1</p>
 							</li>
 						</ul>
 					</div>
 
-					<!-- Category: Семьям и родственникам -->
+					<!-- Category: За ранения и увечья - Другой город -->
+					<div class="payments__category-section" data-category="injuries" data-city="other">
+						<div class="payments__category-header">
+							<h5>За ранения и увечья</h5>
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+						</div>
+						<ul class="payments__category-content">
+							<li>
+								<h5>тест 2</h5>
+								<p>тест 2</p>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Category: Семьям и родственникам - Москва -->
 					<div class="payments__category-section" data-category="family" data-city="moscow">
 						<div class="payments__category-header">
 							<h5>Семьям и родственникам</h5>
@@ -307,13 +362,27 @@
 						</div>
 						<ul class="payments__category-content">
 							<li>
-								<h5></h5>
-								<p></p>
+								<h5>тест 3</h5>
+								<p>тест 3</p>
 							</li>
 						</ul>
 					</div>
 
-					<!-- Category: Доп. выплаты -->
+					<!-- Category: Семьям и родственникам - Другой город -->
+					<div class="payments__category-section" data-category="family" data-city="other">
+						<div class="payments__category-header">
+							<h5>Семьям и родственникам</h5>
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+						</div>
+						<ul class="payments__category-content">
+							<li>
+								<h5>тест 4</h5>
+								<p>тест 4</p>
+							</li>
+						</ul>
+					</div>
+
+					<!-- Category: Доп. выплаты - Москва -->
 					<div class="payments__category-section" data-category="additional" data-city="moscow">
 						<div class="payments__category-header">
 							<h5>Доп. выплаты</h5>
@@ -321,12 +390,11 @@
 						</div>
 						<ul class="payments__category-content">
 							<li>
-								<h5></h5>
-								<p></p>
+								<h5>тест 5</h5>
+								<p>тест 5</p>
 							</li>
 						</ul>
 					</div>
-
 					<div class="payments__note">
 						<span>Приведено в соответствии с действующими нормативными актами. Условия и
 							размеры выплат могут изменяться</span>
@@ -430,7 +498,21 @@
 				<div class="vacancies__content-item vacancies__content-item--list">
 					<h5>Подразделение</h5>
 					<ul id="divisions-list">
-						<!-- Динамическое заполнение из JavaScript -->
+						<li data-division-id="motorized">Мотострелковый батальон</li>
+						<li data-division-id="tank">Танковый батальон</li>
+						<li data-division-id="howitzer">Гаубично артиллерийский батальон</li>
+						<li data-division-id="atgm">Батарея птур</li>
+						<li data-division-id="mlrs">Реактивная артиллерийская батарея (грады)</li>
+						<li data-division-id="antiair">Зенитная артиллерийская батарея</li>
+						<li data-division-id="recon">Разведывательная рота<img src="./image/vacancies/Star.svg" alt="Рекомендуем">
+						</li>
+						<li data-division-id="repair">Ремонтная рота</li>
+						<li data-division-id="engineer">Инженерная сапёрная рота</li>
+						<li data-division-id="command">Рота управления</li>
+						<li data-division-id="material">Рота материального обеспечения</li>
+						<li data-division-id="radio">Рота радиоэлектронной борьбы</li>
+						<li data-division-id="fpv">Взвод беспилотных систем (БПЛА, FPV)</li>
+						<li data-division-id="minomet">Миномётная батарея</li>
 					</ul>
 				</div>
 				<div class="vacancies__content-item vacancies__content-item--list">
@@ -441,7 +523,150 @@
 						<h5>Должность</h5>
 					</div>
 					<ul id="positions-list">
-						<!-- Динамическое заполнение из JavaScript -->
+						<li class="empty">Выберите подразделение</li>
+						<!-- motorized -->
+						<li data-division-id="motorized" data-position-id="motorized_1">Командир орудия – 5
+							шт</li>
+						<li data-division-id="motorized" data-position-id="motorized_2">Командир отделения –
+							5 шт</li>
+						<li data-division-id="motorized" data-position-id="motorized_3">Командир орудия – 5
+							шт</li>
+						<li data-division-id="motorized" data-position-id="motorized_4">Командир орудия – 5
+							шт</li>
+						<li data-division-id="motorized" data-position-id="motorized_5">Командир орудия – 5
+							шт</li>
+						<li data-division-id="motorized" data-position-id="motorized_6">Командир орудия – 5
+							шт</li>
+						<!-- tank -->
+						<li data-division-id="tank" data-position-id="tank_1">Командир орудия – 5 шт</li>
+						<li data-division-id="tank" data-position-id="tank_2">Командир отделения – 5 шт</li>
+						<li data-division-id="tank" data-position-id="tank_3">Командир орудия – 5 шт</li>
+						<li data-division-id="tank" data-position-id="tank_4">Командир орудия – 5 шт</li>
+						<li data-division-id="tank" data-position-id="tank_5">Командир орудия – 5 шт</li>
+						<li data-division-id="tank" data-position-id="tank_6">Командир орудия – 5 шт</li>
+						<!-- howitzer -->
+						<li data-division-id="howitzer" data-position-id="howitzer_1">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="howitzer" data-position-id="howitzer_2">Командир отделения – 5
+							шт</li>
+						<li data-division-id="howitzer" data-position-id="howitzer_3">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="howitzer" data-position-id="howitzer_4">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="howitzer" data-position-id="howitzer_5">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="howitzer" data-position-id="howitzer_6">Командир орудия – 5 шт
+						</li>
+						<!-- atgm -->
+						<li data-division-id="atgm" data-position-id="atgm_1">Командир орудия – 5 шт</li>
+						<li data-division-id="atgm" data-position-id="atgm_2">Командир отделения – 5 шт</li>
+						<li data-division-id="atgm" data-position-id="atgm_3">Командир орудия – 5 шт</li>
+						<li data-division-id="atgm" data-position-id="atgm_4">Командир орудия – 5 шт</li>
+						<li data-division-id="atgm" data-position-id="atgm_5">Командир орудия – 5 шт</li>
+						<li data-division-id="atgm" data-position-id="atgm_6">Командир орудия – 5 шт</li>
+						<!-- mlrs -->
+						<li data-division-id="mlrs" data-position-id="mlrs_1">Командир орудия – 5 шт</li>
+						<li data-division-id="mlrs" data-position-id="mlrs_2">Командир отделения – 5 шт</li>
+						<li data-division-id="mlrs" data-position-id="mlrs_3">Командир орудия – 5 шт</li>
+						<li data-division-id="mlrs" data-position-id="mlrs_4">Командир орудия – 5 шт</li>
+						<li data-division-id="mlrs" data-position-id="mlrs_5">Командир орудия – 5 шт</li>
+						<li data-division-id="mlrs" data-position-id="mlrs_6">Командир орудия – 5 шт</li>
+						<!-- antiair -->
+						<li data-division-id="antiair" data-position-id="antiair_1">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="antiair" data-position-id="antiair_2">Командир отделения – 5 шт
+						</li>
+						<li data-division-id="antiair" data-position-id="antiair_3">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="antiair" data-position-id="antiair_4">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="antiair" data-position-id="antiair_5">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="antiair" data-position-id="antiair_6">Командир орудия – 5 шт
+						</li>
+						<!-- recon -->
+						<li data-division-id="recon" data-position-id="recon_1">Командир орудия – 5 шт</li>
+						<li data-division-id="recon" data-position-id="recon_2">Командир отделения – 5 шт
+						</li>
+						<li data-division-id="recon" data-position-id="recon_3">Командир орудия – 5 шт</li>
+						<li data-division-id="recon" data-position-id="recon_4">Командир орудия – 5 шт</li>
+						<li data-division-id="recon" data-position-id="recon_5">Командир орудия – 5 шт</li>
+						<li data-division-id="recon" data-position-id="recon_6">Командир орудия – 5 шт</li>
+						<!-- repair -->
+						<li data-division-id="repair" data-position-id="repair_1">Командир орудия – 5 шт</li>
+						<li data-division-id="repair" data-position-id="repair_2">Командир отделения – 5 шт
+						</li>
+						<li data-division-id="repair" data-position-id="repair_3">Командир орудия – 5 шт</li>
+						<li data-division-id="repair" data-position-id="repair_4">Командир орудия – 5 шт</li>
+						<li data-division-id="repair" data-position-id="repair_5">Командир орудия – 5 шт</li>
+						<li data-division-id="repair" data-position-id="repair_6">Командир орудия – 5 шт</li>
+						<!-- engineer -->
+						<li data-division-id="engineer" data-position-id="engineer_1">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="engineer" data-position-id="engineer_2">Командир отделения – 5
+							шт</li>
+						<li data-division-id="engineer" data-position-id="engineer_3">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="engineer" data-position-id="engineer_4">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="engineer" data-position-id="engineer_5">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="engineer" data-position-id="engineer_6">Командир орудия – 5 шт
+						</li>
+						<!-- command -->
+						<li data-division-id="command" data-position-id="command_1">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="command" data-position-id="command_2">Командир отделения – 5 шт
+						</li>
+						<li data-division-id="command" data-position-id="command_3">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="command" data-position-id="command_4">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="command" data-position-id="command_5">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="command" data-position-id="command_6">Командир орудия – 5 шт
+						</li>
+						<!-- material -->
+						<li data-division-id="material" data-position-id="material_1">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="material" data-position-id="material_2">Командир отделения – 5
+							шт</li>
+						<li data-division-id="material" data-position-id="material_3">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="material" data-position-id="material_4">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="material" data-position-id="material_5">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="material" data-position-id="material_6">Командир орудия – 5 шт
+						</li>
+						<!-- radio -->
+						<li data-division-id="radio" data-position-id="radio_1">Командир орудия – 5 шт</li>
+						<li data-division-id="radio" data-position-id="radio_2">Командир отделения – 5 шт
+						</li>
+						<li data-division-id="radio" data-position-id="radio_3">Командир орудия – 5 шт</li>
+						<li data-division-id="radio" data-position-id="radio_4">Командир орудия – 5 шт</li>
+						<li data-division-id="radio" data-position-id="radio_5">Командир орудия – 5 шт</li>
+						<li data-division-id="radio" data-position-id="radio_6">Командир орудия – 5 шт</li>
+						<!-- fpv -->
+						<li data-division-id="fpv" data-position-id="fpv_1">Командир орудия – 5 шт</li>
+						<li data-division-id="fpv" data-position-id="fpv_2">Командир отделения – 5 шт</li>
+						<li data-division-id="fpv" data-position-id="fpv_3">Командир орудия – 5 шт</li>
+						<li data-division-id="fpv" data-position-id="fpv_4">Командир орудия – 5 шт</li>
+						<li data-division-id="fpv" data-position-id="fpv_5">Командир орудия – 5 шт</li>
+						<li data-division-id="fpv" data-position-id="fpv_6">Командир орудия – 5 шт</li>
+						<!-- minomet -->
+						<li data-division-id="minomet" data-position-id="minomet_1">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="minomet" data-position-id="minomet_2">Командир отделения – 5 шт
+						</li>
+						<li data-division-id="minomet" data-position-id="minomet_3">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="minomet" data-position-id="minomet_4">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="minomet" data-position-id="minomet_5">Командир орудия – 5 шт
+						</li>
+						<li data-division-id="minomet" data-position-id="minomet_6">Командир орудия – 5 шт
+						</li>
 					</ul>
 				</div>
 				<div class="vacancies__content-item vacancies__content-item--form">
@@ -539,7 +764,7 @@
 				</div>
 			</div>
 			<div class="training__content">
-				<ul class="training__table">
+				<ul class="training__table js-accordion">
 					<li class="training__item js-accordion-item">
 						<div class="training__content-heading training__accordion-header js-accordion-header">
 							<div class="training__content-heading-text">
@@ -629,7 +854,7 @@
 				<h2 class="faq__title-text">Часто задаваемые вопросы</h2>
 			</div>
 			<div class="faq__content">
-				<ul>
+				<ul class="js-accordion">
 					<li class="is-open js-accordion-item">
 						<div class="faq__item-header js-accordion-header">
 							<h6>Я гражданин Российской Федерации, хочу поступить на военную службу по

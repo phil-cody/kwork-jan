@@ -1,4 +1,3 @@
-// Переключение меню
 document.addEventListener('DOMContentLoaded', function () {
 	const burgerButton = document.getElementById('burgerButton');
 	const closeMenuButton = document.getElementById('closeMenuButton');

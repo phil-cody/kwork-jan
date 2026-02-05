@@ -1,6 +1,4 @@
-// Логика блока вакансий
-document.addEventListener('DOMContentLoaded', async () => {
-	// Элементы DOM
+document.addEventListener('DOMContentLoaded', () => {
 	const divisionsContainer = document.getElementById('divisions-list');
 	const positionsContainer = document.getElementById('positions-list');
 	const divisionChoiceText = document.getElementById('choice-division');
@@ -13,193 +11,140 @@ document.addEventListener('DOMContentLoaded', async () => {
 	const successModal = document.getElementById('success-modal');
 	const closeSuccessModalBtn = document.getElementById('close-success-modal');
 
-	// Загрузка данных
-	let vacanciesData = {};
-	try {
-		const response = await fetch('./vacancies.json');
-		if (!response.ok) throw new Error('Не удалось загрузить vacancies.json');
-		vacanciesData = await response.json();
-	} catch (error) {
-		console.error('Ошибка загрузки данных вакансий:', error);
-		return;
-	}
-
-	// Состояние выбора
 	let selectedDivision = null;
 	let selectedPosition = null;
-	let isSubmitting = false; // Флаг блокировки отправки
-	let currentStep = 'division'; // Текущий шаг в мобильной версии: 'division', 'position', 'form'
+	let isSubmitting = false;
 
-	// Элементы DOM для мобильной навигации
-	const contentItems = document.querySelectorAll('.vacancies__content-item');
 	const backButtons = document.querySelectorAll('.vacancies__back-button');
+	const vacancies = document.querySelector('.vacancies');
 
-	// Определение мобильной версии (887px)
-	function isMobile() {
-		return window.innerWidth <= 887;
+	function getMode() {
+		if (window.innerWidth <= 540) return 'mobile';
+		if (window.innerWidth <= 887) return 'tablet';
+		return 'desktop';
 	}
 
-	// Показать определённый шаг в мобильной версии
-	function showStep(step) {
-		if (!isMobile()) return;
-
-		currentStep = step;
-
-		contentItems.forEach((item, index) => {
-			item.classList.remove('vacancies__content-item--active');
-
-			// index 0 = division, index 1 = position, index 2 = form
-			if ((step === 'division' && index === 0) ||
-				(step === 'position' && index === 1) ||
-				(step === 'form' && index === 2)) {
-				item.classList.add('vacancies__content-item--active');
-			}
-		});
+	function updateMode() {
+		if (!vacancies) return;
+		vacancies.dataset.mode = getMode();
 	}
 
-	// Инициализация мобильного состояния
-	function initMobileState() {
-		if (isMobile()) {
-			showStep('division');
-		} else {
-			// На десктопе убираем активный класс (все блоки видны через CSS)
-			contentItems.forEach(item => {
-				item.classList.remove('vacancies__content-item--active');
-			});
+	function setStep(step) {
+		if (!vacancies) return;
+		vacancies.dataset.step = step;
+	}
+
+	function goToDivision() {
+		if (vacancies.dataset.mode !== 'desktop') {
+			setStep('division');
 		}
 	}
 
-	// Обработчики кнопок "Назад"
-	backButtons.forEach((btn, index) => {
+	function goToPosition() {
+		const mode = vacancies.dataset.mode;
+		if (mode === 'tablet' || mode === 'mobile') {
+			setStep('position');
+		}
+	}
+
+	function goToForm() {
+		if (vacancies.dataset.mode === 'mobile') {
+			setStep('form');
+		}
+	}
+
+	function syncStepWithMode() {
+		const mode = vacancies.dataset.mode;
+
+		if (mode === 'desktop') return;
+
+		if (mode === 'tablet' && vacancies.dataset.step === 'form') {
+			setStep('position');
+		}
+	}
+
+	backButtons.forEach(btn => {
 		btn.addEventListener('click', () => {
-			// index 0 = кнопка в блоке должностей (назад к подразделениям)
-			// index 1 = кнопка в блоке формы (назад к должностям)
-			if (index === 0) {
-				showStep('division');
-			} else if (index === 1) {
-				showStep('position');
+			const mode = vacancies.dataset.mode;
+
+			if (mode === 'mobile') {
+				if (vacancies.dataset.step === 'form') {
+					setStep('position');
+				} else {
+					setStep('division');
+				}
+			}
+
+			if (mode === 'tablet') {
+				setStep('division');
 			}
 		});
 	});
 
-	// Обработчик изменения размера окна
-	window.addEventListener('resize', initMobileState);
+	function initDivisionEvents() {
+		if (!divisionsContainer) return;
 
-	// Рендер списка подразделений
-	function renderDivisions() {
-		if (!divisionsContainer || !vacanciesData.divisions) return;
+		const divisionItems = divisionsContainer.querySelectorAll('li');
 
-		divisionsContainer.innerHTML = '';
+		divisionItems.forEach(li => {
+			const divisionId = li.getAttribute('data-division-id');
 
-		vacanciesData.divisions.forEach(division => {
-			const li = document.createElement('li');
-			li.dataset.divisionId = division.id;
-			li.textContent = division.name;
-
-			// Добавление звёздочки для featured подразделений
-			if (division.featured) {
-				const star = document.createElement('img');
-				star.src = './image/vacancies/Star.svg';
-				star.alt = 'Рекомендуем';
-				li.appendChild(star);
+			if (divisionId) {
+				li.addEventListener('click', () => selectDivision(divisionId, li.textContent.trim()));
 			}
-
-			// Обработчик клика
-			li.addEventListener('click', () => selectDivision(division));
-
-			divisionsContainer.appendChild(li);
 		});
 	}
 
-	// Выбор подразделения
-	function selectDivision(division) {
-		selectedDivision = division;
-		selectedPosition = null; // Сброс выбранной должности
+	function selectDivision(divisionId, divisionName) {
+	selectedDivision = { id: divisionId, name: divisionName };
+	selectedPosition = null;
 
-		// Обновление стилей в списке подразделений
-		divisionsContainer.querySelectorAll('li').forEach(li => {
-			li.classList.remove('active');
-			if (li.dataset.divisionId === division.id) {
-				li.classList.add('active');
-			}
-		});
+	vacancies.dataset.division = divisionId;
 
-		// Обновление текста в форме
-		if (divisionChoiceText) {
-			divisionChoiceText.textContent = division.name;
-		}
+	divisionsContainer
+		.querySelectorAll('li')
+		.forEach(li => li.classList.toggle(
+			'active',
+			li.dataset.divisionId === divisionId
+		));
 
-		// Сброс текста должности
-		if (positionChoiceText) {
-			positionChoiceText.textContent = '—';
-		}
+	divisionChoiceText.textContent = divisionName;
+	positionChoiceText.textContent = '—';
 
-		// Рендер должностей для выбранного подразделения
-		renderPositions(division.positions);
+	goToPosition();
+	validateForm();
+}
 
-		// Переход к следующему шагу в мобильной версии
-		if (isMobile()) {
-			showStep('position');
-		}
-
-		// Проверка валидности формы
-		validateForm();
-	}
-
-	// Рендер списка должностей
-	function renderPositions(positions) {
+	function initPositionEvents() {
 		if (!positionsContainer) return;
 
-		positionsContainer.innerHTML = '';
+		const positionItems = positionsContainer.querySelectorAll('li:not(.empty)');
 
-		if (!positions || positions.length === 0) {
-			const li = document.createElement('li');
-			li.textContent = 'Нет доступных должностей';
-			li.classList.add('empty');
-			positionsContainer.appendChild(li);
-			return;
-		}
+		positionItems.forEach(li => {
+			const positionId = li.getAttribute('data-position-id');
 
-		positions.forEach(position => {
-			const li = document.createElement('li');
-			li.dataset.positionId = position.id;
-			li.textContent = `${position.name} – ${position.count} шт`;
-
-			// Обработчик клика
-			li.addEventListener('click', () => selectPosition(position));
-
-			positionsContainer.appendChild(li);
-		});
-	}
-
-	// Выбор должности
-	function selectPosition(position) {
-		selectedPosition = position;
-
-		// Обновление стилей в списке должностей
-		positionsContainer.querySelectorAll('li').forEach(li => {
-			li.classList.remove('active');
-			if (li.dataset.positionId === position.id) {
-				li.classList.add('active');
+			if (positionId) {
+				li.addEventListener('click', () => selectPosition(positionId, li.textContent.trim()));
 			}
 		});
-
-		// Обновление текста в форме
-		if (positionChoiceText) {
-			positionChoiceText.textContent = position.name;
-		}
-
-		// Переход к следующему шагу только на маленьких мобильных (540px)
-		// На 887px форма всегда видна, а блок должностей остается активным
-		if (window.innerWidth <= 540) {
-			showStep('form');
-		}
-
-		// Проверка валидности формы
-		validateForm();
 	}
 
-	// Валидация формы
+	function selectPosition(positionId, positionName) {
+	selectedPosition = { id: positionId, name: positionName };
+
+	positionsContainer
+		.querySelectorAll('li')
+		.forEach(li => li.classList.toggle(
+			'active',
+			li.dataset.positionId === positionId
+		));
+
+	positionChoiceText.textContent = positionName;
+
+	goToForm();
+	validateForm();
+}
+
 	function validateForm() {
 		const isPhoneFilled = phoneInput && phoneInput.value.trim() !== '';
 		const isNameFilled = nameInput && nameInput.value.trim() !== '';
@@ -221,11 +166,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 		return isFormValid;
 	}
 
-	// Обработка отправки формы через AJAX
 	function handleFormSubmit(e) {
 		e.preventDefault();
 
-		// Проверка на повторную отправку
 		if (isSubmitting) {
 			return;
 		}
@@ -234,14 +177,12 @@ document.addEventListener('DOMContentLoaded', async () => {
 			return;
 		}
 
-		// Блокировка кнопки во время отправки
 		isSubmitting = true;
 		const originalButtonText = submitButton.textContent;
 		submitButton.disabled = true;
 		submitButton.classList.add('btn--disabled');
 		submitButton.textContent = 'Отправка...';
 
-		// Сбор данных формы
 		const formData = {
 			division: selectedDivision ? {
 				id: selectedDivision.id,
@@ -259,25 +200,22 @@ document.addEventListener('DOMContentLoaded', async () => {
 		// AJAX запрос
 		console.log('Отправка данных формы:', formData);
 
-		// Функция для показа модального окна успеха
 		const showSuccessModal = () => {
 			if (successModal) {
 				successModal.classList.add('success--visible');
-				document.body.style.overflow = 'hidden'; // Блокировка прокрутки
+				document.body.style.overflow = 'hidden';
 			}
 		};
 
-		// Обработчик закрытия модального окна
 		if (closeSuccessModalBtn) {
 			closeSuccessModalBtn.onclick = () => {
 				if (successModal) {
 					successModal.classList.remove('success--visible');
-					document.body.style.overflow = ''; // Разблокировка прокрутки
+					document.body.style.overflow = '';
 				}
 			};
 		}
 
-		// Закрытие модального окна при клике на оверлей
 		if (successModal) {
 			successModal.onclick = (e) => {
 				if (e.target === successModal) {
@@ -321,59 +259,51 @@ document.addEventListener('DOMContentLoaded', async () => {
 		setTimeout(() => {
 			showSuccessModal();
 			resetForm();
-
-			// Разблокировка кнопки
 			isSubmitting = false;
 			submitButton.textContent = originalButtonText;
 			validateForm();
 		}, 1000);
 	}
 
-	// Сброс формы
 	function resetForm() {
-		selectedDivision = null;
-		selectedPosition = null;
-		currentStep = 'division';
+	selectedDivision = null;
+	selectedPosition = null;
 
-		if (phoneInput) phoneInput.value = '';
-		if (nameInput) nameInput.value = '';
-		if (pdCheckbox) pdCheckbox.checked = false;
-		if (divisionChoiceText) divisionChoiceText.textContent = '—';
-		if (positionChoiceText) positionChoiceText.textContent = '—';
+	delete vacancies.dataset.division;
 
-		if (divisionsContainer) {
-			divisionsContainer.querySelectorAll('li').forEach(li => li.classList.remove('active'));
-		}
-
-		if (positionsContainer) {
-			positionsContainer.innerHTML = '<li class="empty">Выберите подразделение</li>';
-		}
-
-		// Возврат к первому шагу в мобильной версии
-		if (isMobile()) {
-			showStep('division');
-		}
-
-		validateForm();
+	if (vacancies.dataset.mode !== 'desktop') {
+		setStep('division');
 	}
 
-	// Инициализация обработчиков событий
+	phoneInput.value = '';
+	nameInput.value = '';
+	pdCheckbox.checked = false;
+	divisionChoiceText.textContent = '—';
+	positionChoiceText.textContent = '—';
+
+	divisionsContainer.querySelectorAll('li')
+		.forEach(li => li.classList.remove('active'));
+
+	positionsContainer.querySelectorAll('li')
+		.forEach(li => li.classList.remove('active'));
+
+	validateForm();
+}
+
 	if (phoneInput) phoneInput.addEventListener('input', validateForm);
 	if (nameInput) nameInput.addEventListener('input', validateForm);
 	if (pdCheckbox) pdCheckbox.addEventListener('change', validateForm);
 	if (form) form.addEventListener('submit', handleFormSubmit);
 
-	// Инициализация
-	renderDivisions();
+	initDivisionEvents();
+	initPositionEvents();
 
-	// Начальное состояние списка должностей
-	if (positionsContainer) {
-		positionsContainer.innerHTML = '<li class="empty">Выберите подразделение</li>';
-	}
-
-	// Начальная валидация (кнопка неактивна)
 	validateForm();
-
-	// Инициализация мобильного состояния
-	initMobileState();
+	updateMode();
+	setStep('division');
+	syncStepWithMode();
+	window.addEventListener('resize', () => {
+		updateMode();
+		syncStepWithMode();
+	});
 });

@@ -1,6 +1,4 @@
-// Логика модального окна обратной связи
 document.addEventListener('DOMContentLoaded', () => {
-	// Элементы DOM
 	const feedbackModal = document.getElementById('feedback-modal');
 	const closeFeedbackModalBtn = document.getElementById('close-feedback-modal');
 	const feedbackForm = document.getElementById('feedback-form');
@@ -11,37 +9,31 @@ document.addEventListener('DOMContentLoaded', () => {
 	const successModal = document.getElementById('success-modal');
 	const closeSuccessModalBtn = document.getElementById('close-success-modal');
 	
-	// Кнопки для открытия модального окна (все кнопки с текстом "узнать условия для меня")
 	const feedbackTriggerButtons = document.querySelectorAll('button');
 	const triggerButtons = [];
 	
-	// Фильтрация кнопок по тексту
 	feedbackTriggerButtons.forEach(button => {
 		if (button.textContent.trim().toLowerCase().includes('узнать условия для меня')) {
 			triggerButtons.push(button);
 		}
 	});
 	
-	// Флаг отправки
 	let isSubmitting = false;
 	
-	// Функция открытия модального окна
 	function openFeedbackModal() {
 		if (feedbackModal) {
 			feedbackModal.classList.add('feedback-modal--visible');
-			document.body.style.overflow = 'hidden'; // Блокировка прокрутки
+			document.body.style.overflow = 'hidden';
 		}
 	}
 	
-	// Функция закрытия модального окна
 	function closeFeedbackModal() {
 		if (feedbackModal) {
 			feedbackModal.classList.remove('feedback-modal--visible');
-			document.body.style.overflow = ''; // Разблокировка прокрутки
+			document.body.style.overflow = '';
 		}
 	}
 	
-	// Функция сброса формы
 	function resetFeedbackForm() {
 		if (feedbackPhoneInput) feedbackPhoneInput.value = '';
 		if (feedbackNameInput) feedbackNameInput.value = '';
@@ -49,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		validateFeedbackForm();
 	}
 	
-	// Валидация формы
 	function validateFeedbackForm() {
 		const isPhoneFilled = feedbackPhoneInput && feedbackPhoneInput.value.trim() !== '';
 		const isNameFilled = feedbackNameInput && feedbackNameInput.value.trim() !== '';
@@ -69,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		return isFormValid;
 	}
 	
-	// Функция показа модального окна успеха
 	function showSuccessModal() {
 		if (successModal) {
 			successModal.classList.add('success--visible');
@@ -77,11 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 	
-	// Обработка отправки формы
 	function handleFeedbackSubmit(e) {
 		e.preventDefault();
 		
-		// Проверка на повторную отправку
 		if (isSubmitting) {
 			return;
 		}
@@ -90,14 +78,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			return;
 		}
 		
-		// Блокировка кнопки во время отправки
 		isSubmitting = true;
 		const originalButtonText = feedbackSubmitButton.textContent;
 		feedbackSubmitButton.disabled = true;
 		feedbackSubmitButton.classList.add('btn--disabled');
 		feedbackSubmitButton.textContent = 'Отправка...';
 		
-		// Сбор данных формы
 		const formData = {
 			phone: feedbackPhoneInput.value.trim(),
 			name: feedbackNameInput.value.trim(),
@@ -142,15 +128,12 @@ document.addEventListener('DOMContentLoaded', () => {
 			closeFeedbackModal();
 			resetFeedbackForm();
 			showSuccessModal();
-			
-			// Разблокировка кнопки
 			isSubmitting = false;
 			feedbackSubmitButton.textContent = originalButtonText;
 			validateFeedbackForm();
 		}, 1000);
 	}
 	
-	// Обработчики событий для открытия модального окна
 	triggerButtons.forEach(button => {
 		button.addEventListener('click', (e) => {
 			e.preventDefault();
@@ -158,12 +141,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 	
-	// Обработчик закрытия по кнопке
 	if (closeFeedbackModalBtn) {
 		closeFeedbackModalBtn.addEventListener('click', closeFeedbackModal);
 	}
 	
-	// Закрытие модального окна при клике на оверлей
 	if (feedbackModal) {
 		feedbackModal.addEventListener('click', (e) => {
 			if (e.target === feedbackModal) {
@@ -172,15 +153,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 	
-	// Обработчики валидации формы
 	if (feedbackPhoneInput) feedbackPhoneInput.addEventListener('input', validateFeedbackForm);
 	if (feedbackNameInput) feedbackNameInput.addEventListener('input', validateFeedbackForm);
 	if (feedbackConsentCheckbox) feedbackConsentCheckbox.addEventListener('change', validateFeedbackForm);
 	
-	// Обработчик отправки формы
 	if (feedbackForm) feedbackForm.addEventListener('submit', handleFeedbackSubmit);
 	
-	// Обработчик закрытия модального окна успеха
 	if (closeSuccessModalBtn) {
 		closeSuccessModalBtn.addEventListener('click', () => {
 			if (successModal) {
@@ -190,7 +168,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 	
-	// Закрытие модального окна успеха при клике на оверлей
 	if (successModal) {
 		successModal.addEventListener('click', (e) => {
 			if (e.target === successModal) {
@@ -200,6 +177,5 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 	
-	// Начальная валидация
 	validateFeedbackForm();
 });

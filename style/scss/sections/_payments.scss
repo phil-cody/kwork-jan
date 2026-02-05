@@ -139,34 +139,6 @@
 		}
 	}
 
-	&__category-section {
-
-		&:not([data-category="payments"]) {
-			.payments__category-content {
-				display: none;
-			}
-		}
-
-		&[data-category="payments"] {
-			.payments__category-content {
-				display: flex;
-			}
-		}
-
-		&.active {
-			.payments__category-content {
-				display: flex;
-				flex-wrap: wrap;
-			}
-		}
-
-		&:not(.active) {
-			.payments__category-content {
-				display: none;
-			}
-		}
-	}
-
 	&__category-header {
 		display: none;
 	}
@@ -217,9 +189,45 @@
 		color: $text-medium;
 	}
 
-	&__substract {
-		width: 100%;
+	/* ===== КНОПКИ КАТЕГОРИЙ ===== */
+
+	&__header-category {
+		display: none;
+	}
+
+	&.city-moscow &__header-category[data-city="moscow"],
+	&.city-other &__header-category[data-city="other"] {
+		display: flex;
+	}
+
+	/* ===== СЕКЦИИ ===== */
+
+	&__category-section {
+		display: none;
+	}
+
+	&.city-moscow.category-payments &__category-section[data-city="moscow"][data-category="payments"],
+	&.city-moscow.category-injuries &__category-section[data-city="moscow"][data-category="injuries"],
+	&.city-moscow.category-family &__category-section[data-city="moscow"][data-category="family"],
+	&.city-moscow.category-additional &__category-section[data-city="moscow"][data-category="additional"],
+	&.city-other.category-payments &__category-section[data-city="other"][data-category="payments"],
+	&.city-other.category-injuries &__category-section[data-city="other"][data-category="injuries"],
+	&.city-other.category-family &__category-section[data-city="other"][data-category="family"] {
 		display: block;
-		height: auto;
+	}
+
+	/* ===== КОНТЕНТ ===== */
+
+	&__category-content {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $spacing-md-desktop;
+	}
+
+	/* ===== ACCORDION-ЭЛЕМЕНТЫ НЕ НУЖНЫ ===== */
+
+	&__category-header,
+	&__category-arrow {
+		display: none;
 	}
 }

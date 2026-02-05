@@ -1,176 +1,150 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
+	const payments = document.querySelector('.payments');
 	const categoryButtons = document.querySelectorAll('.payments__category-button');
-	const categoryHeaders = document.querySelectorAll('.payments__category-header');
 	const categorySections = document.querySelectorAll('.payments__category-section');
+	const categoryHeaders = document.querySelectorAll('.payments__category-header');
 	const cityToggle = document.querySelector('.payments__city-toggle');
 	const cityDropdown = document.querySelector('.payments__city-dropdown');
-
-	// Получение данных из JSON
-	let cityData = {};
-	try {
-		const response = await fetch('./payments.json');
-		if (!response.ok) throw new Error('Failed to fetch payments.json');
-		cityData = await response.json();
-	} catch (error) {
-		console.error('Ошибка загрузки данных о выплатах:', error);
-		return;
-	}
+	const cityOptions = document.querySelectorAll('.payments__city-option');
 
 	let currentCity = 'moscow';
 
-	// Функция для заполнения выпадающего списка городов
-	function initCityDropdown() {
-		if (!cityDropdown) return;
+	function syncCategoryButtons() {
+		const activeCategory = payments.className
+			.split(' ')
+			.find(cls => cls.startsWith('category-'))
+			?.replace('category-', '');
 
-		cityDropdown.innerHTML = '';
+		const visibleButtons = document.querySelectorAll(
+			`.payments__header-category[data-city="${currentCity}"] .payments__category-button`
+		);
 
-		Object.keys(cityData).forEach(cityKey => {
-			const city = cityData[cityKey];
-			const li = document.createElement('li');
-			li.className = 'payments__city-option';
-			if (cityKey === currentCity) {
-				li.classList.add('active');
-				// Обновление начального текста переключателя
-				const citySpan = cityToggle.querySelector('.payments__city-content span');
-				if (citySpan) citySpan.textContent = city.name;
-			}
-			li.setAttribute('data-city', cityKey);
-			li.textContent = city.name;
+		let hasActive = false;
 
-			li.addEventListener('click', () => {
-				// Обновление активного состояния выпадающего списка
-				document.querySelectorAll('.payments__city-option').forEach(opt => opt.classList.remove('active'));
-				li.classList.add('active');
-
-				// Обновление текста кнопки-переключателя
-				const citySpan = cityToggle.querySelector('.payments__city-content span');
-				if (citySpan) citySpan.textContent = city.name;
-
-				// Закрытие выпадающего списка
-				cityToggle.classList.remove('active');
-				cityDropdown.classList.remove('active');
-
-				// Обновление контента
-				currentCity = cityKey;
-				updateContentByCity(cityKey);
-			});
-
-			cityDropdown.appendChild(li);
+		visibleButtons.forEach(button => {
+			const isActive = button.dataset.category === activeCategory;
+			button.classList.toggle('btn--primary', isActive);
+			button.classList.toggle('btn--outlined', !isActive);
+			if (isActive) hasActive = true;
 		});
+
+		if (!hasActive && visibleButtons.length) {
+			const firstButton = visibleButtons[0];
+			firstButton.classList.add('btn--primary');
+			firstButton.classList.remove('btn--outlined');
+
+			payments.classList.remove(
+				'category-payments',
+				'category-injuries',
+				'category-family',
+				'category-additional'
+			);
+			payments.classList.add(`category-${firstButton.dataset.category}`);
+		}
 	}
 
-	// Функция для обновления контента в зависимости от города.
 	function updateContentByCity(city) {
-		const data = cityData[city];
-		if (!data) return;
+		currentCity = city;
+
+		payments.classList.remove('city-moscow', 'city-other');
+		payments.classList.add(`city-${city}`);
 
 		categorySections.forEach(section => {
-			const category = section.getAttribute('data-category');
-			const contentList = section.querySelector('.payments__category-content');
-
-			if (contentList && data[category]) {
-				// Очистить существующий контент
-				contentList.innerHTML = '';
-
-				// Добавление нового контента
-				data[category].forEach(item => {
-					const li = document.createElement('li');
-					li.innerHTML = `
-						<h5>${item.amount}</h5>
-						<p>${item.description}</p>
-					`;
-					contentList.appendChild(li);
-				});
-			}
+			section.classList.remove('active');
+			const content = section.querySelector('.payments__category-content');
+			if (content) content.classList.remove('active');
 		});
 	}
 
-	// Функциональность кнопок категорий в десктопной версии
-	if (categoryButtons.length > 0) {
-		categoryButtons.forEach(button => {
-			button.addEventListener('click', () => {
-				const targetCategory = button.getAttribute('data-category');
+	categorySections.forEach(section => {
+		section.classList.remove('active');
+		const content = section.querySelector('.payments__category-content');
+		if (content) content.classList.remove('active');
+	});
 
-				// Обновление состояния кнопок
-				categoryButtons.forEach(btn => {
-					if (btn === button) {
-						btn.classList.remove('btn--outlined');
-						btn.classList.add('btn--primary');
-					} else {
-						btn.classList.remove('btn--primary');
-						btn.classList.add('btn--outlined');
-					}
-				});
+	categoryButtons.forEach(button => {
+		button.addEventListener('click', () => {
+			const category = button.dataset.category;
 
-				// Отображение соответствующего раздела категории
-				categorySections.forEach(section => {
-					const sectionCategory = section.getAttribute('data-category');
-					const content = section.querySelector('.payments__category-content');
+			payments.classList.remove(
+				'category-payments',
+				'category-injuries',
+				'category-family',
+				'category-additional'
+			);
+			payments.classList.add(`category-${category}`);
 
-					if (sectionCategory === targetCategory) {
-						section.classList.add('active');
-						if (content) content.classList.add('active');
-					} else {
-						section.classList.remove('active');
-						if (content) content.classList.remove('active');
-					}
-				});
+			categoryButtons.forEach(btn => {
+				btn.classList.toggle('btn--primary', btn === button);
+				btn.classList.toggle('btn--outlined', btn !== button);
+			});
+
+			categorySections.forEach(section => {
+				section.classList.remove('active');
+				const content = section.querySelector('.payments__category-content');
+				if (content) content.classList.remove('active');
 			});
 		});
-	}
+	});
 
-	// Функциональность аккордеона мобильной версии
-	if (categoryHeaders.length > 0) {
-		// Выбор первой категории открытой по умолчанию в мобильной версии
-		if (categorySections.length > 0) {
-			categorySections[0].classList.add('active');
-			const firstContent = categorySections[0].querySelector('.payments__category-content');
-			if (firstContent) {
-				firstContent.classList.add('active');
-			}
+	cityOptions.forEach(option => {
+		option.addEventListener('click', () => {
+			const city = option.dataset.city;
+
+			cityOptions.forEach(o => o.classList.remove('active'));
+			option.classList.add('active');
+
+			cityToggle.querySelector('span').textContent = option.textContent;
+
+			cityToggle.classList.remove('active');
+			cityDropdown.classList.remove('active');
+
+			updateContentByCity(city);
+			syncCategoryButtons();
+		});
+	});
+
+	cityToggle.addEventListener('click', e => {
+		e.stopPropagation();
+		cityToggle.classList.toggle('active');
+		cityDropdown.classList.toggle('active');
+	});
+
+	document.addEventListener('click', e => {
+		if (!cityToggle.contains(e.target)) {
+			cityToggle.classList.remove('active');
+			cityDropdown.classList.remove('active');
 		}
+	});
 
-		categoryHeaders.forEach(header => {
-			header.addEventListener('click', () => {
-				const parentSection = header.closest('.payments__category-section');
-				const content = parentSection.querySelector('.payments__category-content');
-				const isActive = parentSection.classList.contains('active');
+	categoryHeaders.forEach(header => {
+		header.addEventListener('click', () => {
+			const currentSection = header.closest('.payments__category-section');
+			const currentCity = currentSection.dataset.city;
+			const currentContent = currentSection.querySelector('.payments__category-content');
 
-				// Реализация открытия текущего раздела, и закрытия остальных
-				categorySections.forEach(section => {
-					const sectionContent = section.querySelector('.payments__category-content');
-					if (section === parentSection) {
+			categorySections.forEach(section => {
+				const content = section.querySelector('.payments__category-content');
+
+				if (section.dataset.city === currentCity) {
+					if (section === currentSection) {
 						section.classList.toggle('active');
-						sectionContent.classList.toggle('active');
+						content.classList.toggle('active');
 					} else {
 						section.classList.remove('active');
-						sectionContent.classList.remove('active');
+						content.classList.remove('active');
 					}
-				});
+				}
 			});
 		});
-	}
+	});
 
-	// Функциональность выпадающего списка городов
-	if (cityToggle && cityDropdown) {
-		cityToggle.addEventListener('click', (e) => {
-			e.stopPropagation();
-			cityToggle.classList.toggle('active');
-			cityDropdown.classList.toggle('active');
-		});
-
-		// Закрытие выпадающего списка при клике вне него самого
-		document.addEventListener('click', (e) => {
-			if (!cityToggle.contains(e.target) && !cityDropdown.contains(e.target)) {
-				cityToggle.classList.remove('active');
-				cityDropdown.classList.remove('active');
-			}
-		});
-
-		// Инициализация выпадающего списка после загрузки данных
-		initCityDropdown();
-	}
-
-	// Инициализация с текущим городом
 	updateContentByCity(currentCity);
+	payments.classList.add('category-payments');
+	syncCategoryButtons();
+
+	categoryButtons.forEach(btn => {
+		btn.classList.toggle('btn--primary', btn.dataset.category === 'payments');
+		btn.classList.toggle('btn--outlined', btn.dataset.category !== 'payments');
+	});
 });
