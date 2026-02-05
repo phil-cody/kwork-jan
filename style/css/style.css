@@ -798,7 +798,7 @@ body.is-menu-open .mobile-menu-overlay {
 
 .payments {
   background-color: #fff;
-  background-image: url("../../../image/payments/Subtract.png");
+  background-image: url("../../image/payments/Subtract.png");
   background-size: 100% auto;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -1294,7 +1294,7 @@ body.is-menu-open .mobile-menu-overlay {
 
 .requirements {
   background-color: #fff;
-  background-image: url("../../../image/requirements/Subtract.png");
+  background-image: url("../../image/requirements/Subtract.png");
   background-size: 100% auto;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -1383,7 +1383,7 @@ body.is-menu-open .mobile-menu-overlay {
 
 .training {
   background-color: #0c1625;
-  background-image: url("../../../image/training/bottom.webp");
+  background-image: url("../../image/training/bottom.webp");
   background-size: 100% auto;
   background-position: bottom;
   background-repeat: no-repeat;
@@ -1616,7 +1616,7 @@ body.is-menu-open .mobile-menu-overlay {
 }
 
 .address {
-  background-image: url("../../../image/payments/Subtract.png");
+  background-image: url("../../image/payments/Subtract.png");
   background-size: 100% auto;
   background-position: top;
   background-repeat: no-repeat;
