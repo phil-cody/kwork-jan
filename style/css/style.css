@@ -2153,8 +2153,11 @@ body.is-menu-open .mobile-menu-overlay {
   .training__content {
     padding-bottom: 585px;
   }
+  .training__sticker {
+    max-width: 40vw;
+  }
   .training__footer .training__content-heading h6 {
-    max-width: 400px;
+    max-width: 40vw;
   }
   .faq__title-text {
     font-size: 32px;
@@ -2470,6 +2473,7 @@ body.is-menu-open .mobile-menu-overlay {
     width: 100%;
   }
   .training__footer .training__content-heading h6 {
+    max-width: 100%;
     font-size: 16px;
   }
   .training__footer .training__content-description {

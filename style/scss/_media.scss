@@ -472,9 +472,13 @@
 			padding-bottom: 585px;
 		}
 
+		&__sticker {
+			max-width: 40vw;
+		}
+
 		&__footer {
 			.training__content-heading h6 {
-				max-width: 400px;
+				max-width: 40vw;
 			}
 		}
 	}
@@ -903,6 +907,7 @@
 			}
 
 			.training__content-heading h6 {
+				max-width: 100%;
 				font-size: $heading-6-mobile;
 			}
 
