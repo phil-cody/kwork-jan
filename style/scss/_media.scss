@@ -466,6 +466,7 @@
 	.training {
 		&__title {
 			font-size: $heading-2-mobile;
+			max-width: 50vw;
 		}
 
 		&__content {
@@ -473,7 +474,7 @@
 		}
 
 		&__sticker {
-			max-width: 40vw;
+			max-width: 45vw;
 		}
 
 		&__footer {
