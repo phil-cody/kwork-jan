@@ -2,11 +2,26 @@
 @use '../abstracts/mixins' as *;
 
 .address {
-	background-image: url('../../image/payments/Subtract.png');
-	background-size: 100% auto;
-	background-position: top;
-	background-repeat: no-repeat;
+	// background-image: url('../../image/payments/Subtract.png');
+	// background-size: 100% auto;
+	// background-position: center 0px;
+	// background-repeat: no-repeat;
 	padding-top: 246px;
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 50%;
+		transform: translateX(-50%);
+
+		width: 100vw;
+		height: 246px;
+
+		background: url('../../image/payments/Subtract.png') center / cover no-repeat;
+		pointer-events: none;
+	}
 
 	&__content {
 		padding: $spacing-none-desktop $spacing-xxxl-desktop;

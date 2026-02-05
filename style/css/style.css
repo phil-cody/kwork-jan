@@ -797,11 +797,18 @@ body.is-menu-open .mobile-menu-overlay {
 }
 
 .payments {
-  background-color: #fff;
-  background-image: url("../../image/payments/Subtract.png");
-  background-size: 100% auto;
-  background-position: bottom;
-  background-repeat: no-repeat;
+  position: relative;
+}
+.payments::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 246px;
+  background: url("../../image/payments/Subtract.png") center/cover no-repeat;
+  pointer-events: none;
 }
 .payments__container {
   padding: 0 40px 246px;
@@ -1293,11 +1300,18 @@ body.is-menu-open .mobile-menu-overlay {
 }
 
 .requirements {
-  background-color: #fff;
-  background-image: url("../../image/requirements/Subtract.png");
-  background-size: 100% auto;
-  background-position: bottom;
-  background-repeat: no-repeat;
+  position: relative;
+}
+.requirements::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 246px;
+  background: url("../../image/requirements/Subtract.png") center/cover no-repeat;
+  pointer-events: none;
 }
 .requirements__title {
   color: #0c1625;
@@ -1616,11 +1630,19 @@ body.is-menu-open .mobile-menu-overlay {
 }
 
 .address {
-  background-image: url("../../image/payments/Subtract.png");
-  background-size: 100% auto;
-  background-position: top;
-  background-repeat: no-repeat;
   padding-top: 246px;
+  position: relative;
+}
+.address::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 246px;
+  background: url("../../image/payments/Subtract.png") center/cover no-repeat;
+  pointer-events: none;
 }
 .address__content {
   padding: 0 40px;
@@ -1966,6 +1988,9 @@ body.is-menu-open .mobile-menu-overlay {
   .sticker {
     margin: 60px 40px;
   }
+  .payments::before {
+    height: 174px;
+  }
   .payments__container {
     padding: 0 40px 175px;
   }
@@ -1978,11 +2003,14 @@ body.is-menu-open .mobile-menu-overlay {
   .guarantees {
     padding: 0 40px 40px;
   }
+  .requirements::before {
+    height: 174px;
+  }
   .requirements__title {
     margin: 40px;
   }
   .requirements__content {
-    padding: 0 40px 215px;
+    padding: 0 40px 214px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
   }
@@ -2016,6 +2044,9 @@ body.is-menu-open .mobile-menu-overlay {
   .address {
     padding-top: 174px;
   }
+  .address::before {
+    height: 174px;
+  }
 }
 /* ========================================= Tablet (887px) ========================================= */
 @media (max-width: 887px) {
@@ -2027,6 +2058,9 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .stages__title {
     font-size: 32px;
+  }
+  .payments::before {
+    height: 151px;
   }
   .payments__container {
     padding-bottom: 151px;
@@ -2104,6 +2138,9 @@ body.is-menu-open .mobile-menu-overlay {
   .vacancies[data-mode=tablet][data-step=position] .vacancies__content-item--list:nth-of-type(2) {
     display: flex;
   }
+  .requirements::before {
+    height: 151px;
+  }
   .requirements__title {
     font-size: 32px;
   }
@@ -2124,6 +2161,9 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .address {
     padding-top: 151px;
+  }
+  .address::before {
+    height: 151px;
   }
   .address__title {
     font-size: 32px;
@@ -2202,6 +2242,9 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .sticker__cta {
     width: 100%;
+  }
+  .payments::before {
+    height: 123px;
   }
   .payments__container {
     padding-bottom: 123px;
@@ -2320,6 +2363,12 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .vacancies__title {
     margin-bottom: 600px;
+  }
+  .requirements::before {
+    height: 150px;
+  }
+  .requirements__title {
+    margin: 100px 28px 28px;
   }
   .requirements__content {
     padding-bottom: 173px;
@@ -2522,6 +2571,9 @@ body.is-menu-open .mobile-menu-overlay {
   .address {
     padding-top: 123px;
   }
+  .address::before {
+    height: 123px;
+  }
 }
 /* ========================================= Mobile (540px) ========================================= */
 @media (max-width: 540px) {
@@ -2627,6 +2679,9 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .stages__step-content {
     gap: 6px;
+  }
+  .payments::before {
+    height: 92px;
   }
   .payments {
     background-color: #fff;
@@ -2806,6 +2861,9 @@ body.is-menu-open .mobile-menu-overlay {
   .vacancies[data-mode=mobile][data-step=form] .vacancies__content-item--form {
     display: flex;
   }
+  .requirements::before {
+    height: 92px;
+  }
   .requirements__title {
     font-size: 32px;
     margin: 40px 16px 28px;
@@ -2880,6 +2938,9 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .address {
     padding-top: 92px;
+  }
+  .address::before {
+    height: 92px;
   }
   .address__content {
     padding: 0 0;
@@ -2982,6 +3043,9 @@ body.is-menu-open .mobile-menu-overlay {
     background-image: url("../../image/hero/hero-background-mobile.png");
     height: 1145px;
   }
+  .payments::before {
+    height: 50px;
+  }
   .payments__container {
     padding-bottom: 73px;
   }
@@ -2991,6 +3055,9 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .vacancies__title {
     margin-bottom: 422px;
+  }
+  .requirements::before {
+    height: 50px;
   }
   .requirements__title {
     font-size: 32px;
@@ -3053,7 +3120,10 @@ body.is-menu-open .mobile-menu-overlay {
     padding-bottom: 280px;
   }
   .address {
-    padding-top: 73px;
+    padding-top: 50px;
+  }
+  .address::before {
+    height: 50px;
   }
   .address__content {
     padding: 0 0;

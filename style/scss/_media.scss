@@ -215,6 +215,10 @@
 
 	// ===== PAYMENTS SECTION =====
 	.payments {
+		&::before {
+			height: 174px;
+		}
+
 
 		&__container {
 			padding: $spacing-none-desktop $spacing-xxxl-desktop 175px;
@@ -236,12 +240,16 @@
 
 	// ===== REQUIREMENTS SECTION =====
 	.requirements {
+		&::before {
+			height: 174px;
+		}
+
 		&__title {
 			margin: $spacing-xxxl-desktop;
 		}
 
 		&__content {
-			padding: 0 $spacing-xxxl-desktop calc($spacing-xxxl-desktop + 175px);
+			padding: 0 $spacing-xxxl-desktop calc($spacing-xxxl-desktop + 174px);
 			grid-template-columns: repeat(3, 1fr);
 			grid-template-rows: repeat(3, auto);
 		}
@@ -293,6 +301,10 @@
 	// ===== ADDRESS =====
 	.address {
 		padding-top: 174px;
+
+		&::before {
+			height: 174px;
+		}
 	}
 }
 
@@ -318,6 +330,10 @@
 
 	// ===== PAYMENTS SECTION =====
 	.payments {
+		&::before {
+			height: 151px;
+		}
+
 		&__container {
 			padding-bottom: 151px;
 		}
@@ -433,6 +449,10 @@
 
 	// ===== REQUIREMENTS SECTION =====
 	.requirements {
+		&::before {
+			height: 151px;
+		}
+
 		&__title {
 			font-size: $heading-2-mobile;
 		}
@@ -469,6 +489,10 @@
 	// ===== ADDRESS =====
 	.address {
 		padding-top: 151px;
+
+		&::before {
+			height: 151px;
+		}
 
 		&__title {
 			font-size: $heading-2-mobile;
@@ -589,6 +613,10 @@
 
 	// ===== PAYMENTS SECTION =====
 	.payments {
+		&::before {
+			height: 123px;
+		}
+
 		&__container {
 			padding-bottom: 123px;
 		}
@@ -741,8 +769,18 @@
 	}
 
 	// =====REQUIREMENTS SECTION =====
-	.requirements__content {
-		padding-bottom: 173px;
+	.requirements {
+		&::before {
+			height: 150px;
+		}
+
+		&__title {
+			margin: 100px $spacing-xxxl-mobile $spacing-xxxl-mobile;
+		}
+
+		&__content {
+			padding-bottom: 173px;
+		}
 	}
 
 	// ===== TRAINING SECTION =====
@@ -996,6 +1034,10 @@
 	// ===== ADDRESS =====
 	.address {
 		padding-top: 123px;
+
+		&::before {
+			height: 123px;
+		}
 	}
 }
 
@@ -1141,6 +1183,10 @@
 	// ===== PAYMENTS SECTION =====
 
 	.payments {
+		&::before {
+			height: 92px;
+		}
+
 		background-color: $background;
 
 		/* ===== Layout ===== */
@@ -1372,6 +1418,10 @@
 
 	// ===== REQUIREMENTS SECTION =====
 	.requirements {
+		&::before {
+			height: 92px;
+		}
+
 		&__title {
 			font-size: $heading-2-mobile;
 			margin: $spacing-xxxl-desktop $spacing-md-mobile $spacing-xxxl-mobile;
@@ -1468,6 +1518,10 @@
 	// ===== ADDRESS SECTION =====
 	.address {
 		padding-top: 92px;
+
+		&::before {
+			height: 92px;
+		}
 
 		&__content {
 			padding: $spacing-none-mobile $spacing-none-mobile;
@@ -1606,8 +1660,14 @@
 	}
 
 	// ===== PAYMENTS SECTION =====
-	.payments__container {
-		padding-bottom: 73px;
+	.payments {
+		&::before {
+			height: 50px;
+		}
+
+		&__container {
+			padding-bottom: 73px;
+		}
 	}
 
 	// ===== VACANCIES SECTION =====
@@ -1622,6 +1682,10 @@
 
 	// ===== REQUIREMENTS SECTION =====
 	.requirements {
+		&::before {
+			height: 50px;
+		}
+
 		&__title {
 			font-size: $heading-2-mobile;
 			margin: $spacing-xxxl-desktop $spacing-md-mobile $spacing-xxxl-mobile;
@@ -1703,7 +1767,11 @@
 
 	// ===== ADDRESS SECTION =====
 	.address {
-		padding-top: 73px;
+		padding-top: 50px;
+
+		&::before {
+			height: 50px;
+		}
 
 		&__content {
 			padding: $spacing-none-mobile $spacing-none-mobile;
