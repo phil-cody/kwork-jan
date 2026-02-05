@@ -1,15 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
 	const header = document.querySelector('.header');
+	if (!header) return;
 
-	if (header) {
-		const headerHeight = header.offsetHeight;
+	const toggleSticky = () => {
+		header.classList.toggle('header--sticky', window.scrollY > 10);
+	};
 
-		window.addEventListener('scroll', () => {
-			if (window.scrollY > 10) {
-				header.classList.add('header--sticky');
-			} else {
-				header.classList.remove('header--sticky');
-			}
-		});
-	}
+	window.addEventListener('scroll', toggleSticky);
+	toggleSticky(); // на случай загрузки не с верха страницы
 });

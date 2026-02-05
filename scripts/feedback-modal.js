@@ -1,181 +1,97 @@
-document.addEventListener('DOMContentLoaded', () => {
-	const feedbackModal = document.getElementById('feedback-modal');
-	const closeFeedbackModalBtn = document.getElementById('close-feedback-modal');
-	const feedbackForm = document.getElementById('feedback-form');
-	const feedbackPhoneInput = document.getElementById('feedback-phone');
-	const feedbackNameInput = document.getElementById('feedback-name');
-	const feedbackConsentCheckbox = document.getElementById('feedback-consent');
-	const feedbackSubmitButton = feedbackForm ? feedbackForm.querySelector('.feedback-modal__submit') : null;
-	const successModal = document.getElementById('success-modal');
-	const closeSuccessModalBtn = document.getElementById('close-success-modal');
-	
-	const feedbackTriggerButtons = document.querySelectorAll('button');
-	const triggerButtons = [];
-	
-	feedbackTriggerButtons.forEach(button => {
-		if (button.textContent.trim().toLowerCase().includes('узнать условия для меня')) {
-			triggerButtons.push(button);
-		}
-	});
-	
-	let isSubmitting = false;
-	
-	function openFeedbackModal() {
-		if (feedbackModal) {
-			feedbackModal.classList.add('feedback-modal--visible');
-			document.body.style.overflow = 'hidden';
-		}
-	}
-	
-	function closeFeedbackModal() {
-		if (feedbackModal) {
-			feedbackModal.classList.remove('feedback-modal--visible');
-			document.body.style.overflow = '';
-		}
-	}
-	
-	function resetFeedbackForm() {
-		if (feedbackPhoneInput) feedbackPhoneInput.value = '';
-		if (feedbackNameInput) feedbackNameInput.value = '';
-		if (feedbackConsentCheckbox) feedbackConsentCheckbox.checked = false;
-		validateFeedbackForm();
-	}
-	
-	function validateFeedbackForm() {
-		const isPhoneFilled = feedbackPhoneInput && feedbackPhoneInput.value.trim() !== '';
-		const isNameFilled = feedbackNameInput && feedbackNameInput.value.trim() !== '';
-		const isConsentChecked = feedbackConsentCheckbox && feedbackConsentCheckbox.checked;
-		
-		const isFormValid = isPhoneFilled && isNameFilled && isConsentChecked;
-		
-		if (feedbackSubmitButton) {
-			feedbackSubmitButton.disabled = !isFormValid;
-			if (isFormValid) {
-				feedbackSubmitButton.classList.remove('btn--disabled');
-			} else {
-				feedbackSubmitButton.classList.add('btn--disabled');
-			}
-		}
-		
-		return isFormValid;
-	}
-	
-	function showSuccessModal() {
-		if (successModal) {
-			successModal.classList.add('success--visible');
-			document.body.style.overflow = 'hidden';
-		}
-	}
-	
-	function handleFeedbackSubmit(e) {
+const feedbackModal = document.getElementById('feedback-modal');
+const closeFeedbackModalBtn = document.getElementById('close-feedback-modal');
+const feedbackForm = document.getElementById('feedback-form');
+
+const phoneInput = document.getElementById('feedback-phone');
+const nameInput = document.getElementById('feedback-name');
+const consentCheckbox = document.getElementById('feedback-consent');
+const submitButton = feedbackForm?.querySelector('.feedback-modal__submit');
+
+const successModal = document.getElementById('success-modal');
+const closeSuccessModalBtn = document.getElementById('close-success-modal');
+
+const triggerButtons = document.querySelectorAll('[data-feedback-trigger]');
+
+function lockBody() {
+	document.body.classList.add('is-locked');
+}
+
+function unlockBody() {
+	document.body.classList.remove('is-locked');
+}
+
+function openModal(modal, visibleClass) {
+	if (!modal) return;
+	modal.classList.add(visibleClass);
+	lockBody();
+}
+
+function closeModal(modal, visibleClass) {
+	if (!modal) return;
+	modal.classList.remove(visibleClass);
+	unlockBody();
+}
+
+triggerButtons.forEach(btn => {
+	btn.addEventListener('click', e => {
 		e.preventDefault();
-		
-		if (isSubmitting) {
-			return;
-		}
-		
-		if (!validateFeedbackForm()) {
-			return;
-		}
-		
-		isSubmitting = true;
-		const originalButtonText = feedbackSubmitButton.textContent;
-		feedbackSubmitButton.disabled = true;
-		feedbackSubmitButton.classList.add('btn--disabled');
-		feedbackSubmitButton.textContent = 'Отправка...';
-		
-		const formData = {
-			phone: feedbackPhoneInput.value.trim(),
-			name: feedbackNameInput.value.trim(),
-			consent: feedbackConsentCheckbox.checked
-		};
-		
-		// AJAX запрос
-		console.log('Отправка данных формы обратной связи:', formData);
-		
-		// Заготовка для отправки на сервер
-		/*
-		fetch('/api/feedback', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify(formData)
-		})
-		.then(response => {
-			if (!response.ok) throw new Error('Ошибка отправки');
-			return response.json();
-		})
-		.then(data => {
-			console.log('Успешно отправлено:', data);
-			closeFeedbackModal();
-			resetFeedbackForm();
-			showSuccessModal();
-		})
-		.catch(error => {
-			console.error('Ошибка:', error);
-			alert('Произошла ошибка при отправке заявки');
-		})
-		.finally(() => {
-			isSubmitting = false;
-			feedbackSubmitButton.textContent = originalButtonText;
-			validateFeedbackForm();
-		});
-		*/
-		
-		// Временная заглушка с имитацией задержки
-		setTimeout(() => {
-			closeFeedbackModal();
-			resetFeedbackForm();
-			showSuccessModal();
-			isSubmitting = false;
-			feedbackSubmitButton.textContent = originalButtonText;
-			validateFeedbackForm();
-		}, 1000);
-	}
-	
-	triggerButtons.forEach(button => {
-		button.addEventListener('click', (e) => {
-			e.preventDefault();
-			openFeedbackModal();
-		});
+		openModal(feedbackModal, 'feedback-modal--visible');
 	});
-	
-	if (closeFeedbackModalBtn) {
-		closeFeedbackModalBtn.addEventListener('click', closeFeedbackModal);
+});
+
+closeFeedbackModalBtn?.addEventListener('click', () => {
+	closeModal(feedbackModal, 'feedback-modal--visible');
+});
+
+feedbackModal?.addEventListener('click', e => {
+	if (e.target === feedbackModal) {
+		closeModal(feedbackModal, 'feedback-modal--visible');
 	}
-	
-	if (feedbackModal) {
-		feedbackModal.addEventListener('click', (e) => {
-			if (e.target === feedbackModal) {
-				closeFeedbackModal();
-			}
-		});
+});
+
+function validateForm() {
+	if (!phoneInput || !nameInput || !consentCheckbox || !submitButton) {
+		return false;
 	}
-	
-	if (feedbackPhoneInput) feedbackPhoneInput.addEventListener('input', validateFeedbackForm);
-	if (feedbackNameInput) feedbackNameInput.addEventListener('input', validateFeedbackForm);
-	if (feedbackConsentCheckbox) feedbackConsentCheckbox.addEventListener('change', validateFeedbackForm);
-	
-	if (feedbackForm) feedbackForm.addEventListener('submit', handleFeedbackSubmit);
-	
-	if (closeSuccessModalBtn) {
-		closeSuccessModalBtn.addEventListener('click', () => {
-			if (successModal) {
-				successModal.classList.remove('success--visible');
-				document.body.style.overflow = '';
-			}
-		});
+
+	const valid =
+		phoneInput.value.trim() &&
+		nameInput.value.trim() &&
+		consentCheckbox.checked;
+
+	submitButton.disabled = !valid;
+	submitButton.classList.toggle('btn--disabled', !valid);
+
+	return valid;
+}
+
+phoneInput?.addEventListener('input', validateForm);
+nameInput?.addEventListener('input', validateForm);
+consentCheckbox?.addEventListener('change', validateForm);
+
+feedbackForm?.addEventListener('submit', e => {
+	e.preventDefault();
+	if (!validateForm()) return;
+
+	submitButton.textContent = 'Отправка...';
+	submitButton.disabled = true;
+
+	setTimeout(() => {
+		closeModal(feedbackModal, 'feedback-modal--visible');
+		openModal(successModal, 'success--visible');
+
+		feedbackForm.reset();
+		validateForm();
+		submitButton.textContent = 'Отправить заявку';
+	}, 1000);
+});
+
+closeSuccessModalBtn?.addEventListener('click', () => {
+	closeModal(successModal, 'success--visible');
+});
+
+successModal?.addEventListener('click', e => {
+	if (e.target === successModal) {
+		closeModal(successModal, 'success--visible');
 	}
-	
-	if (successModal) {
-		successModal.addEventListener('click', (e) => {
-			if (e.target === successModal) {
-				successModal.classList.remove('success--visible');
-				document.body.style.overflow = '';
-			}
-		});
-	}
-	
-	validateFeedbackForm();
 });

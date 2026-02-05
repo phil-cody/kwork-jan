@@ -31,7 +31,6 @@
 	}
 
 	&__header-category {
-		display: flex;
 		flex-wrap: wrap;
 		gap: $spacing-xs-desktop;
 	}
@@ -139,14 +138,6 @@
 		}
 	}
 
-	&__category-header {
-		display: none;
-	}
-
-	&__category-arrow {
-		display: none;
-	}
-
 	&__category-content {
 		flex-wrap: wrap;
 		gap: $spacing-md-desktop;
@@ -189,8 +180,6 @@
 		color: $text-medium;
 	}
 
-	/* ===== КНОПКИ КАТЕГОРИЙ ===== */
-
 	&__header-category {
 		display: none;
 	}
@@ -199,8 +188,6 @@
 	&.city-other &__header-category[data-city="other"] {
 		display: flex;
 	}
-
-	/* ===== СЕКЦИИ ===== */
 
 	&__category-section {
 		display: none;
@@ -216,15 +203,11 @@
 		display: block;
 	}
 
-	/* ===== КОНТЕНТ ===== */
-
 	&__category-content {
 		display: flex;
 		flex-wrap: wrap;
 		gap: $spacing-md-desktop;
 	}
-
-	/* ===== ACCORDION-ЭЛЕМЕНТЫ НЕ НУЖНЫ ===== */
 
 	&__category-header,
 	&__category-arrow {

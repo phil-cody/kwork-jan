@@ -1,8 +1,7 @@
-@use "./abstracts/variables";
-@use "./abstracts/mixins";
 @use "./base/reset";
 @use "./base/fonts";
 @use "./base/base";
+@use "./layout/overlays";
 @use "./layout/header";
 @use "./layout/footer";
 @use "./components/button";

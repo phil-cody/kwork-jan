@@ -1,79 +1,93 @@
 document.addEventListener('DOMContentLoaded', async () => {
 	const regionButtons = document.querySelectorAll('.address__region');
 	const pointsList = document.querySelector('.address__points-list');
-	const mapDisplay = document.querySelector('.address__map-display');
+	const mapContainer = document.querySelector('.address__map-display');
 
-	let addressData = {};
+	if (!regionButtons.length || !pointsList || !mapContainer) return;
+
+	let addressData;
+	let currentRegionId;
+	let map = null;
+	let mapReady = false;
+
 	try {
-		const response = await fetch('./address.json');
-		if (!response.ok) throw new Error('Не удалось загрузить address.json');
-		addressData = await response.json();
-	} catch (error) {
-		console.error('Ошибка загрузки данных адресов:', error);
+		const res = await fetch('./address.json');
+		if (!res.ok) throw new Error();
+		addressData = await res.json();
+	} catch {
+		console.error('Не удалось загрузить address.json');
 		return;
 	}
 
-	let currentRegion = 'altai';
-	let mapInstance = null;
+	currentRegionId = addressData.regions[0]?.id;
+	if (!currentRegionId) return;
+
+	function loadMapApi() {
+		return new Promise(resolve => {
+			const script = document.createElement('script');
+			script.src = 'https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU';
+			script.onload = () => ymaps.ready(() => {
+				mapReady = true;
+				resolve();
+			});
+			document.head.appendChild(script);
+		});
+	}
+
+	function initMap(center) {
+		map = new ymaps.Map(mapContainer, {
+			center,
+			zoom: 12,
+			controls: ['zoomControl']
+		});
+		map.behaviors.disable('scrollZoom');
+	}
 
 	function updateMap(points) {
-		if (typeof ymaps === 'undefined' || !ymaps.Map) {
-			console.warn('API Яндекс.Карт не готово');
-			return;
+		if (!mapReady || !points.length) return;
+
+		if (!map) {
+			initMap(points[0].coordinates);
 		}
 
-		if (!points || points.length === 0) return;
-
-		const centerPoint = points[0].coordinates;
-
-		if (!mapInstance) {
-			if (mapDisplay) mapDisplay.innerHTML = '';
-			mapInstance = new ymaps.Map(mapDisplay, {
-				center: centerPoint,
-				zoom: 12,
-				controls: ['zoomControl']
-			});
-			mapInstance.behaviors.disable('scrollZoom');
-		}
-
-		mapInstance.geoObjects.removeAll();
+		map.geoObjects.removeAll();
 
 		points.forEach(point => {
-			const placemark = new ymaps.Placemark(point.coordinates, {}, {
-				iconLayout: 'default#image',
-				iconImageHref: './image/address/baloon.svg',
-				iconImageSize: [29, 35],
-				iconImageOffset: [-14.5, -35],
-				hasBalloon: false,
-				cursor: 'pointer'
-			});
+			const placemark = new ymaps.Placemark(
+				point.coordinates,
+				{},
+				{
+					iconLayout: 'default#image',
+					iconImageHref: './image/address/baloon.svg',
+					iconImageSize: [29, 35],
+					iconImageOffset: [-14.5, -35],
+					hasBalloon: false
+				}
+			);
 
 			placemark.events.add('click', () => {
-				mapInstance.setCenter(point.coordinates, 15, { duration: 500 });
-
-				document.querySelectorAll('.address__point').forEach(p => {
-					if (p.dataset.pointId == point.id) {
-						p.classList.add('active');
-						p.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-					} else {
-						p.classList.remove('active');
-					}
-				});
+				focusPoint(point.id, point.coordinates);
 			});
 
-			mapInstance.geoObjects.add(placemark);
+			map.geoObjects.add(placemark);
 		});
+	}
+
+	function focusPoint(pointId, coords) {
+		document.querySelectorAll('.address__point').forEach(p => {
+			p.classList.toggle('active', p.dataset.pointId === String(pointId));
+		});
+
+		if (map) {
+			map.setCenter(coords, 15, { duration: 400 });
+		}
 	}
 
 	function renderPoints(regionId) {
 		const region = addressData.regions.find(r => r.id === regionId);
-		if (!region || !pointsList) return;
+		if (!region) return;
 
 		pointsList.innerHTML = '';
-
-		if (region.points.length > 0) {
-			updateMap(region.points);
-		}
 
 		region.points.forEach(point => {
 			const li = document.createElement('li');
@@ -81,51 +95,37 @@ document.addEventListener('DOMContentLoaded', async () => {
 			li.dataset.pointId = point.id;
 
 			li.innerHTML = `
-                <h4 class="point__title">${point.title}</h4>
-                <p class="point__description">${point.description}</p>
-                <a href="tel:${point.phone.replace(/\s/g, '')}" class="point__phone">${point.phone}</a>
-                <p class="point__opening-hours">пн-пт <span class="point__hours">${point.hours}</span></p>
-            `;
+				<h4 class="point__title">${point.title}</h4>
+				<p class="point__description">${point.description}</p>
+				<a href="tel:${point.phone.replace(/\s/g, '')}" class="point__phone">${point.phone}</a>
+				<p class="point__opening-hours">пн-пт <span>${point.hours}</span></p>
+			`;
 
 			li.addEventListener('click', () => {
-				document.querySelectorAll('.address__point').forEach(p => p.classList.remove('active'));
-				li.classList.add('active');
-
-				if (mapInstance) {
-					mapInstance.setCenter(point.coordinates, 15, { duration: 500 });
-				}
+				focusPoint(point.id, point.coordinates);
 			});
 
 			pointsList.appendChild(li);
 		});
+
+		updateMap(region.points);
 	}
 
-	regionButtons.forEach(button => {
-		button.addEventListener('click', () => {
-			const regionId = button.dataset.region || 'altai';
-			regionButtons.forEach(btn => {
-				btn.classList.remove('btn--primary');
-				btn.classList.add('btn--outlined');
-			});
-			button.classList.remove('btn--outlined');
-			button.classList.add('btn--primary');
+	regionButtons.forEach(btn => {
+		btn.addEventListener('click', () => {
+			const regionId = btn.dataset.region;
+			if (!regionId) return;
 
-			currentRegion = regionId;
+			regionButtons.forEach(b => {
+				b.classList.toggle('btn--primary', b === btn);
+				b.classList.toggle('btn--outlined', b !== btn);
+			});
+
+			currentRegionId = regionId;
 			renderPoints(regionId);
 		});
 	});
-	renderPoints(currentRegion);
 
-	// Загрузка API Яндекс.Карт
-	const script = document.createElement('script');
-	script.src = 'https://api-maps.yandex.ru/2.1/?apikey=YOUR_API_KEY&lang=ru_RU';
-	script.onload = () => {
-		ymaps.ready(() => {
-			const firstRegion = addressData.regions.find(r => r.id === currentRegion);
-			if (firstRegion && firstRegion.points.length > 0) {
-				updateMap(firstRegion.points);
-			}
-		});
-	};
-	document.head.appendChild(script);
+	await loadMapApi();
+	renderPoints(currentRegionId);
 });

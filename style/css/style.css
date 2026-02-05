@@ -27,12 +27,6 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* Сброс роли отображения HTML5 для старых браузеров */
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
 body {
   line-height: 1;
   -webkit-font-smoothing: antialiased;
@@ -63,14 +57,14 @@ a {
   color: inherit;
 }
 
-button, input, textarea, select {
-  font-family: inherit;
+button {
   border: none;
   background: transparent;
-  padding: 0;
-  margin: 0;
-  outline: none;
   cursor: pointer;
+}
+
+input, textarea, select {
+  font-family: inherit;
 }
 
 img, video, iframe {
@@ -78,7 +72,6 @@ img, video, iframe {
   max-width: 100%;
 }
 
-/* golos-text-regular - cyrillic_latin */
 @font-face {
   font-display: swap;
   font-family: "Golos Text";
@@ -86,7 +79,6 @@ img, video, iframe {
   font-weight: 400;
   src: url("../../../fonts/golos-text-v7-cyrillic_latin-regular.woff2") format("woff2");
 }
-/* golos-text-500 - cyrillic_latin */
 @font-face {
   font-display: swap;
   font-family: "Golos Text";
@@ -109,6 +101,10 @@ body {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+}
+
+body.is-menu-open, body.is-locked {
+  overflow: hidden;
 }
 
 .main {
@@ -140,7 +136,7 @@ h5,
 h6 {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   color: #0c1625;
 }
@@ -172,6 +168,26 @@ h6 {
 ::selection {
   background: #566a84;
   color: #fff;
+}
+
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 900;
+}
+
+#mobileMenu {
+  position: fixed;
+  z-index: 1000;
+}
+
+body.is-menu-open .mobile-menu-overlay {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .header {
@@ -209,7 +225,7 @@ h6 {
 .header__nav-link {
   font-family: "Golos Text", sans-serif;
   font-weight: 400;
-  line-height: 95%;
+  line-height: 0.95;
   letter-spacing: 0;
   font-size: 16px;
   color: #fff;
@@ -252,7 +268,7 @@ h6 {
 .header__contact-phone {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 20px;
   color: #fff;
@@ -303,7 +319,6 @@ h6 {
 }
 .footer__pd:hover {
   color: rgb(87.1139240506, 91.8227848101, 98.8860759494);
-  text-decoration: none;
 }
 
 .btn {
@@ -320,7 +335,7 @@ h6 {
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 .btn--primary {
   background-color: #566a84;
@@ -363,7 +378,7 @@ h6 {
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .success--visible {
   opacity: 1;
@@ -377,7 +392,7 @@ h6 {
   max-width: 480px;
   text-align: center;
   transform: scale(0.9);
-  transition: transform 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -403,7 +418,7 @@ h6 {
 .success__title {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 32px;
   color: #0c1625;
@@ -432,7 +447,7 @@ h6 {
   z-index: 2000;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .feedback-modal--visible {
   opacity: 1;
@@ -446,7 +461,7 @@ h6 {
   max-width: 432px;
   position: relative;
   transform: scale(0.9);
-  transition: transform 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 .feedback-modal--visible .feedback-modal__content {
   transform: scale(1);
@@ -477,7 +492,7 @@ h6 {
 .feedback-modal__title {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 32px;
   color: #0c1625;
@@ -575,7 +590,7 @@ h6 {
 .hero__title {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 70px;
   color: #fff;
@@ -584,7 +599,7 @@ h6 {
 .hero__subtitle {
   font-size: 16px;
   color: rgba(255, 255, 255, 0.6);
-  line-height: auto;
+  line-height: 1.2;
 }
 .hero__item-block {
   display: flex;
@@ -595,7 +610,7 @@ h6 {
 .hero__item-block h3 {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 24px;
   color: #fff;
@@ -612,7 +627,7 @@ h6 {
 .hero__text-garant h3 {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 24px;
   color: #fff;
@@ -647,7 +662,7 @@ h6 {
 .stages__title {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 50px;
   color: #0c1625;
@@ -665,7 +680,7 @@ h6 {
 .stages__docs h4 {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 20px;
   color: #0c1625;
@@ -739,7 +754,7 @@ h6 {
 .stages__step-text {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 20px;
   color: #0c1625;
@@ -768,7 +783,7 @@ h6 {
 .sticker__text h3 {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 28px;
   color: #fff;
@@ -797,7 +812,7 @@ h6 {
 .payments__title {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 50px;
   color: #0c1625;
@@ -809,7 +824,6 @@ h6 {
   margin-bottom: 32px;
 }
 .payments__header-category {
-  display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -899,12 +913,6 @@ h6 {
   font-weight: 500;
   color: #0c1625;
 }
-.payments__category-header {
-  display: none;
-}
-.payments__category-arrow {
-  display: none;
-}
 .payments__category-content {
   flex-wrap: wrap;
   gap: 20px;
@@ -926,7 +934,7 @@ h6 {
 .payments__category-content li h5 {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 24px;
   color: #0c1625;
@@ -943,17 +951,11 @@ h6 {
   font-size: 16px;
   color: #6f757e;
 }
-.payments {
-  /* ===== КНОПКИ КАТЕГОРИЙ ===== */
-}
 .payments__header-category {
   display: none;
 }
 .payments.city-moscow .payments__header-category[data-city=moscow], .payments.city-other .payments__header-category[data-city=other] {
   display: flex;
-}
-.payments {
-  /* ===== СЕКЦИИ ===== */
 }
 .payments__category-section {
   display: none;
@@ -961,16 +963,10 @@ h6 {
 .payments.city-moscow.category-payments .payments__category-section[data-city=moscow][data-category=payments], .payments.city-moscow.category-injuries .payments__category-section[data-city=moscow][data-category=injuries], .payments.city-moscow.category-family .payments__category-section[data-city=moscow][data-category=family], .payments.city-moscow.category-additional .payments__category-section[data-city=moscow][data-category=additional], .payments.city-other.category-payments .payments__category-section[data-city=other][data-category=payments], .payments.city-other.category-injuries .payments__category-section[data-city=other][data-category=injuries], .payments.city-other.category-family .payments__category-section[data-city=other][data-category=family] {
   display: block;
 }
-.payments {
-  /* ===== КОНТЕНТ ===== */
-}
 .payments__category-content {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
-}
-.payments {
-  /* ===== ACCORDION-ЭЛЕМЕНТЫ НЕ НУЖНЫ ===== */
 }
 .payments__category-header, .payments__category-arrow {
   display: none;
@@ -983,7 +979,7 @@ h6 {
 .guarantees__title {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 50px;
   color: #0c1625;
@@ -1010,7 +1006,7 @@ h6 {
 .guarantees h4 {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 28px;
   color: #0c1625;
@@ -1113,7 +1109,7 @@ h6 {
 .vacancies__title {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   max-width: 670px;
   font-size: 50px;
@@ -1140,7 +1136,7 @@ h6 {
 .vacancies__content-item--list h5 {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 24px;
   color: #fff;
@@ -1215,7 +1211,7 @@ h6 {
 .vacancies__content-item--form .vacancies__content-title--form {
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   font-size: 32px;
   margin-bottom: 12px;
@@ -1346,7 +1342,7 @@ h6 {
 .requirements__block:nth-child(4) {
   grid-column: 4/6;
 }
-.requirements__block:nth-child(4) .requirements__block p {
+.requirements__block:nth-child(4) p {
   color: #6f757e;
   font-size: 16px;
   max-width: 377px;
@@ -1696,7 +1692,7 @@ h6 {
   margin: 0;
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
 }
 .address__point .point__description {
@@ -1710,7 +1706,7 @@ h6 {
   text-decoration: none;
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   display: block;
   margin-top: 24px;
@@ -1736,15 +1732,17 @@ h6 {
   right: 0;
   transform: translateX(-50%);
   padding: 0;
-  z-index: 1000;
+  z-index: 900;
   opacity: 0;
   visibility: hidden;
-  transition: all 0.3s ease;
   max-width: 815px;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none;
 }
 .cookie-banner--visible {
   opacity: 1;
   visibility: visible;
+  pointer-events: auto;
 }
 .cookie-banner__wrapper {
   margin: 0 auto;
@@ -1772,7 +1770,7 @@ h6 {
   font-size: 20px;
   font-family: "Golos Text", sans-serif;
   font-weight: 500;
-  line-height: 100%;
+  line-height: 1;
   letter-spacing: -0.04em;
   color: #fff;
 }
@@ -1885,7 +1883,7 @@ h6 {
   .header__mobile-nav-link {
     font-family: "Golos Text", sans-serif;
     font-weight: 500;
-    line-height: 100%;
+    line-height: 1;
     letter-spacing: -0.04em;
     display: block;
     font-size: 16px;
@@ -1908,7 +1906,7 @@ h6 {
     font-size: 16px;
     font-family: "Golos Text", sans-serif;
     font-weight: 500;
-    line-height: 100%;
+    line-height: 1;
     letter-spacing: -0.04em;
     color: #0c1625;
     text-decoration: none;
@@ -2514,7 +2512,7 @@ h6 {
   .faq__contact-phone {
     font-family: "Golos Text", sans-serif;
     font-weight: 500;
-    line-height: 100%;
+    line-height: 1;
     letter-spacing: -0.04em;
     font-size: 16px;
   }
@@ -2676,7 +2674,7 @@ h6 {
   .payments__category-header h5 {
     font-family: "Golos Text", sans-serif;
     font-weight: 500;
-    line-height: 100%;
+    line-height: 1;
     letter-spacing: -0.04em;
     font-size: 20px;
     margin: 0;

@@ -10,9 +10,10 @@
 
 <body>
 	<header class="header">
+		<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
 		<div class="header__content">
 			<div class="header__item">
-				<img src="./image/header/logo.svg" alt="logo" class="header__logo">
+				<img src="./image/header/logo.svg" alt="logo" class="header__logo" loading="lazy">
 			</div>
 			<div class="header__item">
 				<nav class="header__nav">
@@ -45,17 +46,17 @@
 				<div class="header__contact">
 					<div class="header__contact-item">
 						<a href="#" class="header__contact-social">
-							<img src="./image/social-icons/telegram.svg" alt="telegram link" class="header__contact-icon tg-logo">
+							<img src="./image/social-icons/telegram.svg" alt="telegram link" class="header__contact-icon tg-logo" loading="lazy">
 						</a>
 					</div>
 					<div class="header__contact-item">
 						<a href="#" class="header__contact-social header__contact-social--wa">
-							<img src="./image/social-icons/whatsapp.svg" alt="whatsapp logo" class="header__contact-icon wa-logo">
+							<img src="./image/social-icons/whatsapp.svg" alt="whatsapp logo" class="header__contact-icon wa-logo" loading="lazy">
 						</a>
 					</div>
 					<div class="header__contact-item">
 						<a href="#" class="header__contact-social">
-							<img src="./image/social-icons/max.svg" alt="max logo" class="header__contact-icon max-logo">
+							<img src="./image/social-icons/max.svg" alt="max logo" class="header__contact-icon max-logo" loading="lazy">
 						</a>
 					</div>
 					<div class="header__contact-item">
@@ -64,14 +65,14 @@
 				</div>
 			</div>
 			<button class="header__burger-button" id="burgerButton">
-				<img src="./image/header/menu-burger.svg" alt="menu burger" class="header__burger-icon">
+				<img src="./image/header/menu-burger.svg" alt="menu burger" class="header__burger-icon" loading="lazy">
 			</button>
 		</div>
 		<div class="header__mobile-menu" id="mobileMenu">
 			<div class="header__mobile-header">
-				<img src="./image/header/black-logo.svg" alt="logo" class="header__mobile-logo">
+				<img src="./image/header/black-logo.svg" alt="logo" class="header__mobile-logo" loading="lazy">
 				<button class="header__mobile-close" id="closeMenuButton">
-					<img src="./image/header/menu-burger-close.svg" alt="menu close" class="header__mobile-close-icon">
+					<img src="./image/header/menu-burger-close.svg" alt="menu close" class="header__mobile-close-icon" loading="lazy">
 				</button>
 			</div>
 			<nav class="header__mobile-nav">
@@ -106,13 +107,13 @@
 				</div>
 				<div class="header__mobile-socials">
 					<a href="#" class="header__mobile-social">
-						<img src="./image/social-icons/telegram.svg" alt="telegram">
+						<img src="./image/social-icons/telegram.svg" alt="telegram" loading="lazy">
 					</a>
 					<a href="#" class="header__mobile-social">
-						<img src="./image/social-icons/whatsapp.svg" alt="whatsapp">
+						<img src="./image/social-icons/whatsapp.svg" alt="whatsapp" loading="lazy">
 					</a>
 					<a href="#" class="header__mobile-social">
-						<img src="./image/social-icons/max.svg" alt="max">
+						<img src="./image/social-icons/max.svg" alt="max" loading="lazy">
 					</a>
 				</div>
 			</div>
@@ -147,7 +148,7 @@
 					</div>
 				</div>
 				<div class="hero__text-item">
-					<button class="hero__text-cta btn btn--primary">Узнать условия для меня</button>
+					<button class="hero__text-cta btn btn--primary" data-feedback-trigger>Узнать условия для меня</button>
 				</div>
 			</div>
 		</section>
@@ -165,13 +166,13 @@
 					</ul>
 					<a href="#">
 						<span>Перечень НЕобязательных документов</span>
-						<img src="./image/stages/arrow-narrow-up-right.svg" alt="переход по ссылке">
+						<img src="./image/stages/arrow-narrow-up-right.svg" alt="переход по ссылке" loading="lazy">
 					</a>
 				</div>
 				<ul class="stages__steps-list">
 					<li class="stages__step">
 						<div class="stages__step-icon">
-							<img src="./image/stages/document-attachment.svg" alt="Подготовка документов" class="stages__step-img">
+							<img src="./image/stages/document-attachment.svg" alt="Подготовка документов" class="stages__step-img" loading="lazy">
 						</div>
 						<div class="stages__step-content">
 							<h6 class="stages__step-title">Шаг 1</h6>
@@ -180,7 +181,7 @@
 					</li>
 					<li class="stages__step">
 						<div class="stages__step-icon">
-							<img src="./image/stages/stethoscope.svg" alt="Прохождение медкомиссии" class="stages__step-img">
+							<img src="./image/stages/stethoscope.svg" alt="Прохождение медкомиссии" class="stages__step-img" loading="lazy">
 						</div>
 						<div class="stages__step-content">
 							<h6 class="stages__step-title">Шаг 2</h6>
@@ -189,7 +190,7 @@
 					</li>
 					<li class="stages__step">
 						<div class="stages__step-icon">
-							<img src="./image/stages/signature.svg" alt="Подписание контракта" class="stages__step-img">
+							<img src="./image/stages/signature.svg" alt="Подписание контракта" class="stages__step-img" loading="lazy">
 						</div>
 						<div class="stages__step-content">
 							<h6 class="stages__step-title">Шаг 3</h6>
@@ -199,7 +200,7 @@
 					<li class="stages__step">
 						<div class="stages__step-icon">
 							<img src="./image/stages/money-02.svg" alt="Получение региональной и единовременной выплаты"
-								class="stages__step-img">
+								class="stages__step-img" loading="lazy">
 						</div>
 						<div class="stages__step-content">
 							<h6 class="stages__step-title">Шаг 4</h6>
@@ -209,7 +210,7 @@
 					<li class="stages__step">
 						<div class="stages__step-icon">
 							<img src="./image/stages/briefcase-09.svg" alt="Убытие на обучение и получение вещевого имущества"
-								class="stages__step-img">
+								class="stages__step-img" loading="lazy">
 						</div>
 						<div class="stages__step-content">
 							<h6 class="stages__step-title">Шаг 5</h6>
@@ -225,7 +226,7 @@
 				<p>Вы не хотите рисковать деньгами, здоровьем и документами.<br>Мы объясняем условия
 					до подписания, консультируем и остаёмся на связи</p>
 			</div>
-			<button class="sticker__cta btn btn--dark">Узнать условия для меня</button>
+			<button class="sticker__cta btn btn--dark" data-feedback-trigger>Узнать условия для меня</button>
 		</section>
 		<section class="payments" id="payments">
 			<div class="payments__container">
@@ -244,7 +245,7 @@
 						</div>
 						
 						<!-- Category buttons for Other City -->
-						<div class="payments__header-category" data-city="other"">
+						<div class="payments__header-category" data-city="other">
 							<button class="payments__category-button btn btn--primary" data-category="payments">Выплаты</button>
 							<button class="payments__category-button btn btn--outlined" data-category="injuries">За ранения и
 								увечья</button>
@@ -257,7 +258,7 @@
 									<h6>Ваш регион</h6>
 									<span>Москва</span>
 								</div>
-								<img src="./image/payments/chevron-down.svg" alt="Ваш регион" class="payments__city-arrow">
+								<img src="./image/payments/chevron-down.svg" alt="Ваш регион" class="payments__city-arrow" loading="lazy">
 							</button>
 							<ul class="payments__city-dropdown">
 								<li class="payments__city-option" data-city="moscow">Москва</li>
@@ -270,7 +271,7 @@
 					<div class="payments__category-section" data-category="payments" data-city="moscow">
 						<div class="payments__category-header">
 							<h5>Выплаты</h5>
-							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
 						</div>
 						<ul class="payments__category-content">
 							<li>
@@ -300,7 +301,7 @@
 					<div class="payments__category-section" data-category="payments" data-city="other">
 						<div class="payments__category-header">
 							<h5>Выплаты</h5>
-							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
 						</div>
 						<ul class="payments__category-content">
 							<li>
@@ -330,7 +331,7 @@
 					<div class="payments__category-section" data-category="injuries" data-city="moscow">
 						<div class="payments__category-header">
 							<h5>За ранения и увечья</h5>
-							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
 						</div>
 						<ul class="payments__category-content">
 							<li>
@@ -344,7 +345,7 @@
 					<div class="payments__category-section" data-category="injuries" data-city="other">
 						<div class="payments__category-header">
 							<h5>За ранения и увечья</h5>
-							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
 						</div>
 						<ul class="payments__category-content">
 							<li>
@@ -358,7 +359,7 @@
 					<div class="payments__category-section" data-category="family" data-city="moscow">
 						<div class="payments__category-header">
 							<h5>Семьям и родственникам</h5>
-							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
 						</div>
 						<ul class="payments__category-content">
 							<li>
@@ -372,7 +373,7 @@
 					<div class="payments__category-section" data-category="family" data-city="other">
 						<div class="payments__category-header">
 							<h5>Семьям и родственникам</h5>
-							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
 						</div>
 						<ul class="payments__category-content">
 							<li>
@@ -386,7 +387,7 @@
 					<div class="payments__category-section" data-category="additional" data-city="moscow">
 						<div class="payments__category-header">
 							<h5>Доп. выплаты</h5>
-							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow">
+							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
 						</div>
 						<ul class="payments__category-content">
 							<li>
@@ -410,8 +411,8 @@
 				<button class="guarantees__tab" data-tab="family">Семье военнослужащего</button>
 			</div>
 			<div class="guarantees__container">
-				<div class="guarantees__block active" id="soldier-block">
-					<img src="./image/guarantees/soldier.webp" alt="военнослужащий">
+				<div class="guarantees__block active" data-tab="soldier">
+					<img src="./image/guarantees/soldier.webp" alt="военнослужащий" loading="lazy">
 					<h4>Военнослужащему</h4>
 					<ul>
 						<li>
@@ -453,8 +454,8 @@
 						</li>
 					</ul>
 				</div>
-				<div class="guarantees__block" id="family-block">
-					<img src="./image/guarantees/family.webp" alt="семья военнослужащего">
+				<div class="guarantees__block" data-tab="family">
+					<img src="./image/guarantees/family.webp" alt="семья военнослужащего" loading="lazy">
 					<h4>Семье военнослужащего</h4>
 					<ul>
 						<li>
@@ -504,7 +505,7 @@
 						<li data-division-id="atgm">Батарея птур</li>
 						<li data-division-id="mlrs">Реактивная артиллерийская батарея (грады)</li>
 						<li data-division-id="antiair">Зенитная артиллерийская батарея</li>
-						<li data-division-id="recon">Разведывательная рота<img src="./image/vacancies/Star.svg" alt="Рекомендуем">
+						<li data-division-id="recon">Разведывательная рота<img src="./image/vacancies/Star.svg" alt="Рекомендуем" loading="lazy">
 						</li>
 						<li data-division-id="repair">Ремонтная рота</li>
 						<li data-division-id="engineer">Инженерная сапёрная рота</li>
@@ -518,7 +519,7 @@
 				<div class="vacancies__content-item vacancies__content-item--list">
 					<div class="vacancies__content-header--form">
 						<button class="vacancies__back-button">
-							<img src="./image/vacancies/arrow-back.svg" alt="back button" class="vacancies__back-button--icon">
+							<img src="./image/vacancies/arrow-back.svg" alt="back button" class="vacancies__back-button--icon" loading="lazy">
 						</button>
 						<h5>Должность</h5>
 					</div>
@@ -672,7 +673,7 @@
 				<div class="vacancies__content-item vacancies__content-item--form">
 					<div class="vacancies__content-header--form">
 						<button class="vacancies__back-button">
-							<img src="./image/vacancies/arrow-back-dark.svg" alt="back button" class="vacancies__back-button--icon">
+							<img src="./image/vacancies/arrow-back-dark.svg" alt="back button" class="vacancies__back-button--icon" loading="lazy">
 						</button>
 						<h3 class="vacancies__content-title--form">Оставить заявку</h3>
 					</div>
@@ -713,19 +714,19 @@
 				<div class="requirements__block">
 					<h4>Возраст от 18 до 50 лет</h4>
 					<div class="requirements__block-img-container">
-						<img src="./image/requirements/user.svg" alt="" class="requirements__block-img">
+						<img src="./image/requirements/user.svg" alt="" class="requirements__block-img" loading="lazy">
 					</div>
 				</div>
 				<div class="requirements__block">
 					<h4>Не состоите на учёте у психиатра</h4>
 					<div class="requirements__block-img-container">
-						<img src="./image/requirements/health.svg" alt="" class="requirements__block-img">
+						<img src="./image/requirements/health.svg" alt="" class="requirements__block-img" loading="lazy">
 					</div>
 				</div>
 				<div class="requirements__block">
 					<h4>Отсутствие непогашенной судимости</h4>
 					<div class="requirements__block-img-container">
-						<img src="./image/requirements/auction.svg" alt="" class="requirements__block-img">
+						<img src="./image/requirements/auction.svg" alt="" class="requirements__block-img" loading="lazy">
 					</div>
 				</div>
 				<div class="requirements__block">
@@ -750,7 +751,7 @@
 							<li>Стабильное предоставление отпусков каждые 6 месяцев</li>
 						</ul>
 					</div>
-					<img src="./image/requirements/flag.png" alt="" class="requirements__conditions-img">
+					<img src="./image/requirements/flag.png" alt="" class="requirements__conditions-img" loading="lazy">
 				</div>
 			</div>
 		</section>
@@ -771,7 +772,7 @@
 								<h5>Первоначальная подготовка</h5>
 								<p>Базовая подготовка контрактников МО РФ</p>
 							</div>
-							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow">
+							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow" loading="lazy">
 						</div>
 						<div class="training__content-description">
 							<p>Курс включает основы тактической подготовки: оборона, наступление,
@@ -785,7 +786,7 @@
 								<h5>Топография и ориентирование</h5>
 								<p>Ориентирование на местности</p>
 							</div>
-							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow">
+							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow" loading="lazy">
 						</div>
 						<div class="training__content-description">
 							<p>Обучение работе с картами, топографическими обозначениями, а также
@@ -799,7 +800,7 @@
 								<h5>Тактическая подготовка</h5>
 								<p>Огневая и стрелковая подготовка</p>
 							</div>
-							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow">
+							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow" loading="lazy">
 						</div>
 						<div class="training__content-description">
 							<p>Изучаются основы баллистики, технические характеристики оружия и
@@ -813,7 +814,7 @@
 								<h5>Тактическая медицина</h5>
 								<p>Само- и взаимопомощь в боевых условиях</p>
 							</div>
-							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow">
+							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow" loading="lazy">
 						</div>
 						<div class="training__content-description">
 							<p>Интенсивный курс по оказанию первой помощи при боевых ранениях.
@@ -827,7 +828,7 @@
 								<h5>Основы БПЛА</h5>
 								<p>Работа и противодействие беспилотникам</p>
 							</div>
-							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow">
+							<img src="./image/training/accordeon-arrow.svg" alt="arrow" class="training__arrow" loading="lazy">
 						</div>
 						<div class="training__content-description">
 							<p>Курс включает изучение основных типов БПЛА, принципов их применения
@@ -842,7 +843,7 @@
 							должность офицерского состава</h6>
 					</div>
 					<div class="training__content-description">
-						<img src="./image/training/medal.svg" alt="">
+						<img src="./image/training/medal.svg" alt="" loading="lazy">
 						<p>У инструкторов за плечами огромный боевой опыт и с 2023 года обучают
 							всех вновь прибывших военнослужащих контрактной службы на полигоне, лесной и сельской местности</p>
 					</div>
@@ -859,7 +860,7 @@
 						<div class="faq__item-header js-accordion-header">
 							<h6>Я гражданин Российской Федерации, хочу поступить на военную службу по
 								контракту. Куда обратиться?</h6>
-							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow" loading="lazy">
 						</div>
 						<p>Обучение работе с картами, топографическими обозначениями, а также использованию
 							электронных навигационных средств. На практике отрабатываются навыки ориентирования на местности,
@@ -869,35 +870,35 @@
 						<div class="faq__item-header js-accordion-header">
 							<h6>На какой срок заключается контракт с Министерством обороны Российской
 								Федерации?</h6>
-							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow" loading="lazy">
 						</div>
 						<p></p>
 					</li>
 					<li class="js-accordion-item">
 						<div class="faq__item-header js-accordion-header">
 							<h6>Кто может стать контрактником?</h6>
-							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow" loading="lazy">
 						</div>
 						<p></p>
 					</li>
 					<li class="js-accordion-item">
 						<div class="faq__item-header js-accordion-header">
 							<h6>Каким должен быть уровень физической подготовки контрактника?</h6>
-							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow" loading="lazy">
 						</div>
 						<p></p>
 					</li>
 					<li class="js-accordion-item">
 						<div class="faq__item-header js-accordion-header">
 							<h6>Какие документы нужно предоставить при поступлении на службу по контракту?</h6>
-							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow" loading="lazy">
 						</div>
 						<p></p>
 					</li>
 					<li class="js-accordion-item">
 						<div class="faq__item-header js-accordion-header">
 							<h6>В каком соотношении служба по контракту учитывается в страховом стаже?</h6>
-							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow">
+							<img src="./image/faq/accordeon-arrow.svg" alt="" class="faq__arrow" loading="lazy">
 						</div>
 						<p></p>
 					</li>
@@ -912,13 +913,13 @@
 				<div class="faq__contact">
 					<div class="faq__contact-icons">
 						<a href="#" class="faq__contact-social">
-							<img src="./image/social-icons/telegram.svg" alt="telegram link" class="faq__contact-icon tg-logo">
+							<img src="./image/social-icons/telegram.svg" alt="telegram link" class="faq__contact-icon tg-logo" loading="lazy">
 						</a>
 						<a href="#" class="faq__contact-social">
-							<img src="./image/social-icons/whatsapp.svg" alt="whatsapp logo" class="faq__contact-icon wa-logo">
+							<img src="./image/social-icons/whatsapp.svg" alt="whatsapp logo" class="faq__contact-icon wa-logo" loading="lazy">
 						</a>
 						<a href="#" class="faq__contact-social">
-							<img src="./image/social-icons/max.svg" alt="max logo" class="faq__contact-icon max-logo">
+							<img src="./image/social-icons/max.svg" alt="max logo" class="faq__contact-icon max-logo" loading="lazy">
 						</a>
 					</div>
 					<div class="faq__contact-item">
@@ -932,10 +933,10 @@
 			<div class="address__content">
 				<h2 class="address__title">Где можно заключить контракт с МО РФ</h2>
 				<div class="address__choose-region">
-					<button class="address__region btn btn--primary" data-region="altai">Алтайский край</button>
-					<button class="address__region btn btn--outlined" data-region="altai">Алтайский край</button>
-					<button class="address__region btn btn--outlined" data-region="altai">Алтайский край</button>
-					<button class="address__region btn btn--outlined" data-region="altai">Алтайский край</button>
+					<button class="address__region btn btn--primary" data-region="altai-1">Алтайский край</button>
+					<button class="address__region btn btn--outlined" data-region="altai-2">Алтайский край</button>
+					<button class="address__region btn btn--outlined" data-region="altai-3">Алтайский край</button>
+					<button class="address__region btn btn--outlined" data-region="altai-4">Алтайский край</button>
 				</div>
 				<div class="address__map">
 					<div class="address__points">
@@ -977,8 +978,6 @@
 			<button class="success__button btn btn--dark" id="close-success-modal">Понятно</button>
 		</div>
 	</div>
-
-	<!-- Feedback Modal -->
 	<div class="feedback-modal" id="feedback-modal">
 		<div class="feedback-modal__content">
 			<button class="feedback-modal__close" id="close-feedback-modal" aria-label="Закрыть">

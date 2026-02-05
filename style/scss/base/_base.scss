@@ -18,6 +18,10 @@ body {
 	overflow-x: hidden;
 }
 
+body.is-menu-open, body.is-locked {
+	overflow: hidden;
+}
+
 .main {
 	flex: 1 0 auto;
 }
