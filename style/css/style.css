@@ -882,12 +882,12 @@ body.is-menu-open .mobile-menu-overlay {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: none !important;
+  display: none;
   z-index: 100;
   border: 1px solid rgba(0, 0, 0, 0.08);
 }
 .payments__city-dropdown.active {
-  display: block !important;
+  display: block;
 }
 .payments__city-dropdown::-webkit-scrollbar {
   width: 4px;
@@ -921,6 +921,7 @@ body.is-menu-open .mobile-menu-overlay {
   color: #0c1625;
 }
 .payments__category-content {
+  display: flex;
   flex-wrap: wrap;
   gap: 20px;
   list-style: none;
@@ -961,19 +962,14 @@ body.is-menu-open .mobile-menu-overlay {
 .payments__header-category {
   display: none;
 }
-.payments.city-moscow .payments__header-category[data-city=moscow], .payments.city-other .payments__header-category[data-city=other] {
+.payments__header-category.active {
   display: flex;
 }
 .payments__category-section {
   display: none;
 }
-.payments.city-moscow.category-payments .payments__category-section[data-city=moscow][data-category=payments], .payments.city-moscow.category-injuries .payments__category-section[data-city=moscow][data-category=injuries], .payments.city-moscow.category-family .payments__category-section[data-city=moscow][data-category=family], .payments.city-moscow.category-additional .payments__category-section[data-city=moscow][data-category=additional], .payments.city-other.category-payments .payments__category-section[data-city=other][data-category=payments], .payments.city-other.category-injuries .payments__category-section[data-city=other][data-category=injuries], .payments.city-other.category-family .payments__category-section[data-city=other][data-category=family] {
+.payments__category-section.active {
   display: block;
-}
-.payments__category-content {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
 }
 .payments__category-header, .payments__category-arrow {
   display: none;
@@ -1062,52 +1058,7 @@ body.is-menu-open .mobile-menu-overlay {
 .vacancies #positions-list li {
   display: none;
 }
-.vacancies #positions-list li.empty {
-  display: flex;
-}
-.vacancies[data-division] #positions-list li.empty {
-  display: none;
-}
-.vacancies[data-division=motorized] #positions-list li[data-division-id=motorized] {
-  display: flex;
-}
-.vacancies[data-division=tank] #positions-list li[data-division-id=tank] {
-  display: flex;
-}
-.vacancies[data-division=howitzer] #positions-list li[data-division-id=howitzer] {
-  display: flex;
-}
-.vacancies[data-division=atgm] #positions-list li[data-division-id=atgm] {
-  display: flex;
-}
-.vacancies[data-division=mlrs] #positions-list li[data-division-id=mlrs] {
-  display: flex;
-}
-.vacancies[data-division=antiair] #positions-list li[data-division-id=antiair] {
-  display: flex;
-}
-.vacancies[data-division=recon] #positions-list li[data-division-id=recon] {
-  display: flex;
-}
-.vacancies[data-division=repair] #positions-list li[data-division-id=repair] {
-  display: flex;
-}
-.vacancies[data-division=engineer] #positions-list li[data-division-id=engineer] {
-  display: flex;
-}
-.vacancies[data-division=command] #positions-list li[data-division-id=command] {
-  display: flex;
-}
-.vacancies[data-division=material] #positions-list li[data-division-id=material] {
-  display: flex;
-}
-.vacancies[data-division=radio] #positions-list li[data-division-id=radio] {
-  display: flex;
-}
-.vacancies[data-division=fpv] #positions-list li[data-division-id=fpv] {
-  display: flex;
-}
-.vacancies[data-division=minomet] #positions-list li[data-division-id=minomet] {
+.vacancies #positions-list li.is-visible {
   display: flex;
 }
 .vacancies[data-mode=desktop] .vacancies__content-item {
@@ -1383,7 +1334,7 @@ body.is-menu-open .mobile-menu-overlay {
   margin-bottom: 6px;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 10px;
 }
 .requirements__block:nth-child(5) .requirements__conditions ul li::marker {
   color: #566a84;
@@ -1537,6 +1488,9 @@ body.is-menu-open .mobile-menu-overlay {
   padding: 24px;
   cursor: pointer;
   transition: background-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 .faq__content li p {
   display: none;
@@ -1545,14 +1499,13 @@ body.is-menu-open .mobile-menu-overlay {
 }
 .faq__content li.is-open p {
   display: block;
-  margin-top: 20px;
   animation: fadeIn 0.3s ease;
 }
 .faq__item-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 12px;
+  margin-bottom: 0;
   gap: 12px;
 }
 .faq__item-header h6 {
@@ -2149,12 +2102,13 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .training__title {
     font-size: 32px;
+    max-width: 50vw;
   }
   .training__content {
     padding-bottom: 585px;
   }
   .training__sticker {
-    max-width: 40vw;
+    max-width: 45vw;
   }
   .training__footer .training__content-heading h6 {
     max-width: 40vw;
@@ -2716,9 +2670,8 @@ body.is-menu-open .mobile-menu-overlay {
     display: none;
     padding: 20px 0;
     border-bottom: 1px solid #d5d7da;
-    overflow: hidden;
   }
-  .payments.city-moscow .payments__category-section[data-city=moscow], .payments.city-other .payments__category-section[data-city=other] {
+  .payments__category-section.is-visible {
     display: block;
   }
   .payments {
@@ -2747,17 +2700,16 @@ body.is-menu-open .mobile-menu-overlay {
     flex-shrink: 0;
   }
   .payments__category-content {
-    display: none;
-    flex-direction: column;
-    gap: 8px;
-    margin-top: 16px;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s, padding 0.5s;
     margin-bottom: 0;
   }
-  .payments__category-section.active .payments__category-content {
-    display: flex;
-    animation: fadeIn 0.3s ease;
+  .payments__category-section.is-open .payments__category-content {
+    max-height: 1000px;
+    padding-top: 12px;
   }
-  .payments__category-section.active .payments__category-arrow {
+  .payments__category-section.is-open .payments__category-arrow {
     transform: rotate(180deg);
   }
   .payments {

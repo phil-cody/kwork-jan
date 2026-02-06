@@ -234,26 +234,26 @@
 				<div class="payments__content">
 					<div class="payments__content-header">
 						<!-- Category buttons for Moscow -->
-						<div class="payments__header-category" data-city="moscow">
-							<button class="payments__category-button btn btn--primary" data-category="payments">Выплаты</button>
-							<button class="payments__category-button btn btn--outlined" data-category="injuries">За ранения и
+						<div class="payments__header-category" data-city-index="0">
+							<button class="payments__category-button btn btn--primary" data-category-index="0">Выплаты</button>
+							<button class="payments__category-button btn btn--outlined" data-category-index="1">За ранения и
 								увечья</button>
-							<button class="payments__category-button btn btn--outlined" data-category="family">Семьям и
+							<button class="payments__category-button btn btn--outlined" data-category-index="2">Семьям и
 								родственникам</button>
-							<button class="payments__category-button btn btn--outlined" data-category="additional">Доп.
+							<button class="payments__category-button btn btn--outlined" data-category-index="3">Доп.
 								выплаты</button>
 						</div>
 						
 						<!-- Category buttons for Other City -->
-						<div class="payments__header-category" data-city="other">
-							<button class="payments__category-button btn btn--primary" data-category="payments">Выплаты</button>
-							<button class="payments__category-button btn btn--outlined" data-category="injuries">За ранения и
+						<div class="payments__header-category" data-city-index="1">
+							<button class="payments__category-button btn btn-outline-primary" data-category-index="0">Выплаты</button>
+							<button class="payments__category-button btn btn--outlined" data-category-index="1">За ранения и
 								увечья</button>
-							<button class="payments__category-button btn btn--outlined" data-category="family">Семьям и
+							<button class="payments__category-button btn btn--outlined" data-category-index="2">Семьям и
 								родственникам</button>
 						</div>
 						<div class="payments__header-city">
-							<button class="payments__city-toggle btn btn--outlined" data-city="moscow">
+							<button class="payments__city-toggle btn btn--outlined">
 								<div class="payments__city-content">
 									<h6>Ваш регион</h6>
 									<span>Москва</span>
@@ -261,14 +261,14 @@
 								<img src="./image/payments/chevron-down.svg" alt="Ваш регион" class="payments__city-arrow" loading="lazy">
 							</button>
 							<ul class="payments__city-dropdown">
-								<li class="payments__city-option" data-city="moscow">Москва</li>
-								<li class="payments__city-option" data-city="other">Другой город</li>
+								<li class="payments__city-option" data-city-index="0">Москва</li>
+								<li class="payments__city-option" data-city-index="1">Другой город</li>
 							</ul>
 						</div>
 					</div>
 
 					<!-- Category: Выплаты - Москва -->
-					<div class="payments__category-section" data-category="payments" data-city="moscow">
+					<div class="payments__category-section" data-city-index="0" data-category-index="0">
 						<div class="payments__category-header">
 							<h5>Выплаты</h5>
 							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
@@ -298,7 +298,7 @@
 					</div>
 
 					<!-- Category: Выплаты - Другой город -->
-					<div class="payments__category-section" data-category="payments" data-city="other">
+					<div class="payments__category-section" data-city-index="1" data-category-index="0">
 						<div class="payments__category-header">
 							<h5>Выплаты</h5>
 							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
@@ -328,7 +328,7 @@
 					</div>
 
 					<!-- Category: За ранения и увечья - Москва -->
-					<div class="payments__category-section" data-category="injuries" data-city="moscow">
+					<div class="payments__category-section" data-city-index="0" data-category-index="1">
 						<div class="payments__category-header">
 							<h5>За ранения и увечья</h5>
 							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
@@ -342,7 +342,7 @@
 					</div>
 
 					<!-- Category: За ранения и увечья - Другой город -->
-					<div class="payments__category-section" data-category="injuries" data-city="other">
+					<div class="payments__category-section" data-city-index="1" data-category-index="1">
 						<div class="payments__category-header">
 							<h5>За ранения и увечья</h5>
 							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
@@ -356,7 +356,7 @@
 					</div>
 
 					<!-- Category: Семьям и родственникам - Москва -->
-					<div class="payments__category-section" data-category="family" data-city="moscow">
+					<div class="payments__category-section" data-city-index="0" data-category-index="2">
 						<div class="payments__category-header">
 							<h5>Семьям и родственникам</h5>
 							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
@@ -370,7 +370,7 @@
 					</div>
 
 					<!-- Category: Семьям и родственникам - Другой город -->
-					<div class="payments__category-section" data-category="family" data-city="other">
+					<div class="payments__category-section" data-city-index="1" data-category-index="2">
 						<div class="payments__category-header">
 							<h5>Семьям и родственникам</h5>
 							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">
@@ -384,7 +384,7 @@
 					</div>
 
 					<!-- Category: Доп. выплаты - Москва -->
-					<div class="payments__category-section" data-category="additional" data-city="moscow">
+					<div class="payments__category-section" data-city-index="0" data-category-index="3">
 						<div class="payments__category-header">
 							<h5>Доп. выплаты</h5>
 							<img src="./image/payments/chevron-down.svg" alt="arrow" class="payments__category-arrow" loading="lazy">

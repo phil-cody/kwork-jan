@@ -11,33 +11,36 @@ document.addEventListener('DOMContentLoaded', () => {
 	const successModal = document.getElementById('success-modal');
 	const closeSuccessModalBtn = document.getElementById('close-success-modal');
 
+	const MOBILE_BREAKPOINT = 540;
+	const TABLET_BREAKPOINT = 887;
+
 	let selectedDivision = null;
 	let selectedPosition = null;
 	let isSubmitting = false;
+	let currentMode = getMode();
 
 	const backButtons = document.querySelectorAll('.vacancies__back-button');
 	const vacancies = document.querySelector('.vacancies');
 
 	function getMode() {
-		if (window.innerWidth <= 540) return 'mobile';
-		if (window.innerWidth <= 887) return 'tablet';
+		if (window.innerWidth <= MOBILE_BREAKPOINT) return 'mobile';
+		if (window.innerWidth <= TABLET_BREAKPOINT) return 'tablet';
 		return 'desktop';
 	}
 
 	function updateMode() {
 		if (!vacancies) return;
-		vacancies.dataset.mode = getMode();
+
+		const newMode = getMode();
+		if (newMode === currentMode) return;
+
+		currentMode = newMode;
+		vacancies.dataset.mode = newMode;
 	}
 
 	function setStep(step) {
 		if (!vacancies) return;
 		vacancies.dataset.step = step;
-	}
-
-	function goToDivision() {
-		if (vacancies.dataset.mode !== 'desktop') {
-			setStep('division');
-		}
 	}
 
 	function goToPosition() {
@@ -96,24 +99,38 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function selectDivision(divisionId, divisionName) {
-	selectedDivision = { id: divisionId, name: divisionName };
-	selectedPosition = null;
+		selectedDivision = { id: divisionId, name: divisionName };
+		selectedPosition = null;
 
-	vacancies.dataset.division = divisionId;
+		// active у подразделений
+		divisionsContainer.querySelectorAll('li').forEach(li => {
+			li.classList.toggle('active', li.dataset.divisionId === divisionId);
+		});
 
-	divisionsContainer
-		.querySelectorAll('li')
-		.forEach(li => li.classList.toggle(
-			'active',
-			li.dataset.divisionId === divisionId
-		));
+		// СБРОС ВСЕХ ПОЗИЦИЙ
+		positionsContainer.querySelectorAll('li').forEach(li => {
+			li.classList.remove('active', 'is-visible');
+		});
 
-	divisionChoiceText.textContent = divisionName;
-	positionChoiceText.textContent = '—';
+		// ПОКАЗ НУЖНЫХ
+		const visiblePositions = positionsContainer.querySelectorAll(
+			`li[data-division-id="${divisionId}"]`
+		);
 
-	goToPosition();
-	validateForm();
-}
+		visiblePositions.forEach(li => li.classList.add('is-visible'));
+
+		// если нет позиций — показать empty
+		if (!visiblePositions.length) {
+			const empty = positionsContainer.querySelector('li.empty');
+			if (empty) empty.classList.add('is-visible');
+		}
+
+		divisionChoiceText.textContent = divisionName;
+		positionChoiceText.textContent = '—';
+
+		validateForm();
+		goToPosition();
+	}
 
 	function initPositionEvents() {
 		if (!positionsContainer) return;
@@ -129,21 +146,26 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	}
 
+	const emptyItem = positionsContainer.querySelector('li.empty');
+	if (emptyItem) {
+		emptyItem.classList.add('is-visible');
+	}
+
 	function selectPosition(positionId, positionName) {
-	selectedPosition = { id: positionId, name: positionName };
+		selectedPosition = { id: positionId, name: positionName };
 
-	positionsContainer
-		.querySelectorAll('li')
-		.forEach(li => li.classList.toggle(
-			'active',
-			li.dataset.positionId === positionId
-		));
+		positionsContainer.querySelectorAll('li').forEach(li => {
+			li.classList.toggle(
+				'active',
+				li.dataset.positionId === positionId
+			);
+		});
 
-	positionChoiceText.textContent = positionName;
+		positionChoiceText.textContent = positionName;
 
-	goToForm();
-	validateForm();
-}
+		validateForm();
+		goToForm();
+	}
 
 	function validateForm() {
 		const isPhoneFilled = phoneInput && phoneInput.value.trim() !== '';
@@ -266,29 +288,32 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function resetForm() {
-	selectedDivision = null;
-	selectedPosition = null;
+		selectedDivision = null;
+		selectedPosition = null;
 
-	delete vacancies.dataset.division;
+		if (vacancies.dataset.mode !== 'desktop') {
+			setStep('division');
+		}
 
-	if (vacancies.dataset.mode !== 'desktop') {
-		setStep('division');
+		phoneInput.value = '';
+		nameInput.value = '';
+		pdCheckbox.checked = false;
+		divisionChoiceText.textContent = '—';
+		positionChoiceText.textContent = '—';
+
+		divisionsContainer.querySelectorAll('li')
+			.forEach(li => li.classList.remove('active'));
+
+		positionsContainer.querySelectorAll('li').forEach(li => {
+			li.classList.remove('active', 'is-visible');
+		});
+
+		positionsContainer
+			.querySelectorAll('li.empty')
+			.forEach(li => li.classList.add('is-visible'));
+
+		validateForm();
 	}
-
-	phoneInput.value = '';
-	nameInput.value = '';
-	pdCheckbox.checked = false;
-	divisionChoiceText.textContent = '—';
-	positionChoiceText.textContent = '—';
-
-	divisionsContainer.querySelectorAll('li')
-		.forEach(li => li.classList.remove('active'));
-
-	positionsContainer.querySelectorAll('li')
-		.forEach(li => li.classList.remove('active'));
-
-	validateForm();
-}
 
 	if (phoneInput) phoneInput.addEventListener('input', validateForm);
 	if (nameInput) nameInput.addEventListener('input', validateForm);
@@ -302,8 +327,27 @@ document.addEventListener('DOMContentLoaded', () => {
 	updateMode();
 	setStep('division');
 	syncStepWithMode();
+
 	window.addEventListener('resize', () => {
+		const prevMode = currentMode;
+
 		updateMode();
-		syncStepWithMode();
+
+		if (prevMode !== currentMode) {
+			if (currentMode === 'desktop') {
+				delete vacancies.dataset.step;
+			} else {
+				// если уже выбран division — логично начать с позиций
+				if (selectedDivision && selectedPosition) {
+					setStep('form');
+				} else if (selectedDivision) {
+					setStep('position');
+				} else {
+					setStep('division');
+				}
+			}
+
+			syncStepWithMode();
+		}
 	});
 });

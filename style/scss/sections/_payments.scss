@@ -101,12 +101,12 @@
 		list-style: none;
 		padding: $spacing-none-desktop;
 		margin: $spacing-none-desktop;
-		display: none !important;
+		display: none;
 		z-index: 100;
 		border: 1px solid rgba(0, 0, 0, 0.08);
 
 		&.active {
-			display: block !important;
+			display: block;
 		}
 
 		&::-webkit-scrollbar {
@@ -149,6 +149,7 @@
 	}
 
 	&__category-content {
+		display: flex;
 		flex-wrap: wrap;
 		gap: $spacing-md-desktop;
 		list-style: none;
@@ -192,31 +193,18 @@
 
 	&__header-category {
 		display: none;
-	}
 
-	&.city-moscow &__header-category[data-city="moscow"],
-	&.city-other &__header-category[data-city="other"] {
-		display: flex;
+		&.active {
+			display: flex;
+		}
 	}
 
 	&__category-section {
 		display: none;
-	}
 
-	&.city-moscow.category-payments &__category-section[data-city="moscow"][data-category="payments"],
-	&.city-moscow.category-injuries &__category-section[data-city="moscow"][data-category="injuries"],
-	&.city-moscow.category-family &__category-section[data-city="moscow"][data-category="family"],
-	&.city-moscow.category-additional &__category-section[data-city="moscow"][data-category="additional"],
-	&.city-other.category-payments &__category-section[data-city="other"][data-category="payments"],
-	&.city-other.category-injuries &__category-section[data-city="other"][data-category="injuries"],
-	&.city-other.category-family &__category-section[data-city="other"][data-category="family"] {
-		display: block;
-	}
-
-	&__category-content {
-		display: flex;
-		flex-wrap: wrap;
-		gap: $spacing-md-desktop;
+		&.active {
+			display: block;
+		}
 	}
 
 	&__category-header,

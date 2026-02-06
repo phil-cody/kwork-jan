@@ -1187,8 +1187,8 @@
 	}
 
 	// ===== PAYMENTS SECTION =====
-
 	.payments {
+
 		&::before {
 			height: 92px;
 		}
@@ -1227,12 +1227,10 @@
 			display: none;
 			padding: $spacing-xl-mobile 0;
 			border-bottom: 1px solid $borders;
-			overflow: hidden;
-		}
 
-		&.city-moscow .payments__category-section[data-city="moscow"],
-		&.city-other .payments__category-section[data-city="other"] {
-			display: block;
+			&.is-visible {
+				display: block;
+			}
 		}
 
 		/* ===== Accordion ===== */
@@ -1260,17 +1258,17 @@
 		}
 
 		&__category-content {
-			display: none;
-			flex-direction: column;
-			gap: calc($spacing-xxs-mobile * 2);
-			margin-top: $spacing-md-mobile;
+			overflow: hidden;
+			max-height: 0;
+			transition: max-height 0.5s, padding 0.5s;
 			margin-bottom: 0;
 		}
 
-		&__category-section.active {
+		&__category-section.is-open {
+
 			.payments__category-content {
-				display: flex;
-				animation: fadeIn 0.3s ease;
+				max-height: 1000px;
+				padding-top: 12px;
 			}
 
 			.payments__category-arrow {
