@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			if (!header || !content) return;
 
-			// начальное состояние
+			// init
 			if (item.classList.contains('is-open')) {
 				content.style.height = content.scrollHeight + 'px';
 			} else {
@@ -19,32 +19,33 @@ document.addEventListener('DOMContentLoaded', () => {
 			header.addEventListener('click', () => {
 				const isOpen = item.classList.contains('is-open');
 
-				// закрываем все остальные
-				items.forEach(i => {
-					if (i === item) return;
+				// закрываем остальные
+				items.forEach(other => {
+					if (other === item) return;
 
-					i.classList.remove('is-open');
-
-					const c = Array.from(i.children)
+					const otherContent = Array.from(other.children)
 						.find(el => !el.classList.contains('js-accordion-header'));
 
-					if (!c) return;
+					if (!otherContent || !other.classList.contains('is-open')) return;
 
-					c.style.height = c.scrollHeight + 'px';
+					otherContent.style.height = otherContent.scrollHeight + 'px';
 					requestAnimationFrame(() => {
-						c.style.height = '0px';
+						otherContent.style.height = '0px';
 					});
+
+					other.classList.remove('is-open');
 				});
 
 				if (isOpen) {
-					// закрытие текущего
+					// ПЛАВНОЕ ЗАКРЫТИЕ
 					content.style.height = content.scrollHeight + 'px';
 					requestAnimationFrame(() => {
 						content.style.height = '0px';
 					});
+
 					item.classList.remove('is-open');
 				} else {
-					// открытие текущего
+					// ПЛАВНОЕ ОТКРЫТИЕ
 					item.classList.add('is-open');
 					content.style.height = content.scrollHeight + 'px';
 				}

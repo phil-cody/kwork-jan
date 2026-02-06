@@ -577,6 +577,12 @@
 
 @media (max-width: 719px) {
 
+	.js-accordion-item>*:not(.js-accordion-header) {
+		overflow: hidden;
+		transition: height 0.3s ease;
+		height: 0;
+	}
+
 	// ===== STAGES SECTION =====
 	.stages {
 
@@ -872,15 +878,6 @@
 			height: $spacing-xs-desktop;
 			transition: transform 0.3s ease;
 			flex-shrink: 0;
-		}
-
-		&__content-description {
-			display: none;
-
-			&.is-open {
-				display: block;
-				animation: fadeIn 0.3s ease;
-			}
 		}
 
 		&__item.is-open {

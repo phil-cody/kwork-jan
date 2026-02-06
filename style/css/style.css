@@ -170,12 +170,6 @@ h6 {
   color: #fff;
 }
 
-.js-accordion-item > *:not(.js-accordion-header) {
-  overflow: hidden;
-  transition: height 0.3s ease;
-  height: 0;
-}
-
 .mobile-menu-overlay {
   position: fixed;
   inset: 0;
@@ -1405,6 +1399,9 @@ body.is-menu-open .mobile-menu-overlay {
 .training__item .training__content-description {
   flex: 0 0 50%;
 }
+.training__content-description {
+  display: block;
+}
 .training__content {
   padding: 0 40px 950px;
 }
@@ -1471,6 +1468,11 @@ body.is-menu-open .mobile-menu-overlay {
   gap: 24px;
   color: #0c1625;
 }
+.faq .js-accordion-item > *:not(.js-accordion-header) {
+  overflow: hidden;
+  height: 0;
+  transition: height 0.3s ease;
+}
 .faq__title {
   grid-column: 1/2;
   grid-row: 1/2;
@@ -1493,13 +1495,14 @@ body.is-menu-open .mobile-menu-overlay {
   border-radius: 20px;
   padding: 24px;
   cursor: pointer;
-  transition: background-color 0.2s;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 .faq__content li p {
-  display: none;
+  display: block;
+  overflow: hidden;
+  height: auto;
   font-size: 16px;
   margin: 0;
 }
@@ -2179,6 +2182,11 @@ body.is-menu-open .mobile-menu-overlay {
 }
 /* ========================================= Tablet (719px) ========================================= */
 @media (max-width: 719px) {
+  .js-accordion-item > *:not(.js-accordion-header) {
+    overflow: hidden;
+    transition: height 0.3s ease;
+    height: 0;
+  }
   .stages__step-title {
     font-size: 14px;
   }
@@ -2406,13 +2414,6 @@ body.is-menu-open .mobile-menu-overlay {
     height: 12px;
     transition: transform 0.3s ease;
     flex-shrink: 0;
-  }
-  .training__content-description {
-    display: none;
-  }
-  .training__content-description.is-open {
-    display: block;
-    animation: fadeIn 0.3s ease;
   }
   .training__item.is-open .training__arrow {
     transform: rotate(180deg);

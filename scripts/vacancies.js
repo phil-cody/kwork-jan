@@ -8,8 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	const phoneInput = document.getElementById('phone');
 	const nameInput = document.getElementById('name');
 	const pdCheckbox = document.getElementById('pd-checkbox');
-	const successModal = document.getElementById('success-modal');
-	const closeSuccessModalBtn = document.getElementById('close-success-modal');
 
 	const MOBILE_BREAKPOINT = 540;
 	const TABLET_BREAKPOINT = 887;
@@ -227,31 +225,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		// AJAX запрос
 		console.log('Отправка данных формы:', formData);
 
-		const showSuccessModal = () => {
-			if (successModal) {
-				successModal.classList.add('success--visible');
-				document.body.style.overflow = 'hidden';
-			}
-		};
-
-		if (closeSuccessModalBtn) {
-			closeSuccessModalBtn.onclick = () => {
-				if (successModal) {
-					successModal.classList.remove('success--visible');
-					document.body.style.overflow = '';
-				}
-			};
-		}
-
-		if (successModal) {
-			successModal.onclick = (e) => {
-				if (e.target === successModal) {
-					successModal.classList.remove('success--visible');
-					document.body.style.overflow = '';
-				}
-			};
-		}
-
 		// Заготовка для отправки на сервер
 		/*
 		fetch('/api/vacancies/apply', {
@@ -284,7 +257,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 		// Временная заглушка с имитацией задержки
 		setTimeout(() => {
-			showSuccessModal();
+			if (window.showSuccessModal) {
+				window.showSuccessModal();
+			}
+			
 			resetForm();
 			isSubmitting = false;
 			submitButton.textContent = originalButtonText;
@@ -328,9 +304,24 @@ document.addEventListener('DOMContentLoaded', () => {
 	initDivisionEvents();
 	initPositionEvents();
 
-	validateForm();
-	updateMode();
-	setStep('division');
+	// --- INITIAL STATE SYNC ---
+
+	const initialMode = getMode();
+	state.mode = initialMode;
+	vacancies.dataset.mode = initialMode;
+
+	// начальный шаг
+	if (initialMode === 'desktop') {
+		delete vacancies.dataset.step;
+	} else {
+		setStep('division');
+	}
+
+	// скрываем всё лишнее сразу
+	requestAnimationFrame(() => {
+		updateMode();
+		validateForm();
+	});
 
 	window.addEventListener('resize', () => {
 		updateMode();

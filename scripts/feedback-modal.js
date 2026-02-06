@@ -1,97 +1,91 @@
-const feedbackModal = document.getElementById('feedback-modal');
-const closeFeedbackModalBtn = document.getElementById('close-feedback-modal');
-const feedbackForm = document.getElementById('feedback-form');
+document.addEventListener('DOMContentLoaded', () => {
+	const feedbackModal = document.getElementById('feedback-modal');
+	const closeFeedbackModalBtn = document.getElementById('close-feedback-modal');
+	const feedbackForm = document.getElementById('feedback-form');
 
-const phoneInput = document.getElementById('feedback-phone');
-const nameInput = document.getElementById('feedback-name');
-const consentCheckbox = document.getElementById('feedback-consent');
-const submitButton = feedbackForm?.querySelector('.feedback-modal__submit');
+	const phoneInput = document.getElementById('feedback-phone');
+	const nameInput = document.getElementById('feedback-name');
+	const consentCheckbox = document.getElementById('feedback-consent');
+	const submitButton = feedbackForm?.querySelector('.feedback-modal__submit');
 
-const successModal = document.getElementById('success-modal');
-const closeSuccessModalBtn = document.getElementById('close-success-modal');
 
-const triggerButtons = document.querySelectorAll('[data-feedback-trigger]');
+	const triggerButtons = document.querySelectorAll('[data-feedback-trigger]');
 
-function lockBody() {
-	document.body.classList.add('is-locked');
-}
+	function lockBody() {
+		document.body.classList.add('is-locked');
+	}
 
-function unlockBody() {
-	document.body.classList.remove('is-locked');
-}
+	function unlockBody() {
+		document.body.classList.remove('is-locked');
+	}
 
-function openModal(modal, visibleClass) {
-	if (!modal) return;
-	modal.classList.add(visibleClass);
-	lockBody();
-}
+	function openModal(modal, visibleClass) {
+		if (!modal) return;
+		modal.classList.add(visibleClass);
+		lockBody();
+	}
 
-function closeModal(modal, visibleClass) {
-	if (!modal) return;
-	modal.classList.remove(visibleClass);
-	unlockBody();
-}
+	function closeModal(modal, visibleClass) {
+		if (!modal) return;
+		modal.classList.remove(visibleClass);
+		unlockBody();
+	}
 
-triggerButtons.forEach(btn => {
-	btn.addEventListener('click', e => {
-		e.preventDefault();
-		openModal(feedbackModal, 'feedback-modal--visible');
+	triggerButtons.forEach(btn => {
+		btn.addEventListener('click', e => {
+			e.preventDefault();
+			openModal(feedbackModal, 'feedback-modal--visible');
+		});
 	});
-});
 
-closeFeedbackModalBtn?.addEventListener('click', () => {
-	closeModal(feedbackModal, 'feedback-modal--visible');
-});
-
-feedbackModal?.addEventListener('click', e => {
-	if (e.target === feedbackModal) {
+	closeFeedbackModalBtn?.addEventListener('click', () => {
 		closeModal(feedbackModal, 'feedback-modal--visible');
+	});
+
+	feedbackModal?.addEventListener('click', e => {
+		if (e.target === feedbackModal) {
+			closeModal(feedbackModal, 'feedback-modal--visible');
+		}
+	});
+
+	function validateForm() {
+		if (!phoneInput || !nameInput || !consentCheckbox || !submitButton) {
+			return false;
+		}
+
+		const valid =
+			phoneInput.value.trim() &&
+			nameInput.value.trim() &&
+			consentCheckbox.checked;
+
+		submitButton.disabled = !valid;
+		submitButton.classList.toggle('btn--disabled', !valid);
+
+		return valid;
 	}
-});
 
-function validateForm() {
-	if (!phoneInput || !nameInput || !consentCheckbox || !submitButton) {
-		return false;
-	}
+	phoneInput?.addEventListener('input', validateForm);
+	nameInput?.addEventListener('input', validateForm);
+	consentCheckbox?.addEventListener('change', validateForm);
 
-	const valid =
-		phoneInput.value.trim() &&
-		nameInput.value.trim() &&
-		consentCheckbox.checked;
+	feedbackForm?.addEventListener('submit', e => {
+		e.preventDefault();
+		if (!validateForm()) return;
 
-	submitButton.disabled = !valid;
-	submitButton.classList.toggle('btn--disabled', !valid);
+		submitButton.textContent = 'Отправка...';
+		submitButton.disabled = true;
 
-	return valid;
-}
+		setTimeout(() => {
+			closeModal(feedbackModal, 'feedback-modal--visible');
 
-phoneInput?.addEventListener('input', validateForm);
-nameInput?.addEventListener('input', validateForm);
-consentCheckbox?.addEventListener('change', validateForm);
+			if (window.showSuccessModal) {
+				window.showSuccessModal();
+			}
 
-feedbackForm?.addEventListener('submit', e => {
-	e.preventDefault();
-	if (!validateForm()) return;
-
-	submitButton.textContent = 'Отправка...';
-	submitButton.disabled = true;
-
-	setTimeout(() => {
-		closeModal(feedbackModal, 'feedback-modal--visible');
-		openModal(successModal, 'success--visible');
-
-		feedbackForm.reset();
-		validateForm();
-		submitButton.textContent = 'Отправить заявку';
-	}, 1000);
-});
-
-closeSuccessModalBtn?.addEventListener('click', () => {
-	closeModal(successModal, 'success--visible');
-});
-
-successModal?.addEventListener('click', e => {
-	if (e.target === successModal) {
-		closeModal(successModal, 'success--visible');
-	}
+			feedbackForm.reset();
+			submitButton.disabled = true;
+			validateForm();
+			submitButton.textContent = 'Отправить заявку';
+		}, 1000);
+	});
 });

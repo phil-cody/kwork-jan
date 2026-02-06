@@ -2,41 +2,50 @@ document.addEventListener('DOMContentLoaded', () => {
 	const root = document.querySelector('.payments');
 	if (!root) return;
 
-	/* ===== DOM ===== */
+	/* ================= DOM ================= */
 
 	const cityToggle = root.querySelector('.payments__city-toggle');
 	const cityToggleText = cityToggle.querySelector('span');
 	const cityDropdown = root.querySelector('.payments__city-dropdown');
-	const cityOptions = root.querySelectorAll('.payments__city-option');
+	const cityOptions = Array.from(
+		root.querySelectorAll('.payments__city-option')
+	);
 
 	const headerGroups = root.querySelectorAll('.payments__header-category');
 	const categoryButtons = root.querySelectorAll('.payments__category-button');
-	const categorySections = root.querySelectorAll('.payments__category-section');
+	const categorySections = Array.from(
+		root.querySelectorAll('.payments__category-section')
+	);
 	const categoryHeaders = root.querySelectorAll('.payments__category-header');
 
-	/* ===== CONST ===== */
+	/* ================= CONST ================= */
 
 	const MOBILE_BREAKPOINT = 540;
 
-	/* ===== STATE ===== */
+	/* ================= HELPERS ================= */
 
-	let currentCityIndex = 0;
-	let currentCategoryIndex = null; // null = ничего не выбрано (mobile)
+	const isMobile = () => window.innerWidth <= MOBILE_BREAKPOINT;
 
-	/* ===== HELPERS ===== */
-
-	function isMobile() {
-		return window.innerWidth <= MOBILE_BREAKPOINT;
+	function getDefaultCityIndex() {
+		const firstCity = cityOptions[0];
+		return firstCity ? Number(firstCity.dataset.cityIndex) : null;
 	}
 
-	function findFirstCategoryIndexForCity(cityIndex) {
-		const section = Array.from(categorySections).find(
+	function getFirstCategoryIndexForCity(cityIndex) {
+		const section = categorySections.find(
 			sec => Number(sec.dataset.cityIndex) === cityIndex
 		);
 		return section ? Number(section.dataset.categoryIndex) : null;
 	}
 
-	/* ===== CITY DROPDOWN ===== */
+	/* ================= STATE ================= */
+
+	let currentCityIndex = getDefaultCityIndex();
+	let currentCategoryIndex = isMobile()
+		? null
+		: getFirstCategoryIndexForCity(currentCityIndex);
+
+	/* ================= CITY DROPDOWN ================= */
 
 	cityToggle.addEventListener('click', e => {
 		e.stopPropagation();
@@ -56,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			currentCityIndex = Number(option.dataset.cityIndex);
 			currentCategoryIndex = isMobile()
 				? null
-				: findFirstCategoryIndexForCity(currentCityIndex);
+				: getFirstCategoryIndexForCity(currentCityIndex);
 
 			cityOptions.forEach(o => o.classList.remove('active'));
 			option.classList.add('active');
@@ -69,23 +78,23 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
-	/* ===== DESKTOP CATEGORY BUTTONS ===== */
+	/* ================= DESKTOP CATEGORY BUTTONS ================= */
 
 	categoryButtons.forEach(button => {
 		button.addEventListener('click', () => {
 			if (isMobile()) return;
 
-			const parentGroup = button.closest('.payments__header-category');
-			if (!parentGroup) return;
+			const group = button.closest('.payments__header-category');
+			if (!group) return;
 
-			if (Number(parentGroup.dataset.cityIndex) !== currentCityIndex) return;
+			if (Number(group.dataset.cityIndex) !== currentCityIndex) return;
 
 			currentCategoryIndex = Number(button.dataset.categoryIndex);
 			updateView();
 		});
 	});
 
-	/* ===== MOBILE ACCORDION ===== */
+	/* ================= MOBILE ACCORDION ================= */
 
 	categoryHeaders.forEach(header => {
 		header.addEventListener('click', () => {
@@ -96,10 +105,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			const isOpen = section.classList.contains('is-open');
 
-			// закрываем все
-			categorySections.forEach(sec => sec.classList.remove('is-open'));
+			categorySections.forEach(sec =>
+				sec.classList.remove('is-open')
+			);
 
-			// если был закрыт — открываем
 			if (!isOpen) {
 				section.classList.add('is-open');
 				currentCategoryIndex = Number(section.dataset.categoryIndex);
@@ -109,12 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
 		});
 	});
 
-	/* ===== VIEW UPDATE ===== */
+	/* ================= VIEW ================= */
 
 	function updateView() {
 		const mobile = isMobile();
 
-		/* header categories (desktop only) */
+		/* header groups */
 		headerGroups.forEach(group => {
 			group.classList.toggle(
 				'active',
@@ -145,10 +154,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		/* desktop buttons */
 		if (!mobile) {
 			categoryButtons.forEach(button => {
-				const parentGroup = button.closest('.payments__header-category');
+				const group = button.closest('.payments__header-category');
 				if (
-					!parentGroup ||
-					Number(parentGroup.dataset.cityIndex) !== currentCityIndex
+					!group ||
+					Number(group.dataset.cityIndex) !== currentCityIndex
 				) return;
 
 				button.classList.toggle(
@@ -163,19 +172,20 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 	}
 
-	/* ===== INIT ===== */
+	/* ================= INIT ================= */
 
-	currentCategoryIndex = isMobile()
-		? null
-		: findFirstCategoryIndexForCity(currentCityIndex);
+	// активируем первый город в UI
+	if (cityOptions[0]) {
+		cityOptions[0].classList.add('active');
+		cityToggleText.textContent = cityOptions[0].textContent;
+	}
 
 	updateView();
 
 	window.addEventListener('resize', () => {
-		const wasMobile = currentCategoryIndex === null && !isMobile();
-
 		if (!isMobile() && currentCategoryIndex === null) {
-			currentCategoryIndex = findFirstCategoryIndexForCity(currentCityIndex);
+			currentCategoryIndex =
+				getFirstCategoryIndexForCity(currentCityIndex);
 		}
 
 		if (isMobile()) {

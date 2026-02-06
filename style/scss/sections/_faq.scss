@@ -8,6 +8,12 @@
 	gap: $spacing-lg-desktop;
 	color: $text-default;
 
+	.js-accordion-item>*:not(.js-accordion-header) {
+		overflow: hidden;
+		height: 0;
+		transition: height 0.3s ease;
+	}
+
 	&__title {
 		grid-column: 1 / 2;
 		grid-row: 1 / 2;
@@ -32,13 +38,14 @@
 			border-radius: $radius-md-desktop;
 			padding: $spacing-lg-desktop;
 			cursor: pointer;
-			transition: background-color 0.2s;
 			display: flex;
 			flex-direction: column;
 			gap: 12px;
 
 			& p {
-				display: none;
+				display: block;
+				overflow: hidden;
+				height: auto;
 				font-size: $text-md-desktop;
 				margin: 0;
 			}
