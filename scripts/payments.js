@@ -2,20 +2,41 @@ document.addEventListener('DOMContentLoaded', () => {
 	const root = document.querySelector('.payments');
 	if (!root) return;
 
+	/* ===== DOM ===== */
+
+	const cityToggle = root.querySelector('.payments__city-toggle');
+	const cityToggleText = cityToggle.querySelector('span');
+	const cityDropdown = root.querySelector('.payments__city-dropdown');
 	const cityOptions = root.querySelectorAll('.payments__city-option');
-	const cityToggleText = root.querySelector('.payments__city-toggle span');
 
 	const headerGroups = root.querySelectorAll('.payments__header-category');
 	const categoryButtons = root.querySelectorAll('.payments__category-button');
 	const categorySections = root.querySelectorAll('.payments__category-section');
+	const categoryHeaders = root.querySelectorAll('.payments__category-header');
+
+	/* ===== CONST ===== */
 
 	const MOBILE_BREAKPOINT = 540;
 
-	let currentCityIndex = 0;
-	let currentCategoryIndex = 0;
+	/* ===== STATE ===== */
 
-	const cityToggle = root.querySelector('.payments__city-toggle');
-	const cityDropdown = root.querySelector('.payments__city-dropdown');
+	let currentCityIndex = 0;
+	let currentCategoryIndex = null; // null = ничего не выбрано (mobile)
+
+	/* ===== HELPERS ===== */
+
+	function isMobile() {
+		return window.innerWidth <= MOBILE_BREAKPOINT;
+	}
+
+	function findFirstCategoryIndexForCity(cityIndex) {
+		const section = Array.from(categorySections).find(
+			sec => Number(sec.dataset.cityIndex) === cityIndex
+		);
+		return section ? Number(section.dataset.categoryIndex) : null;
+	}
+
+	/* ===== CITY DROPDOWN ===== */
 
 	cityToggle.addEventListener('click', e => {
 		e.stopPropagation();
@@ -23,133 +44,144 @@ document.addEventListener('DOMContentLoaded', () => {
 		cityDropdown.classList.toggle('active');
 	});
 
-	cityOptions.forEach(option => {
-		option.addEventListener('click', e => {
-			e.stopPropagation();
-
-			currentCityIndex = Number(option.dataset.cityIndex);
-
-			currentCategoryIndex = findFirstCategoryIndexForCity(currentCityIndex);
-
-			cityOptions.forEach(o => o.classList.remove('active'));
-			option.classList.add('active');
-
-			cityToggleText.textContent = option.textContent;
-
-			cityToggle.classList.remove('active');
-			cityDropdown.classList.remove('active');
-
-			categorySections.forEach(section => {
-				section.classList.remove('is-open');
-			});
-
-			updateView();
-		});
-	});
-
 	document.addEventListener('click', () => {
 		cityToggle.classList.remove('active');
 		cityDropdown.classList.remove('active');
 	});
 
-	function syncAccordionState() {
-		if (window.innerWidth > MOBILE_BREAKPOINT) return;
+	cityOptions.forEach(option => {
+		option.addEventListener('click', e => {
+			e.stopPropagation();
 
-		categorySections.forEach(section => {
-			const cityMatch =
-				Number(section.dataset.cityIndex) === currentCityIndex;
-			const categoryMatch =
-				Number(section.dataset.categoryIndex) === currentCategoryIndex;
+			currentCityIndex = Number(option.dataset.cityIndex);
+			currentCategoryIndex = isMobile()
+				? null
+				: findFirstCategoryIndexForCity(currentCityIndex);
 
-			section.classList.toggle(
-				'is-open',
-				cityMatch && categoryMatch
-			);
+			cityOptions.forEach(o => o.classList.remove('active'));
+			option.classList.add('active');
+
+			cityToggleText.textContent = option.textContent;
+			cityToggle.classList.remove('active');
+			cityDropdown.classList.remove('active');
+
+			updateView();
 		});
-	}
-
-	function updateView() {
-		const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
-
-		headerGroups.forEach(group => {
-			group.classList.toggle(
-				'active',
-				!isMobile && Number(group.dataset.cityIndex) === currentCityIndex
-			);
-		});
-
-		categorySections.forEach(section => {
-			const cityMatch =
-				Number(section.dataset.cityIndex) === currentCityIndex;
-			const categoryMatch =
-				Number(section.dataset.categoryIndex) === currentCategoryIndex;
-
-			if (isMobile) {
-				section.classList.toggle('is-visible', cityMatch);
-			} else {
-				section.classList.toggle('active', cityMatch && categoryMatch);
-			}
-		});
-
-		if (isMobile) {
-			section.classList.remove('is-visible', 'is-open');
-
-			if (cityMatch) {
-				section.classList.add('is-visible');
-			}
-	}
-
-		syncAccordionState();
-	}
-
-	const headers = root.querySelectorAll('.payments__category-header');
-
-	headers.forEach(header => {
-	header.addEventListener('click', () => {
-		if (window.innerWidth > MOBILE_BREAKPOINT) return;
-
-		const section = header.closest('.payments__category-section');
-		if (!section) return;
-
-		const categoryIndex = Number(section.dataset.categoryIndex);
-		const isOpen = section.classList.contains('is-open');
-
-		// закрываем все остальные
-		categorySections.forEach(sec => {
-			if (sec !== section && sec.classList.contains('is-visible')) {
-				sec.classList.remove('is-open');
-			}
-		});
-
-		if (isOpen) {
-			section.classList.remove('is-open');
-		} else {
-			currentCategoryIndex = categoryIndex;
-			section.classList.add('is-open');
-		}
 	});
-});
 
-	function findFirstCategoryIndexForCity(cityIndex) {
-		const section = Array.from(categorySections).find(
-			el => Number(el.dataset.cityIndex) === cityIndex
-		);
-		return section ? Number(section.dataset.categoryIndex) : 0;
-	}
+	/* ===== DESKTOP CATEGORY BUTTONS ===== */
 
 	categoryButtons.forEach(button => {
 		button.addEventListener('click', () => {
+			if (isMobile()) return;
+
 			const parentGroup = button.closest('.payments__header-category');
-			if (
-				Number(parentGroup.dataset.cityIndex) !== currentCityIndex
-			) return;
+			if (!parentGroup) return;
+
+			if (Number(parentGroup.dataset.cityIndex) !== currentCityIndex) return;
 
 			currentCategoryIndex = Number(button.dataset.categoryIndex);
 			updateView();
 		});
 	});
 
+	/* ===== MOBILE ACCORDION ===== */
+
+	categoryHeaders.forEach(header => {
+		header.addEventListener('click', () => {
+			if (!isMobile()) return;
+
+			const section = header.closest('.payments__category-section');
+			if (!section) return;
+
+			const isOpen = section.classList.contains('is-open');
+
+			// закрываем все
+			categorySections.forEach(sec => sec.classList.remove('is-open'));
+
+			// если был закрыт — открываем
+			if (!isOpen) {
+				section.classList.add('is-open');
+				currentCategoryIndex = Number(section.dataset.categoryIndex);
+			} else {
+				currentCategoryIndex = null;
+			}
+		});
+	});
+
+	/* ===== VIEW UPDATE ===== */
+
+	function updateView() {
+		const mobile = isMobile();
+
+		/* header categories (desktop only) */
+		headerGroups.forEach(group => {
+			group.classList.toggle(
+				'active',
+				!mobile && Number(group.dataset.cityIndex) === currentCityIndex
+			);
+		});
+
+		/* sections */
+		categorySections.forEach(section => {
+			const cityMatch =
+				Number(section.dataset.cityIndex) === currentCityIndex;
+			const categoryMatch =
+				Number(section.dataset.categoryIndex) === currentCategoryIndex;
+
+			section.classList.remove('active', 'is-visible', 'is-open');
+
+			if (mobile) {
+				if (cityMatch) {
+					section.classList.add('is-visible');
+				}
+			} else {
+				if (cityMatch && categoryMatch) {
+					section.classList.add('active');
+				}
+			}
+		});
+
+		/* desktop buttons */
+		if (!mobile) {
+			categoryButtons.forEach(button => {
+				const parentGroup = button.closest('.payments__header-category');
+				if (
+					!parentGroup ||
+					Number(parentGroup.dataset.cityIndex) !== currentCityIndex
+				) return;
+
+				button.classList.toggle(
+					'btn--primary',
+					Number(button.dataset.categoryIndex) === currentCategoryIndex
+				);
+				button.classList.toggle(
+					'btn--outlined',
+					Number(button.dataset.categoryIndex) !== currentCategoryIndex
+				);
+			});
+		}
+	}
+
+	/* ===== INIT ===== */
+
+	currentCategoryIndex = isMobile()
+		? null
+		: findFirstCategoryIndexForCity(currentCityIndex);
+
 	updateView();
 
-	window.addEventListener('resize', updateView);
+	window.addEventListener('resize', () => {
+		const wasMobile = currentCategoryIndex === null && !isMobile();
+
+		if (!isMobile() && currentCategoryIndex === null) {
+			currentCategoryIndex = findFirstCategoryIndexForCity(currentCityIndex);
+		}
+
+		if (isMobile()) {
+			currentCategoryIndex = null;
+		}
+
+		updateView();
+	});
 });
