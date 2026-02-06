@@ -14,10 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	const MOBILE_BREAKPOINT = 540;
 	const TABLET_BREAKPOINT = 887;
 
-	let selectedDivision = null;
-	let selectedPosition = null;
 	let isSubmitting = false;
-	let currentMode = getMode();
 
 	const backButtons = document.querySelectorAll('.vacancies__back-button');
 	const vacancies = document.querySelector('.vacancies');
@@ -28,40 +25,54 @@ document.addEventListener('DOMContentLoaded', () => {
 		return 'desktop';
 	}
 
+	const state = {
+		mode: getMode(),
+		step: 'division',
+		division: null,
+		position: null,
+	};
+
 	function updateMode() {
 		if (!vacancies) return;
 
 		const newMode = getMode();
-		if (newMode === currentMode) return;
+		if (newMode === state.mode) return;
 
-		currentMode = newMode;
+		state.mode = newMode;
 		vacancies.dataset.mode = newMode;
+
+		if (state.mode === 'desktop') {
+			delete vacancies.dataset.step;
+			return;
+		}
+
+		if (state.mode === 'tablet') {
+			if (state.division) {
+				setStep('position');
+			} else {
+				setStep('division');
+			}
+			return;
+		}
+
+		if (state.division && state.position) {
+			setStep('form');
+		} else if (state.division) {
+			setStep('position');
+		} else {
+			setStep('division');
+		}
 	}
 
 	function setStep(step) {
 		if (!vacancies) return;
+		state.step = step;
 		vacancies.dataset.step = step;
 	}
 
 	function goToPosition() {
 		const mode = vacancies.dataset.mode;
 		if (mode === 'tablet' || mode === 'mobile') {
-			setStep('position');
-		}
-	}
-
-	function goToForm() {
-		if (vacancies.dataset.mode === 'mobile') {
-			setStep('form');
-		}
-	}
-
-	function syncStepWithMode() {
-		const mode = vacancies.dataset.mode;
-
-		if (mode === 'desktop') return;
-
-		if (mode === 'tablet' && vacancies.dataset.step === 'form') {
 			setStep('position');
 		}
 	}
@@ -99,27 +110,23 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function selectDivision(divisionId, divisionName) {
-		selectedDivision = { id: divisionId, name: divisionName };
-		selectedPosition = null;
+		state.division = { id: divisionId, name: divisionName };
+		state.position = null;
 
-		// active у подразделений
 		divisionsContainer.querySelectorAll('li').forEach(li => {
 			li.classList.toggle('active', li.dataset.divisionId === divisionId);
 		});
 
-		// СБРОС ВСЕХ ПОЗИЦИЙ
 		positionsContainer.querySelectorAll('li').forEach(li => {
 			li.classList.remove('active', 'is-visible');
 		});
 
-		// ПОКАЗ НУЖНЫХ
 		const visiblePositions = positionsContainer.querySelectorAll(
 			`li[data-division-id="${divisionId}"]`
 		);
 
 		visiblePositions.forEach(li => li.classList.add('is-visible'));
 
-		// если нет позиций — показать empty
 		if (!visiblePositions.length) {
 			const empty = positionsContainer.querySelector('li.empty');
 			if (empty) empty.classList.add('is-visible');
@@ -152,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function selectPosition(positionId, positionName) {
-		selectedPosition = { id: positionId, name: positionName };
+		state.position = { id: positionId, name: positionName };
 
 		positionsContainer.querySelectorAll('li').forEach(li => {
 			li.classList.toggle(
@@ -164,25 +171,29 @@ document.addEventListener('DOMContentLoaded', () => {
 		positionChoiceText.textContent = positionName;
 
 		validateForm();
-		goToForm();
+
+		if (state.mode === 'mobile') {
+			setStep('form');
+		}
 	}
 
 	function validateForm() {
 		const isPhoneFilled = phoneInput && phoneInput.value.trim() !== '';
 		const isNameFilled = nameInput && nameInput.value.trim() !== '';
 		const isCheckboxChecked = pdCheckbox && pdCheckbox.checked;
-		const isDivisionSelected = selectedDivision !== null;
-		const isPositionSelected = selectedPosition !== null;
+		const isDivisionSelected = !!state.division;
+		const isPositionSelected = !!state.position;
 
-		const isFormValid = isPhoneFilled && isNameFilled && isCheckboxChecked && isDivisionSelected && isPositionSelected;
+		const isFormValid =
+			isPhoneFilled &&
+			isNameFilled &&
+			isCheckboxChecked &&
+			isDivisionSelected &&
+			isPositionSelected;
 
 		if (submitButton) {
 			submitButton.disabled = !isFormValid;
-			if (isFormValid) {
-				submitButton.classList.remove('btn--disabled');
-			} else {
-				submitButton.classList.add('btn--disabled');
-			}
+			submitButton.classList.toggle('btn--disabled', !isFormValid);
 		}
 
 		return isFormValid;
@@ -206,14 +217,8 @@ document.addEventListener('DOMContentLoaded', () => {
 		submitButton.textContent = 'Отправка...';
 
 		const formData = {
-			division: selectedDivision ? {
-				id: selectedDivision.id,
-				name: selectedDivision.name
-			} : null,
-			position: selectedPosition ? {
-				id: selectedPosition.id,
-				name: selectedPosition.name
-			} : null,
+			division: state.division,
+			position: state.position,
 			phone: phoneInput.value.trim(),
 			name: nameInput.value.trim(),
 			consent: pdCheckbox.checked
@@ -288,8 +293,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	}
 
 	function resetForm() {
-		selectedDivision = null;
-		selectedPosition = null;
+		state.division = null;
+		state.position = null;
 
 		if (vacancies.dataset.mode !== 'desktop') {
 			setStep('division');
@@ -326,28 +331,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	validateForm();
 	updateMode();
 	setStep('division');
-	syncStepWithMode();
 
 	window.addEventListener('resize', () => {
-		const prevMode = currentMode;
-
 		updateMode();
-
-		if (prevMode !== currentMode) {
-			if (currentMode === 'desktop') {
-				delete vacancies.dataset.step;
-			} else {
-				// если уже выбран division — логично начать с позиций
-				if (selectedDivision && selectedPosition) {
-					setStep('form');
-				} else if (selectedDivision) {
-					setStep('position');
-				} else {
-					setStep('division');
-				}
-			}
-
-			syncStepWithMode();
-		}
 	});
 });

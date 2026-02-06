@@ -52,6 +52,22 @@ document.addEventListener('DOMContentLoaded', () => {
 		cityDropdown.classList.remove('active');
 	});
 
+	function syncAccordionState() {
+		if (window.innerWidth > MOBILE_BREAKPOINT) return;
+
+		categorySections.forEach(section => {
+			const cityMatch =
+				Number(section.dataset.cityIndex) === currentCityIndex;
+			const categoryMatch =
+				Number(section.dataset.categoryIndex) === currentCategoryIndex;
+
+			section.classList.toggle(
+				'is-open',
+				cityMatch && categoryMatch
+			);
+		});
+	}
+
 	function updateView() {
 		const isMobile = window.innerWidth <= MOBILE_BREAKPOINT;
 
@@ -92,26 +108,21 @@ document.addEventListener('DOMContentLoaded', () => {
 				);
 			});
 		}
+
+		syncAccordionState();
 	}
 
 	const headers = root.querySelectorAll('.payments__category-header');
 
 	headers.forEach(header => {
 		header.addEventListener('click', () => {
-			if (window.innerWidth > 540) return;
+			if (window.innerWidth > MOBILE_BREAKPOINT) return;
 
 			const section = header.closest('.payments__category-section');
+			if (!section) return;
 
-			categorySections.forEach(sec => {
-				if (
-					sec !== section &&
-					sec.classList.contains('is-visible')
-				) {
-					sec.classList.remove('is-open');
-				}
-			});
-
-			section.classList.toggle('is-open');
+			currentCategoryIndex = Number(section.dataset.categoryIndex);
+			updateView();
 		});
 	});
 
@@ -135,4 +146,6 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 
 	updateView();
+
+	window.addEventListener('resize', updateView);
 });
