@@ -91,23 +91,13 @@ document.addEventListener('DOMContentLoaded', () => {
 			}
 		});
 
-		if (!isMobile) {
-			categoryButtons.forEach(button => {
-				const parentGroup = button.closest('.payments__header-category');
-				if (
-					Number(parentGroup.dataset.cityIndex) !== currentCityIndex
-				) return;
+		if (isMobile) {
+			section.classList.remove('is-visible', 'is-open');
 
-				button.classList.toggle(
-					'btn--primary',
-					Number(button.dataset.categoryIndex) === currentCategoryIndex
-				);
-				button.classList.toggle(
-					'btn--outlined',
-					Number(button.dataset.categoryIndex) !== currentCategoryIndex
-				);
-			});
-		}
+			if (cityMatch) {
+				section.classList.add('is-visible');
+			}
+	}
 
 		syncAccordionState();
 	}
