@@ -115,16 +115,30 @@ document.addEventListener('DOMContentLoaded', () => {
 	const headers = root.querySelectorAll('.payments__category-header');
 
 	headers.forEach(header => {
-		header.addEventListener('click', () => {
-			if (window.innerWidth > MOBILE_BREAKPOINT) return;
+	header.addEventListener('click', () => {
+		if (window.innerWidth > MOBILE_BREAKPOINT) return;
 
-			const section = header.closest('.payments__category-section');
-			if (!section) return;
+		const section = header.closest('.payments__category-section');
+		if (!section) return;
 
-			currentCategoryIndex = Number(section.dataset.categoryIndex);
-			updateView();
+		const categoryIndex = Number(section.dataset.categoryIndex);
+		const isOpen = section.classList.contains('is-open');
+
+		// закрываем все остальные
+		categorySections.forEach(sec => {
+			if (sec !== section && sec.classList.contains('is-visible')) {
+				sec.classList.remove('is-open');
+			}
 		});
+
+		if (isOpen) {
+			section.classList.remove('is-open');
+		} else {
+			currentCategoryIndex = categoryIndex;
+			section.classList.add('is-open');
+		}
 	});
+});
 
 	function findFirstCategoryIndexForCity(cityIndex) {
 		const section = Array.from(categorySections).find(
