@@ -83,3 +83,9 @@ h6 {
 	background: $primary;
 	color: $text-inverse;
 }
+
+.js-accordion-item > *:not(.js-accordion-header) {
+	overflow: hidden;
+	transition: height 0.3s ease;
+	height: 0;
+}

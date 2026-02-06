@@ -170,6 +170,12 @@ h6 {
   color: #fff;
 }
 
+.js-accordion-item > *:not(.js-accordion-header) {
+  overflow: hidden;
+  transition: height 0.3s ease;
+  height: 0;
+}
+
 .mobile-menu-overlay {
   position: fixed;
   inset: 0;
