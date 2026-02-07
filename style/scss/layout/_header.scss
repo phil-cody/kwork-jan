@@ -11,12 +11,12 @@
 	transition: all 0.3s ease;
 
 	&__content {
+		max-width: 1360px;
+		margin: 0 auto;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		max-width: 1440px;
-		margin: 0 auto;
-		padding: $spacing-md-desktop $spacing-xxxl-desktop;
+		padding: $spacing-md-desktop $spacing-none-desktop;
 		transition: padding 0.3s ease;
 	}
 
@@ -112,6 +112,7 @@
 			max-width: 1360px;
 			padding: $spacing-lg-desktop $spacing-md-desktop;
 			justify-content: space-between;
+			margin: 0 auto;
 		}
 
 		.header__item:first-child {

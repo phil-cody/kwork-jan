@@ -3,9 +3,9 @@
 
 .stages {
 	background-color: $background;
-	padding: 57px $spacing-xxxl-desktop 0;
 
 	&__container {
+		padding-top: 57px;
 		display: grid;
 		grid-template-columns: 1fr auto 1fr;
 		grid-template-rows: auto auto auto;

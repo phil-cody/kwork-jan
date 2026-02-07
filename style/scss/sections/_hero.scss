@@ -11,7 +11,8 @@
 	background-repeat: no-repeat;
 	display: flex;
 	align-items: flex-start;
-	padding: 119px $spacing-xxxl-desktop $spacing-xxxl-desktop $spacing-xxxl-desktop;
+	padding-top: 119px;
+	padding-bottom: $spacing-xxxl-desktop;
 	overflow: hidden;
 
 	&__text-container {

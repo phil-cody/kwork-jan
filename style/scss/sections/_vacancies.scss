@@ -7,7 +7,8 @@
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
-	padding: 40px $spacing-xxxl-desktop 306px;
+	padding-top: $spacing-xxxl-desktop;
+	padding-bottom: 306px;
 	color: $text-inverse;
 	overflow: hidden;
 
@@ -210,10 +211,6 @@
 				color: $text-default;
 				padding: 0;
 				outline: none;
-
-				&::placeholder {
-					color: $text-default;
-				}
 			}
 		}
 

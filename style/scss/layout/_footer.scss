@@ -3,12 +3,16 @@
 
 .footer {
 	background-color: $surface;
-	padding: $spacing-xxl-desktop $spacing-xxxl-desktop $spacing-xxxl-desktop;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: space-between;
-	gap: $spacing-md-desktop;
+	padding-top: $spacing-xxl-desktop;
+	padding-bottom: $spacing-xxxl-desktop;
+
+	&__container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: $spacing-md-desktop;
+	}
 
 	&__note {
 		font-size: $text-md-desktop;

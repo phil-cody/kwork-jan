@@ -24,7 +24,7 @@
 	}
 
 	&__content {
-		padding: $spacing-none-desktop $spacing-xxxl-desktop 346px;
+		padding-bottom: 346px;
 		display: grid;
 		grid-template-columns: repeat(5, 1fr);
 		grid-template-rows: repeat(2, auto);

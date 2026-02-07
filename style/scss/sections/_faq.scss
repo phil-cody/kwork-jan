@@ -1,12 +1,16 @@
 @use '../abstracts/variables' as *;
 
 .faq {
-	padding: 100px $spacing-xxxl-desktop 60px;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-template-rows: auto 1fr auto;
-	gap: $spacing-lg-desktop;
-	color: $text-default;
+	padding-top: 100px;
+	padding-bottom: 60px;
+
+	&__container {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-template-rows: auto 1fr auto;
+		gap: $spacing-lg-desktop;
+		color: $text-default;
+	}
 
 	.js-accordion-item>*:not(.js-accordion-header) {
 		overflow: hidden;

@@ -2,18 +2,21 @@
 @use "../abstracts/mixins" as *;
 
 .sticker {
-	margin: 100px $spacing-xxxl-desktop;
-	padding: $spacing-xl-desktop;
-	background-color: $primary;
-	background-image: url('../../image/sticker/sticker-background.webp');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	border-radius: $radius-lg-desktop;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: $spacing-xxxl-desktop;
+	margin: 100px auto;
+
+	&__content {
+		padding: $spacing-xl-desktop;
+		background-color: $primary;
+		background-image: url('../../image/sticker/sticker-background.webp');
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		border-radius: $radius-lg-desktop;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: $spacing-xxxl-desktop;
+	}
 
 	&__text {
 		display: flex;

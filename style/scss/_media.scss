@@ -164,7 +164,8 @@
 
 	// ===== HERO SECTION =====
 	.hero {
-		padding: 80px $spacing-xxxl-desktop $spacing-xxxl-desktop $spacing-xxxl-desktop;
+		padding-top: 80px;
+		padding-bottom: $spacing-xxxl-desktop;
 
 		&__text-container {
 			max-width: 75%;
@@ -210,7 +211,7 @@
 
 	// ===== STICKER SECTION =====
 	.sticker {
-		margin: 60px 40px;
+		margin: 60px 0;
 	}
 
 	// ===== PAYMENTS SECTION =====
@@ -221,7 +222,7 @@
 
 
 		&__container {
-			padding: $spacing-none-desktop $spacing-xxxl-desktop 175px;
+			padding-bottom: 175px;
 		}
 
 		&__content-header {
@@ -235,7 +236,7 @@
 
 	// ===== GUARANTEES SECTION =====
 	.guarantees {
-		padding: 0 $spacing-xxxl-desktop $spacing-xxxl-desktop;
+		margin-bottom: $spacing-xxxl-desktop;
 	}
 
 	// ===== REQUIREMENTS SECTION =====
@@ -245,11 +246,11 @@
 		}
 
 		&__title {
-			margin: $spacing-xxxl-desktop;
+			margin: $spacing-xxxl-desktop 0;
 		}
 
 		&__content {
-			padding: 0 $spacing-xxxl-desktop calc($spacing-xxxl-desktop + 174px);
+			padding-bottom: calc($spacing-xxxl-desktop + 174px);
 			grid-template-columns: repeat(3, 1fr);
 			grid-template-rows: repeat(3, auto);
 		}
@@ -291,7 +292,8 @@
 
 	// ===== FAQ SECTION =====
 	.faq {
-		padding: $spacing-xxxl-desktop $spacing-xxxl-desktop $spacing-xl-mobile;
+		padding-top: $spacing-xxxl-desktop;
+		padding-bottom: $spacing-xl-mobile;
 
 		&__contact {
 			flex-direction: column-reverse;
@@ -312,9 +314,14 @@
 
 @media (max-width: 887px) {
 
+	.container {
+		padding: 0 16px;
+	}
+
 	// ===== HERO SECTION =====
 	.hero {
-		padding: 100px $spacing-xxxl-desktop $spacing-xxxl-desktop $spacing-xxxl-desktop;
+		padding-top: 100px;
+		padding-bottom: $spacing-xxxl-desktop;
 
 		&__title {
 			font-size: $heading-2-desktop;
@@ -323,6 +330,8 @@
 
 	// ===== STAGES SECTION =====
 	.stages {
+		padding-top: 57px;
+
 		&__title {
 			font-size: $heading-2-mobile;
 		}
@@ -597,12 +606,14 @@
 
 	// ===== STICKER SECTION =====
 	.sticker {
-		margin: $spacing-xxxl-desktop $spacing-md-mobile;
-		padding: $spacing-xxl-mobile;
-		background-image: url('../../image/sticker/sticker-background-mobile.webp');
-		border-radius: $spacing-xl-mobile;
-		gap: $spacing-xl-mobile;
-		flex-direction: column;
+
+		&__content {
+			padding: $spacing-xxl-mobile;
+			background-image: url('../../image/sticker/sticker-background-mobile.webp');
+			border-radius: $spacing-xl-mobile;
+			gap: $spacing-xl-mobile;
+			flex-direction: column;
+		}
 
 		&__text {
 			gap: calc($spacing-xxs-mobile + $spacing-xxxs-mobile);
@@ -786,7 +797,8 @@
 		}
 
 		&__title {
-			margin: 100px $spacing-xxxl-mobile $spacing-xxxl-mobile;
+			margin-top: 100px;
+			margin-bottom: $spacing-xxxl-mobile;
 		}
 
 		&__content {
@@ -828,13 +840,13 @@
 			display: flex;
 			flex-direction: column;
 			gap: 0;
+			margin-bottom: 28px;
 		}
 
 		&__item {
 			flex-direction: column;
 			padding: $spacing-xxl-mobile $spacing-none-mobile;
 			border-bottom: 1px solid rgba($background, 0.2);
-			gap: $spacing-sm-mobile;
 
 			.training__content-heading,
 			.training__content-description {
@@ -887,6 +899,7 @@
 
 			.training__content-description {
 				display: block;
+				padding-top: 14px;
 
 				& p {
 					font-size: $text-md-mobile;
@@ -897,7 +910,7 @@
 
 		&__footer {
 			flex-direction: column;
-			gap: $spacing-xl-mobile;
+			gap: $spacing-xxxl-mobile;
 			align-items: flex-start;
 
 			.training__content-heading {
@@ -933,9 +946,11 @@
 
 	// ===== FAQ SECTION =====
 	.faq {
-		display: flex;
-		flex-direction: column;
-		gap: $spacing-xl-mobile;
+		&__container {
+			display: flex;
+			flex-direction: column;
+			gap: $spacing-xl-mobile;
+		}
 
 		&__title-text {
 			font-size: $heading-2-mobile;
@@ -1001,7 +1016,6 @@
 
 		&__contact {
 			gap: $spacing-xxl-desktop;
-			flex-direction: row;
 			align-items: flex-start;
 
 			&-icons {
@@ -1042,6 +1056,17 @@
 			height: 123px;
 		}
 	}
+
+	// ===== FOOTER =====
+	.footer {
+		&__container {
+			flex-direction: column;
+		}
+
+		&__note {
+			text-align: center;
+		}
+	}
 }
 
 /* ========================================= Mobile (540px) ========================================= */
@@ -1080,7 +1105,8 @@
 	.hero {
 		background-image: url('../../image/hero/hero-background-large-mobile.png');
 		height: 1140px;
-		padding: 54px $spacing-md-mobile $spacing-none-mobile;
+		padding-top: 54px;
+		padding-bottom: $spacing-none-mobile;
 
 		&__text-container {
 			max-width: 100%;
@@ -1114,7 +1140,7 @@
 
 	// ===== STAGES SECTION =====
 	.stages {
-		padding: $spacing-xxxl-desktop $spacing-md-mobile $spacing-none-mobile;
+		padding-top: $spacing-xxxl-desktop;
 
 		&__container {
 			grid-template-columns: 1fr;
@@ -1185,14 +1211,11 @@
 
 	// ===== PAYMENTS SECTION =====
 	.payments {
-
 		&::before {
 			height: 92px;
 		}
 
 		background-color: $background;
-
-		/* ===== Layout ===== */
 
 		&__container {
 			padding: $spacing-none-mobile $spacing-md-mobile 92px;
@@ -1211,14 +1234,10 @@
 			width: 100%;
 		}
 
-		/* ===== Desktop-only elements ===== */
-
 		&__header-category,
 		&__category-button {
 			display: none;
 		}
-
-		/* ===== Sections by city ===== */
 
 		&__category-section {
 			display: none;
@@ -1229,8 +1248,6 @@
 				display: block;
 			}
 		}
-
-		/* ===== Accordion ===== */
 
 		&__category-header {
 			display: flex;
@@ -1273,14 +1290,10 @@
 			}
 		}
 
-		/* ===== Cards ===== */
-
 		&__category-content li {
 			width: 100%;
 			min-height: auto;
 		}
-
-		/* ===== Note ===== */
 
 		&__note {
 			margin-top: $spacing-xl-mobile;
@@ -1294,13 +1307,12 @@
 
 	// ===== GUARANTEES SECTION =====
 	.guarantees {
-		padding: $spacing-xxl-mobile $spacing-md-mobile;
+		padding-top: $spacing-xxl-mobile;
 	}
 
 	// ===== VACANCIES SECTION =====
 	.vacancies {
 		background-image: url('../../image/vacancies/background-large-mobile.png');
-		padding: $spacing-lg-mobile $spacing-md-mobile;
 		min-height: 1322px;
 
 		&__title {
@@ -1425,11 +1437,13 @@
 
 		&__title {
 			font-size: $heading-2-mobile;
-			margin: $spacing-xxxl-desktop $spacing-md-mobile $spacing-xxxl-mobile;
+			margin-top: $spacing-xxxl-desktop;
+			margin-bottom: $spacing-xxxl-mobile
 		}
 
 		&__content {
-			padding: $spacing-none-desktop $spacing-md-mobile 146px;
+			padding-top: $spacing-none-desktop;
+			padding-bottom: 146px;
 			display: flex;
 			flex-direction: column;
 			gap: calc($spacing-xxs-mobile * 2);
@@ -1502,18 +1516,15 @@
 
 	// ===== TRAINING SECTION =====
 	.training {
-		&__header {
-			padding: $spacing-none-mobile $spacing-md-mobile;
-		}
-
 		&__content {
-			padding: $spacing-none-mobile $spacing-md-mobile 350px;
+			padding-bottom: 350px;
 		}
 	}
 
 	// ===== FAQ SECTION =====
 	.faq {
-		padding: $spacing-xxxl-desktop $spacing-md-mobile $spacing-xl-mobile;
+		padding-top: $spacing-xxxl-desktop;
+		padding-bottom: $spacing-xl-mobile
 	}
 
 	// ===== ADDRESS SECTION =====
@@ -1567,7 +1578,8 @@
 
 	// ===== FOOTER =====
 	.footer {
-		padding: $spacing-xl-mobile $spacing-xl-mobile $spacing-xxl-desktop;
+		padding-top: $spacing-xl-mobile;
+		padding-bottom: $spacing-xxl-desktop
 	}
 
 	// ===== SUCCESS =====
@@ -1689,14 +1701,10 @@
 
 		&__title {
 			font-size: $heading-2-mobile;
-			margin: $spacing-xxxl-desktop $spacing-md-mobile $spacing-xxxl-mobile;
 		}
 
 		&__content {
-			padding: $spacing-none-desktop $spacing-md-mobile 127px;
-			display: flex;
-			flex-direction: column;
-			gap: calc($spacing-xxs-mobile * 2);
+			padding-bottom: 127px;
 		}
 
 		&__block {

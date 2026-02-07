@@ -15,7 +15,6 @@
 		justify-content: space-between;
 		align-items: center;
 		margin-bottom: $spacing-lg-desktop;
-		padding: $spacing-none-desktop $spacing-xxxl-desktop;
 	}
 
 	&__title {
@@ -63,10 +62,11 @@
 
 	&__content-description {
 		display: block;
+		overflow: hidden;
 	}
 
 	&__content {
-		padding: 0 $spacing-xxxl-desktop 950px;
+		padding-bottom: 950px;
 	}
 
 	&__content-heading h6 {
@@ -133,4 +133,12 @@
 		width: 100%;
 		margin-top: 70px;
 	}
+}
+
+// осуществление работы аккордеона для секции только при ширине экрана меньше 720px
+@media (min-width: 720px) {
+  .training__content-description {
+    height: auto !important;
+    overflow: visible;
+  }
 }

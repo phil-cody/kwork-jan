@@ -3,7 +3,7 @@
 
 .guarantees {
 	background: linear-gradient($surface, $background);
-	padding: 0 $spacing-xxxl-desktop 85px;
+	margin-bottom: 85px;
 
 	&__title {
 		@include headline;
