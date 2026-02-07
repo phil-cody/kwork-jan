@@ -1382,7 +1382,6 @@ body.is-menu-open .mobile-menu-overlay {
   background-size: 100% auto;
   background-position: bottom;
   background-repeat: no-repeat;
-  color: #fff;
   position: relative;
   overflow: hidden;
 }
@@ -1434,8 +1433,9 @@ body.is-menu-open .mobile-menu-overlay {
 }
 .training__content {
   padding-bottom: 950px;
+  color: #fff;
 }
-.training__content-heading h6 {
+.training__content-heading h5 {
   font-size: 24px;
   margin-bottom: 8px;
   color: #fff;
@@ -1498,7 +1498,19 @@ body.is-menu-open .mobile-menu-overlay {
 }
 .faq {
   padding-top: 100px;
-  padding-bottom: 60px;
+  padding-bottom: 306px;
+  position: relative;
+}
+.faq::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: 246px;
+  background: url("../../image/payments/Subtract.png") center/cover no-repeat;
+  pointer-events: none;
 }
 .faq__container {
   display: grid;
@@ -1631,22 +1643,10 @@ body.is-menu-open .mobile-menu-overlay {
 }
 
 .address {
-  padding-top: 246px;
   position: relative;
-}
-.address::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  height: 246px;
-  background: url("../../image/payments/Subtract.png") center/cover no-repeat;
-  pointer-events: none;
+  background-color: #f6f6f7;
 }
 .address__content {
-  background-color: #f6f6f7;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -2038,16 +2038,13 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .faq {
     padding-top: 40px;
-    padding-bottom: 20px;
+    padding-bottom: 214px;
+  }
+  .faq::before {
+    height: 174px;
   }
   .faq__contact {
     flex-direction: column-reverse;
-  }
-  .address {
-    padding-top: 174px;
-  }
-  .address::before {
-    height: 174px;
   }
 }
 /* ========================================= Tablet (887px) ========================================= */
@@ -2169,14 +2166,14 @@ body.is-menu-open .mobile-menu-overlay {
   .training__footer .training__content-heading h6 {
     max-width: 40vw;
   }
+  .faq {
+    padding-bottom: 201px;
+  }
+  .faq::before {
+    height: 151px;
+  }
   .faq__title-text {
     font-size: 32px;
-  }
-  .address {
-    padding-top: 151px;
-  }
-  .address::before {
-    height: 151px;
   }
   .address__title {
     font-size: 32px;
@@ -2501,6 +2498,12 @@ body.is-menu-open .mobile-menu-overlay {
     height: auto;
     margin-top: 50px;
   }
+  .faq {
+    padding-bottom: 173px;
+  }
+  .faq::before {
+    height: 123px;
+  }
   .faq__container {
     display: flex;
     flex-direction: column;
@@ -2554,6 +2557,7 @@ body.is-menu-open .mobile-menu-overlay {
   .faq__contact {
     gap: 32px;
     align-items: flex-start;
+    flex-direction: row;
   }
   .faq__contact-icons {
     gap: 6px;
@@ -2579,12 +2583,6 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .faq__contact-hours {
     font-size: 14px;
-  }
-  .address {
-    padding-top: 123px;
-  }
-  .address::before {
-    height: 123px;
   }
   .footer__container {
     flex-direction: column;
@@ -2934,12 +2932,9 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .faq {
     padding-top: 40px;
-    padding-bottom: 20px;
+    padding-bottom: 120px;
   }
-  .address {
-    padding-top: 92px;
-  }
-  .address::before {
+  .faq::before {
     height: 92px;
   }
   .address__content {

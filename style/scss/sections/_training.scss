@@ -6,7 +6,6 @@
 	background-size: 100% auto;
 	background-position: bottom;
 	background-repeat: no-repeat;
-	color: $text-inverse;
 	position: relative;
 	overflow: hidden;
 
@@ -67,9 +66,10 @@
 
 	&__content {
 		padding-bottom: 950px;
+		color: $text-inverse;
 	}
 
-	&__content-heading h6 {
+	&__content-heading h5 {
 		font-size: $heading-5-desktop;
 		margin-bottom: $spacing-xxs-desktop;
 		color: $text-inverse;
@@ -137,8 +137,8 @@
 
 // осуществление работы аккордеона для секции только при ширине экрана меньше 720px
 @media (min-width: 720px) {
-  .training__content-description {
-    height: auto !important;
-    overflow: visible;
-  }
+	.training__content-description {
+		height: auto !important;
+		overflow: visible;
+	}
 }

@@ -2,7 +2,22 @@
 
 .faq {
 	padding-top: 100px;
-	padding-bottom: 60px;
+	padding-bottom: 306px;
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+
+		width: 100vw;
+		height: 246px;
+
+		background: url('../../image/payments/Subtract.png') center / cover no-repeat;
+		pointer-events: none;
+	}
 
 	&__container {
 		display: grid;

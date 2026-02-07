@@ -2,25 +2,10 @@
 @use '../abstracts/mixins' as *;
 
 .address {
-	padding-top: 246px;
 	position: relative;
-
-	&::before {
-		content: "";
-		position: absolute;
-		top: 0;
-		left: 50%;
-		transform: translateX(-50%);
-
-		width: 100vw;
-		height: 246px;
-
-		background: url('../../image/payments/Subtract.png') center / cover no-repeat;
-		pointer-events: none;
-	}
+	background-color: $surface;
 
 	&__content {
-		background-color: $surface;
 		display: flex;
 		flex-direction: column;
 		gap: $spacing-xxl-desktop;

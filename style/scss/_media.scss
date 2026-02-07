@@ -293,19 +293,14 @@
 	// ===== FAQ SECTION =====
 	.faq {
 		padding-top: $spacing-xxxl-desktop;
-		padding-bottom: $spacing-xl-mobile;
-
-		&__contact {
-			flex-direction: column-reverse;
-		}
-	}
-
-	// ===== ADDRESS =====
-	.address {
-		padding-top: 174px;
+		padding-bottom: 214px;
 
 		&::before {
 			height: 174px;
+		}
+
+		&__contact {
+			flex-direction: column-reverse;
 		}
 	}
 }
@@ -495,6 +490,12 @@
 
 	// ===== FAQ SECTION =====
 	.faq {
+		padding-bottom: 201px;
+
+		&::before {
+			height: 151px;
+		}
+
 		&__title-text {
 			font-size: $heading-2-mobile;
 		}
@@ -502,11 +503,6 @@
 
 	// ===== ADDRESS =====
 	.address {
-		padding-top: 151px;
-
-		&::before {
-			height: 151px;
-		}
 
 		&__title {
 			font-size: $heading-2-mobile;
@@ -946,6 +942,12 @@
 
 	// ===== FAQ SECTION =====
 	.faq {
+		padding-bottom: 173px;
+
+		&::before {
+			height: 123px;
+		}
+
 		&__container {
 			display: flex;
 			flex-direction: column;
@@ -1017,6 +1019,7 @@
 		&__contact {
 			gap: $spacing-xxl-desktop;
 			align-items: flex-start;
+			flex-direction: row;
 
 			&-icons {
 				gap: calc($spacing-xxs-mobile + $spacing-xxxs-mobile);
@@ -1045,15 +1048,6 @@
 			&-hours {
 				font-size: $text-md-mobile;
 			}
-		}
-	}
-
-	// ===== ADDRESS =====
-	.address {
-		padding-top: 123px;
-
-		&::before {
-			height: 123px;
 		}
 	}
 
@@ -1524,16 +1518,15 @@
 	// ===== FAQ SECTION =====
 	.faq {
 		padding-top: $spacing-xxxl-desktop;
-		padding-bottom: $spacing-xl-mobile
-	}
-
-	// ===== ADDRESS SECTION =====
-	.address {
-		padding-top: 92px;
+		padding-bottom: 120px;
 
 		&::before {
 			height: 92px;
 		}
+	}
+
+	// ===== ADDRESS SECTION =====
+	.address {
 
 		&__content {
 			padding: $spacing-none-mobile $spacing-none-mobile;
