@@ -79,11 +79,6 @@ h6 {
 	font-size: $heading-6-desktop;
 }
 
-::selection {
-	background: $primary;
-	color: $text-inverse;
-}
-
 input:focus::placeholder,
 textarea:focus::placeholder {
 	color: transparent;
