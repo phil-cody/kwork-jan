@@ -105,9 +105,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			const isOpen = section.classList.contains('is-open');
 
-			categorySections.forEach(sec =>
-				sec.classList.remove('is-open')
-			);
+			if (!isMobile()) {
+				categorySections.forEach(sec =>
+					sec.classList.remove('is-open')
+				);
+			}
 
 			if (!isOpen) {
 				section.classList.add('is-open');

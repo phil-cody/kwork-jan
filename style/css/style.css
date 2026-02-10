@@ -1081,6 +1081,20 @@ body.is-menu-open .mobile-menu-overlay {
 .vacancies #positions-list li.is-visible {
   display: flex;
 }
+.vacancies #divisions-list li,
+.vacancies #positions-list li {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y;
+  user-select: none;
+  outline: none;
+}
+.vacancies #divisions-list li:active,
+.vacancies #divisions-list li:focus,
+.vacancies #positions-list li:active,
+.vacancies #positions-list li:focus {
+  background-color: inherit;
+  color: inherit;
+}
 .vacancies[data-mode=desktop] .vacancies__content-item {
   display: flex;
 }
@@ -1151,13 +1165,6 @@ body.is-menu-open .mobile-menu-overlay {
   cursor: pointer;
   transition: all 0.2s ease;
 }
-.vacancies__content-item--list li:hover {
-  background-color: #566a84;
-  border-radius: 12px;
-  font-weight: 400;
-  letter-spacing: 0;
-  line-height: 100%;
-}
 .vacancies__content-item--list li.active {
   background-color: #566a84;
   border-radius: 12px;
@@ -1168,9 +1175,6 @@ body.is-menu-open .mobile-menu-overlay {
 .vacancies__content-item--list li.empty {
   color: #6f757e;
   cursor: default;
-}
-.vacancies__content-item--list li.empty:hover {
-  background-color: transparent;
 }
 .vacancies__content-item--list li:last-child {
   border-bottom: none;

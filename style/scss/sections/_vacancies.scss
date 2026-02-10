@@ -20,6 +20,22 @@
 		display: flex;
 	}
 
+	#divisions-list li,
+	#positions-list li {
+		-webkit-tap-highlight-color: transparent;
+		touch-action: pan-y;
+		user-select: none;
+		outline: none;
+	}
+
+	#divisions-list li:active,
+	#divisions-list li:focus,
+	#positions-list li:active,
+	#positions-list li:focus {
+		background-color: inherit;
+		color: inherit;
+	}
+
 	&[data-mode="desktop"] {
 		.vacancies__content-item {
 			display: flex;
@@ -104,14 +120,6 @@
 				cursor: pointer;
 				transition: all 0.2s ease;
 
-				&:hover {
-					background-color: $primary;
-					border-radius: $radius-xs-desktop;
-					font-weight: 400;
-					letter-spacing: 0;
-					line-height: 100%;
-				}
-
 				&.active {
 					background-color: $primary;
 					border-radius: $radius-xs-desktop;
@@ -123,10 +131,6 @@
 				&.empty {
 					color: $text-medium;
 					cursor: default;
-
-					&:hover {
-						background-color: transparent;
-					}
 				}
 
 				&:last-child {
