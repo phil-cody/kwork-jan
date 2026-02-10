@@ -86,6 +86,10 @@ img, video, iframe {
   font-weight: 500;
   src: url("../../../fonts/golos-text-v7-cyrillic_latin-500.woff2") format("woff2");
 }
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html {
   scroll-behavior: smooth;
   height: 100%;
@@ -164,11 +168,6 @@ h5 {
 
 h6 {
   font-size: 20px;
-}
-
-::selection {
-  background: #566a84;
-  color: #fff;
 }
 
 input:focus::placeholder,
@@ -275,18 +274,6 @@ body.is-menu-open .mobile-menu-overlay {
 }
 .header__contact-social:hover {
   opacity: 0.7;
-}
-.header__contact-social--wa::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70%;
-  height: 70%;
-  background-color: #fff;
-  border-radius: 50%;
-  z-index: -1;
 }
 .header__contact-icon {
   width: 24px;
@@ -1081,7 +1068,7 @@ body.is-menu-open .mobile-menu-overlay {
   position: relative;
   background-image: url("../../image/vacancies/background.webp");
   background-size: cover;
-  background-position: center;
+  background-position: top center;
   background-repeat: no-repeat;
   padding-top: 40px;
   padding-bottom: 306px;
