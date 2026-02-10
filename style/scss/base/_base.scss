@@ -1,6 +1,10 @@
 @use "../abstracts/variables" as *;
 @use "../abstracts/mixins" as *;
 
+* {
+	-webkit-tap-highlight-color: transparent;
+}
+
 html {
 	scroll-behavior: smooth;
 	height: 100%;
