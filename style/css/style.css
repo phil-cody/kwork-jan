@@ -2817,7 +2817,7 @@ body.is-menu-open .mobile-menu-overlay {
     padding: 16px;
   }
   .hero {
-    background-image: url("../../image/hero/hero-background-large-mobile.png");
+    background-image: url("../../image/hero/hero-background-mobile.png");
     height: 1140px;
     padding-top: 54px;
     padding-bottom: 0;
@@ -2825,6 +2825,8 @@ body.is-menu-open .mobile-menu-overlay {
   .hero__text-container {
     max-width: 100%;
     margin-top: 470px;
+    position: relative;
+    z-index: 2;
   }
   .hero__title {
     font-size: 32px;
@@ -2840,6 +2842,29 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .hero__text-cta {
     width: 100%;
+  }
+  .hero::before {
+    content: "";
+    background-image: url("../../image/hero/substract.png");
+    background-repeat: repeat-x;
+    background-position: bottom center;
+    background-size: auto 132px;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+  }
+  .hero::after {
+    content: url("../../image/hero/soldier.png");
+    transform: scale(0.6);
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    top: -15%;
+    left: -15%;
   }
   .stages {
     padding-top: 40px;
