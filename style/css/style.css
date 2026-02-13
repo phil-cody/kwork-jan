@@ -996,7 +996,6 @@ body.is-menu-open .mobile-menu-overlay {
 
 .guarantees {
   background: linear-gradient(#f6f6f7, #fff);
-  margin-bottom: 85px;
 }
 .guarantees__title {
   font-family: "Golos Text", sans-serif;
@@ -1062,6 +1061,110 @@ body.is-menu-open .mobile-menu-overlay {
 .guarantees li span {
   font-size: 14px;
   color: #6f757e;
+}
+
+.regions {
+  margin: 100px auto;
+}
+.regions__container {
+  padding: 40px;
+  background-color: #0c1625;
+  border-radius: 24px;
+  position: relative;
+}
+.regions__text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: flex-start;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+.regions__title {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  text-align: left;
+}
+.regions__title h2 {
+  color: #fff;
+  max-width: 60%;
+  font-size: 50px;
+}
+.regions__title p {
+  color: #9da1a8;
+  font-size: 16px;
+}
+.regions__list {
+  color: #fff;
+  font-size: 16px;
+  max-width: 39%;
+}
+.regions__list ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.regions__list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.regions__help {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.regions__help h5 {
+  color: #fff;
+  font-size: 24px;
+}
+.regions__contact {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.regions__contact-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.regions__contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.regions__contact-social {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 54px;
+  height: 54px;
+  background-color: #f6f6f7;
+  border-radius: 12px;
+  transition: opacity 0.2s;
+}
+.regions__contact-social:hover {
+  opacity: 0.8;
+}
+.regions__contact-phone {
+  font-size: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+.regions__contact-hours {
+  font-size: 16px;
+  color: #fff;
+  margin: 0;
+}
+.regions__map {
+  position: absolute;
+  z-index: 1;
+  right: 25px;
+  top: 76px;
 }
 
 .vacancies {
