@@ -50,23 +50,9 @@
 	}
 }
 
-/* ========================================= Tablet (1024px) ========================================= */
+/* ========================================= Small Desktop (1320px) ========================================= */
 
-@media (max-width: 1024px) {
-
-	#stages,
-	#payments,
-	#vacancies,
-	#requirements,
-	#training,
-	#faq {
-		scroll-margin-top: 77px;
-	}
-
-	#address {
-		scroll-margin-top: 0;
-	}
-
+@media (max-width: 1320px) {
 	// ===== HEADER & BURGER MENU=====
 	.header {
 
@@ -209,6 +195,24 @@
 				height: $spacing-xxl-mobile;
 			}
 		}
+	}
+}
+
+/* ========================================= Tablet (1024px) ========================================= */
+
+@media (max-width: 1024px) {
+
+	#stages,
+	#payments,
+	#vacancies,
+	#requirements,
+	#training,
+	#faq {
+		scroll-margin-top: 77px;
+	}
+
+	#address {
+		scroll-margin-top: 0;
 	}
 
 	// ===== HERO SECTION =====

@@ -1965,19 +1965,8 @@ body.is-menu-open .mobile-menu-overlay {
     left: 51.3%;
   }
 }
-/* ========================================= Tablet (1024px) ========================================= */
-@media (max-width: 1024px) {
-  #stages,
-  #payments,
-  #vacancies,
-  #requirements,
-  #training,
-  #faq {
-    scroll-margin-top: 77px;
-  }
-  #address {
-    scroll-margin-top: 0;
-  }
+/* ========================================= Small Desktop (1320px) ========================================= */
+@media (max-width: 1320px) {
   .header__content {
     padding: 16px;
   }
@@ -2100,6 +2089,20 @@ body.is-menu-open .mobile-menu-overlay {
   .header__mobile-social img {
     width: 24px;
     height: 24px;
+  }
+}
+/* ========================================= Tablet (1024px) ========================================= */
+@media (max-width: 1024px) {
+  #stages,
+  #payments,
+  #vacancies,
+  #requirements,
+  #training,
+  #faq {
+    scroll-margin-top: 77px;
+  }
+  #address {
+    scroll-margin-top: 0;
   }
   .hero {
     padding-top: 80px;
