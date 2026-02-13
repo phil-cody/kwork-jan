@@ -292,6 +292,37 @@
 		margin-bottom: $spacing-xxxl-desktop;
 	}
 
+	// ===== REGIONS SECTION =====
+	.regions {
+
+		&__container {
+			display: flex;
+			flex-direction: column-reverse;
+			gap: 20px;
+		}
+
+		&__text {
+			h2 {
+				max-width: 100%;
+			}
+		}
+
+		&__list {
+			max-width: 100%;
+
+			ul {
+				display: grid;
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+
+		&__map {
+			position: relative;
+			top: auto;
+			right: auto;
+		}
+	}
+
 	// ===== REQUIREMENTS SECTION =====
 	.requirements {
 		&::before {
@@ -418,6 +449,57 @@
 	.guarantees {
 		&__title {
 			font-size: $heading-2-mobile;
+		}
+	}
+
+	// ===== REGIONS SECTION =====
+	.regions {
+		&__container {
+			padding: $spacing-xl-mobile;
+			border-radius: $spacing-xl-mobile;
+		}
+
+		&__text {
+			gap: $spacing-xl-mobile;
+		}
+
+		&__title {
+			gap: $spacing-xs-mobile;
+
+			h2 {
+				font-size: $heading-2-mobile;
+			}
+
+			p {
+				font-size: $text-md-mobile;
+			}
+		}
+
+		&__list {
+			font-size: $text-md-mobile;
+		}
+
+		&__help {
+			gap: $spacing-sm-mobile;
+
+			h5 {
+				font-size: $heading-5-mobile;
+			}
+		}
+
+		&__contact {
+
+			&-social {
+				border-radius: $radius-xs-mobile;
+			}
+			
+			&-phone {
+				font-size: $heading-6-mobile;
+			}
+
+			&-hours {
+				font-size: $text-md-mobile;
+			}
 		}
 	}
 
@@ -1355,6 +1437,52 @@
 	// ===== GUARANTEES SECTION =====
 	.guarantees {
 		padding-top: $spacing-xxl-mobile;
+	}
+
+	// ===== REGIONS SECTION =====
+	.regions {
+		margin: $spacing-xxxl-desktop auto;
+
+		&__title {
+			h2 {
+				font-size: $heading-3-mobile;
+			}
+		}
+
+		&__list {
+			ul {
+				display: flex;
+				flex-direction: column;
+				gap: $spacing-sm-mobile;
+			}
+		}
+
+		&__help {
+			gap: $spacing-sm-mobile;
+		}
+
+		&__contact {
+			flex-direction: column;
+			gap: $spacing-sm-mobile;
+			align-items: flex-start;
+
+			&-icons {
+				gap: 6px;
+			}
+
+			&-item {
+				flex-direction: row;
+			}
+
+			&-social {
+				width: 92px;
+				height: 48px;
+			}
+
+			&-hours {
+				color: $text-low;
+			}
+		}
 	}
 
 	// ===== VACANCIES SECTION =====

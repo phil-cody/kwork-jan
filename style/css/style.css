@@ -2150,6 +2150,26 @@ body.is-menu-open .mobile-menu-overlay {
   .guarantees {
     margin-bottom: 40px;
   }
+  .regions__container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+  }
+  .regions__text h2 {
+    max-width: 100%;
+  }
+  .regions__list {
+    max-width: 100%;
+  }
+  .regions__list ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .regions__map {
+    position: relative;
+    top: auto;
+    right: auto;
+  }
   .requirements::before {
     height: 174px;
   }
@@ -2232,6 +2252,40 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .guarantees__title {
     font-size: 32px;
+  }
+  .regions__container {
+    padding: 20px;
+    border-radius: 20px;
+  }
+  .regions__text {
+    gap: 20px;
+  }
+  .regions__title {
+    gap: 10px;
+  }
+  .regions__title h2 {
+    font-size: 32px;
+  }
+  .regions__title p {
+    font-size: 14px;
+  }
+  .regions__list {
+    font-size: 14px;
+  }
+  .regions__help {
+    gap: 14px;
+  }
+  .regions__help h5 {
+    font-size: 18px;
+  }
+  .regions__contact-social {
+    border-radius: 10px;
+  }
+  .regions__contact-phone {
+    font-size: 16px;
+  }
+  .regions__contact-hours {
+    font-size: 14px;
   }
   .vacancies__title {
     font-size: 32px;
@@ -2920,6 +2974,38 @@ body.is-menu-open .mobile-menu-overlay {
   }
   .guarantees {
     padding-top: 24px;
+  }
+  .regions {
+    margin: 40px auto;
+  }
+  .regions__title h2 {
+    font-size: 24px;
+  }
+  .regions__list ul {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .regions__help {
+    gap: 14px;
+  }
+  .regions__contact {
+    flex-direction: column;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .regions__contact-icons {
+    gap: 6px;
+  }
+  .regions__contact-item {
+    flex-direction: row;
+  }
+  .regions__contact-social {
+    width: 92px;
+    height: 48px;
+  }
+  .regions__contact-hours {
+    color: #9da1a8;
   }
   .vacancies {
     background-image: url("../../image/vacancies/background-large-mobile.png");
