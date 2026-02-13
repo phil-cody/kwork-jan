@@ -4,7 +4,7 @@
 .hero {
 	position: relative;
 	height: 941px;
-	background-color: $primary-header;
+	background-color: $text-default;
 	background-image: url('../../image/hero/hero-background.png');
 	background-size: cover;
 	background-position: center;
@@ -14,6 +14,10 @@
 	padding-top: 119px;
 	padding-bottom: $spacing-xxxl-desktop;
 	overflow: hidden;
+
+	&__container {
+		// position: relative;
+	}
 
 	&__text-container {
 		max-width: 59%;
